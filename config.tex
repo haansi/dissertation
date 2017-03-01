@@ -1,0 +1,151 @@
+\documentclass[a4paper, openright, twoside, parskip, titlepage, cleardoublepage=plain]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[automark]{scrpage2}
+\usepackage[hyphens]{url}
+\usepackage[draft=false]{hyperref} % draft=true -> print version
+\usepackage{tikz}
+\usepackage[Sonny]{fncychap}
+\usetikzlibrary{shapes.callouts} 
+\usepackage{fancybox}
+\usepackage{pdfpages}
+\usepackage[boxed,linesnumbered]{algorithm2e}
+\usepackage[center,loose]{subfigure}
+\usepackage{listings}
+\usepackage[color=green]{todonotes}
+\usepackage{paralist}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{tocbasic}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage[flushmargin]{footmisc}
+
+% gap below (sub)figures
+\newcommand{\goodgap}{%
+\hspace{\subfigtopskip}%
+\hspace{\subfigbottomskip}}
+
+%footnote behaviour
+\subfiglabelskip=5mm
+
+% make main captions of figures centered, not hanging
+\captionsetup{format=plain,justification=centerlast}
+
+
+% make toc header koma font
+\renewcommand{\contentsname}{\textsf{Contents}}
+
+% \titlespacing{heading_class}{⟨left⟩}{⟨above⟩}{⟨below⟩}[⟨right⟩]
+\titlespacing*{\subsection}{0mm}{5mm}{-4mm}
+\titlespacing{\subsubsection}{0mm}{3mm}{-4mm}
+\titlespacing{\section}{0mm}{5mm}{-2mm}
+%\titlespacing{\subsection}{0pt}{2mm}{2mm}
+
+% line stretch
+\setstretch{1.0}
+
+% separator for footnote
+\setlength{\footnotesep}{3ex}
+
+% line stretch within itemize elements
+\setlength{\plitemsep}{3mm}
+
+% prevent koma to stretch half empty pages
+\raggedbottom
+
+% define gap between algorithm box and caption of the algoirithm
+\SetAlCapSkip{2ex}
+
+% size of chapter headers for fncychap
+\ChTitleVar{\bfseries\fontsize{60}{30}}
+\ChNumVar{\huge}
+
+
+% prevent latex from splitting up footnotes on two separate pages
+\interfootnotelinepenalty=100000
+
+% setup for hyperref package
+\hypersetup{
+	hypertexnames=false,
+    linktocpage=true,
+    colorlinks,
+    breaklinks=true,
+    linkcolor=green,
+    citecolor=green,
+    urlcolor=green,
+    linkbordercolor={1 1 1}, % set to white
+    citebordercolor={1 1 1}, % set to white 
+    pdftitle={title},
+    pdfauthor={name},
+    bookmarksopen=true
+}
+
+% list of figures also includes subfigure captions
+\setcounter{lofdepth}{2}
+
+% code for creating empty pages
+% no headers on empty pages before new chapter
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{empty}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{empty}\cleardoublepage}
+
+% Verhindern von "Schusterjungen" und "Hurenkindern"
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\tolerance=500 %Zeilenumbruch
+
+
+% specify margins for two-sided print
+\oddsidemargin 2cm
+\evensidemargin 1cm
+\textwidth 13cm
+\topmargin 0.2cm
+
+%% define header format
+\renewcommand{\chaptermark}[1]{\chead{#1}}
+\renewcommand{\sectionmark}[1]{\cohead{\thesection\ #1}}
+\automark[chapter]{section} 
+\clearscrheadfoot
+\lehead{}
+\rohead{}
+\lohead{\leftmark}
+\rehead{\rightmark}
+\cfoot{\pagemark}
+
+\setheadsepline{.4pt} % line below head
+
+
+%% TikZ-Callout
+\newcommand{\tweet}[2]{
+\vspace{-0.6cm}
+\begin{center}
+\begin{tikzpicture}[remember picture]
+  \node[rectangle callout,draw, text width = 10cm, inner sep=0.3cm] {\texttt{#1} \vspace{2mm} \newline \hspace*{2mm} \footnotesize {#2}};
+\end{tikzpicture} 
+\end{center}
+\vspace{-0.7cm}
+}
+
+% framed boxes
+\newenvironment{fminipage}%
+{\begin{Sbox}
+\begin{minipage}}%
+{\end{minipage}\end{Sbox}\shadowbox{\TheSbox}}
+
+
+% listings configuration
+\lstset{
+  numbers=left, 
+  showspaces=false,
+  captionpos=b,
+  breaklines=true
+}
+

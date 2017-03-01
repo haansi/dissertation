@@ -1,0 +1,191 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISSERTATION
+% Research Group Databases and Information Systems
+% University of Innsbruck
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% include file containing tex configurations
+\input{config}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor,colortbl}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+\usepackage{booktabs}
+
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\usepackage{hyperref}
+
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+
+\begin{document}
+
+
+
+\pagestyle{scrheadings}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% TITLEPAGE
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\title{\vspace{10pt}%Mitochondrial DNA Data Analysis in the Era of Massive Parallel Sequencing
+Enabling Scalable Data Analysis of Mitochondrial DNA in the Era of High-Throughput Data Generation
+\\[40pt]}
+\subject{\vspace{30pt}Dissertation}
+
+\author{Dipl.-Ing. Hansi Wei\ss{}ensteiner\\[40pt]}
+\publishers{submitted to the Faculty of Mathematics, Computer
+Science and Physics of the University of Innsbruck\\[10pt]
+in partial fulfillment of the requirements
+
+for the degree of ``Doktor der technischen Wissenschaften''\\[60pt]
+
+\normalsize{Advisor: Univ.-Prof. Dr. G\"unther Specht}\\[20pt]
+
+\normalsize{Innsbruck, 2017}
+}
+\date{}
+
+
+\maketitle
+\cleardoublepage
+
+
+
+
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+% ABSTRACT
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\pagenumbering{Roman}
+
+\hspace*{7cm}
+\thispagestyle{empty}
+\section*{Abstract}
+\phantomsection  
+\addcontentsline{toc}{chapter}{Abstract}
+
+Computational methods are getting more and more required for data reproducibility and quality control in Genetics. This is especially true for mitochondrial DNA (mtDNA), which is used in a variety of disciplines, from archeogenetics, population genetics, to forensic DNA fingerprinting as well as clinical disease association studies. While the recent past has uncovered severe problems with mtDNA genotyping, the new methods for data generation increase the sample output, as well as the data volume per sample, requiring sophisticated computational methods for quality control. The increased sample size also increases the risk for data contamination or sample mix up. This work describes algorithms and the implemented system that can be combined into a workflow to manage mtDNA data derived from high-throughput devices, like massive parallel sequencing data. The main emphasis here is the classification of phylogenetic clusters, being used for mtDNA quality control and exploited for detection of contamination patterns. Subsequently all required computational steps from sequence alignment, mapping, mutation detection, annotation and quality control are presented. To process the data, advantage of parallel computing architectures is taken and covered within this work. In conclusion, based on this presented new system, contamination can be detected in massive parallel sequencing data and the publication of false and misleading results can be prevented.
+
+%The present work thereby describes algorithms to classify mtDNA profiles of samples into phylogenetic clusters, by comparing the results in terms of accuracy and speed. While new forms of mitochondrial therapies (like the mitochondrial replacement therapy) will become more prominent in the near future, haplogroups will become more relevant and an accurate estimation of haplogroups becomes essential. In this regard haplogroup matching is already proposed. 
+
+%To be able to compare haplogroups based on the mitochondrial profile from a DNA sequence, an alignment step is required, in order to detect the single nucleotide polymorphisms on single bases, as well as insertions or deletions of larger fragments. Different approaches to perform this task are described and an implementation of an hash-index based on k-mers and dynamic programming is presented. The approach is compared to different data structures like suffix arrays and FM-Index, the latter being widely used for Next-Generation Sequencing (NGS). 
+
+%With the previously mentioned progress in data generation by NGS, features of the mtDNA can be researched in more depth, to learn the still poorly understood process of mutation propagation. Here a new concept of processing large amount of mtDNA data derived by massive parallel sequencing devices is presented, by taking advantage of parallel computing architectures based on the MapReduce paradigm. Combined with herein described maximum likelihood model as well as filter steps, the workflow provides new insights in low-level mutations, as the result of different sequences per cell or tissue (called heteroplasmy). In order to validate the approach, several similar pipelines were compared in terms of sensitivity, specificity and precision. 
+
+%Finally the applications described within this work can all be merged into a workflow for detecting contamination in massive parallel sequencing studies. Thereby this approach is based on the concept of haplogroup detection from low-level mutations present in the sequencing data. Different approaches for contamination detection are described and the performance of the approach is evaluated based on the publicly available data-set from the 1000 Genome Consortium, providing 2,504 whole genome sequencing data (up to 4.2 Tbases per sample were generated). We could confirm sample contamination within this data-set, based on the presented approach.
+
+%In conclusion this work presents different algorithms, and implementations that can be applied for a specific task or combined to a system for performing quality control on mtDNA data. mtDNA being present in whole genome-, whole exome sequencing or RNA-sequencing projects poses the means of an inexpensive and rapid quality control as proposed as part of this work.
+
+\cleardoublepage
+\thispagestyle{empty}
+\hspace*{7cm}
+\section*{Zusammenfassung}
+Mitochondriale DNA (mtDNA) spielt in einer Vielzahl von Disziplinen eine wichtige Bedeutung: unter anderem um genetische Ereignisse in der Evolution zu rekonstruieren, in der Forensik zum identifizieren von Personen oder sterblichen \"Uberresten, sowie in klinischen Studien und Forschung aber auch in Therapie-Ans\"atzen. Durch die steigende Anzahl von genetischen Daten, welche durch neue Hochdurchsatz-Methoden mit steigendem Datenvolumen in immer gr\"o{\ss}eren Studienkollektiven massiv erh\"oht werden, steigt auch die Fehlerwahrscheinlichkeit und erfordert neue Methoden zur Qualit\"atskontrolle. Diese vorliegende Arbeit besch\"aftigt sich mit Algorithmen und Methoden, welche implementiert als Softwaresystem zu einem Workflow kombiniert werden. Aspekte von Sequenzalignment, hin zum parallelen Mapping, Detektion von Mutationen und Annotation der mtDNA werden in dieser Arbeit vorgestellt, und neue Ans\"atze zur Qualit\"atskontrollen beschrieben. Mit Hilfe phylogenetischer Cluster, Haplogruppen genannt, wird ein Verfahren zur Detektion von Kontaminationen vorgestellt, das der Ver\"offentlichung von falschen und irref\"uhrenden Ergebnissen vorbeugen kann, und in Hinblick auf die ansteigenden Datenmengen eine neuartige effiziente Methode darstellt.
+
+
+%Die vorliegende Arbeit beschreibt zunächst Algorithmen zur Klassifizierung von Proben und deren mtDNA-Profilen in phylogenetische Cluster, so genannten Haplogruppen. Die resultierende Software wird mit existierenden Ansätzen, sowie mit verschiedene Distanzmetriken verglichen, welche Modelle der DNA Evolution berücksichtigen. Ergebnisse in Bezug auf Genauigkeit und Geschwindigkeit werden dargestellt. Durch neue mitochondriale Therapieformen (wie die mitochondriale Spende, Stichwort Drei-Eltern-Kind) welche in naher Zukunft vermehrt in den Vordergrund gerückt werden, gewinnen Haplogruppen zunehmend an Wichtigkeit und die Klassifizierung wird immer kritischer. Im speziellen Fall der mitochondrialen Spende wird ein Haplogruppen-Abgleich (Matching) zwischen Spenderin und Empfängerin angeraten, was die Wichtigkeit der hier vorgestellten Software unterstreicht.
+
+%Damit Haplogruppen basierend auf dem mitochondrialen Profil aus einer DNA-Sequenz verglichen werden können, ist ein Ausrichtungsschritt (Alignment) erforderlich, um die Unterschiede zur Referenzsequenz festzustellen. Dabei wird der Basenaustausch auf einzelnen Basen sowie Insertionen oder Deletionen größerer Fragmente so ausgerichtet und annotiert, dass diese verglichen werden können. Verschiedene Ansätze zur Durchführung dieser Aufgabe werden beschrieben und eine Implementierung eines Hash-Index basierend auf n-grams und dynamischer Programmierung wird vorgestellt. Der Ansatz wird mit unterschiedlichen Datenstrukturen wie Suffix-Arrays und FM-Index verglichen, wobei letzterer für das Next-Generation-Sequenzierung (NGS) sehr stark verwendet wird.
+
+%Mit dem technologischem Fortschritt bei der Datenerzeugung durch NGS können Merkmale der mtDNA eingehender erforscht werden, um den noch weitgehend ungeklärten Ursachen der Entstehung und Vermehrung (Propagierung) von Mutationen zu erforschen. Hierzu wird ein Konzept zur Verarbeitung großer Mengen von mtDNA-Daten präsentiert. Die durch sogenannte massive parallele Sequenzierungsgeräte erstellten Sequenzdaten werden dabei unter Nutzung von parallelen Rechenarchitekturen basierend auf dem MapReduce-Paradigma verarbeitet. Kombiniert mit dem in dieser Arbeit beschriebenen Maximum-Likelihood-Modell sowie Filterschritten bietet der entwickelte Workflow neue Einblicke in Low-Level-Mutationen. Diese sind das Ergebnis unterschiedlicher mtDNA Sequenzen pro Zelle oder Gewebe und werden Heteroplasmie genannt. Um die Methode zu validieren, wurden mehrere ähnliche Pipelines hinsichtlich Übereinstimmung, Spezifität und Präzision bei der Auswertung von Heteroplasmien verglichen.
+
+%Schließlich können die beschriebenen Methoden zu einem Workflow zum Nachweis von Kontaminationen in massiven parallelen Sequenzierungsstudien zusammengeführt werden. Dabei fundiert dieser Ansatz auf dem Konzept der Haplogruppen-Detektion von geringen Heteroplasmie-Level, um die Vermischung von zwei Proben in den Sequenzierungsdaten zu detektieren. Unterschiedliche Ansätze zur Kontaminationserfassung werden beschrieben und die Performance der Methode auf der Grundlage des öffentlich verfügbaren Datensatzes des 1000 Genome Consortium ausgewertet, wobei 2.504 vollständige Genomsequenzierungsdaten (bis zu 4.2 Tbasen pro Probe) bereitgestellt wurden. Wir konnten die bekannte Probenkontamination innerhalb dieses Datensatzes anhand der vorgestellten Methode bestätigen und damit zeigen dass der Einsatz dieser Methode in zukünftigen Sequenzierprojekten angestrebt werden sollte.
+
+%Zusammenfassend stellt diese Arbeit mehrere Algorithmen und Implementierungen vor, die für eine spezifische Fragestellung im Bereich der mitochondrialen DNA angewendet oder zu einem Workflow zur Analyse und Qualitätskontrollen von mtDNA-Daten kombiniert werden können. Die mitochondriale DNA, welche in Genom-, sowie Exom- oder RNA-Sequenzierungsprojekten enthalten ist, kann durch die hier vorgestellten Methoden zu einer kostengünstige und schnelle Qualitätskontrolle verwendet und ausgenützt werden.
+
+\phantomsection  
+\addcontentsline{toc}{chapter}{Zusammenfassung}
+
+
+\cleardoublepage
+\phantomsection
+\include{0_acknowledgements}
+\phantomsection
+
+\cleardoublepage
+\thispagestyle{plain}
+%\include{0a_eidesstatt}
+
+\graphicspath{ {./images/} }
+\phantomsection  
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+\phantomsection
+\cleardoublepage
+
+\renewcommand{\contentsname}{\textsf{Contents}}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{0_acknowledgmements}
+\cleardoublepage
+\include{chapterIntro}
+\cleardoublepage
+\include{chapterHaploGrep}
+\cleardoublepage
+\include{chapterAlignment}
+\cleardoublepage
+\include{chaptermtDNA-Server}
+\cleardoublepage
+\include{chapterContamination}
+\cleardoublepage
+\include{outlook}
+\cleardoublepage
+\include{7_conclusion}
+\begin{appendix} 
+\include{appendix}
+\end{appendix}
+
+\listoffigures
+\phantomsection  
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\bibliographystyle{abbrv}
+\cleardoublepage
+\phantomsection  
+
+\setstretch{1}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{diss}
+
+\cleardoublepage
+\phantomsection  
+\pagestyle{plain}
+\addcontentsline{toc}{chapter}{Curriculum Vitae}
+\includepdf[pages=-,pagecommand={}]{CV/hansi.pdf}
+
+\end{document}

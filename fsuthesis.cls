@@ -162,7 +162,7 @@
 \ifpdf\if@hyperloaded\pdfbookmark[0]{Title Page}{MainTitlePage}\fi\fi
 \enlargethispage{\footskip}%
 \begin{center}%
-\FSU@onormalsize FLORIDA STATE UNIVERSITY
+\FSU@onormalsize UNIVERSITY OF INNSBRUCK
 \vskip\baselineskip
 \MakeUppercase{\@college}%
 \vfill
