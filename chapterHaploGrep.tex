@@ -361,6 +361,14 @@ Based on the data from the 1000G Phase 1 data set and the Danish cohort presente
 merged 2 + 3 & 4,534   & 18.22       & 7.92         \\ \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{images/multimap.png}
+    \caption[Run time comparison of HaploGrep versions]{} 
+    \label{hg:phylogeneticTree}
+\end{figure}
+
 \item  the input range as a semicolon separated list (e.g. 64;73;93;...), by including all polymorphisms in the samples. The updated version HaploGrep 2 could be improved by a factor of 20x, by reducing the list of the best hits with the corresponding trees to 50. stored for each sample   show the improvements of 
 
 \begin{table}[H]
@@ -377,6 +385,7 @@ merged 2 + 3 & 4,534   &            & 7.92         \\ \hline
 \end{tabular}
 \end{table}
 
+\end{enumerate}
 
 \section{Conclusion and Outlook}\label{hg:outlook}
 In this chapter, an algorithm and its implementation called HaploGrep were described, for assigning haplogroups to given mitochondrial profiles to be examined. This is of special interest in various genetic fields, and will become of interest to a broader spectrum of users, with the increase of personal genetic testing companies like 23andMe, Family Tree DNA, ancestry.com, National Geographic Genographic Project, Living DNA, and many more.) where the focus is on the ancestry. Haplogroups provide a coarse information in this regard (based on the mutation rate of one fixed mutation in every $sim$ 3,000 years). Haplogroups will also gain on importance for mitochondrial replacement therapy, where a haplogroup matching between donor and recipient is highly suggested \cite{Royrvik2016}, highlighting the importance of accurate haplogroup estimation. Different tools as well as distance measures where compared regarding their performance and evaluated in this chapter, by showing that the implementation in HaploGrep outperforms current available tools, in terms of speed and accuracy. The run-time can be optimized with hash-based data structures and the use of an inverted index. Further improvements can be a pre-classification based on a basic phylogenetic tree, comprising the main branches, comprising a small amount of nodes $n$, where $n = 25$ based on the current phylogenetic data \cite{VanOven2015}. Thereafter only the subbranches of the node with the highest score needs to be performed. Thereby the haplogroup calculation can be reduced to a lower-dimensional space. A further problem is the generation of the underlying phylogenetic tree, currently performed in a mostly manual way. By generating Maximum Parsimony Trees based on mtphyl\ref{mtphyl} that need to be confirmed by at least two independently sequenced mitochondrial profiles, the world-wide mtDNA phylogeny is currently maintained in a manual way by Mannis van Oven \cite{VanOven2015}. While HaploGrep already takes advantage of XML-structured tree, an extension to allow the addition of nodes directly in this tree are not of technical limitation, and could refer to the growing amount of world-wide available mitochondrial full genome sequences, currently from 32,000 to millions in the next years.
