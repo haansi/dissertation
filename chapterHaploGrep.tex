@@ -345,7 +345,7 @@ The foundation of the optimized version, is the use of an Key-Value approach bas
 The resulting algorithm for estimating the haplogroup from a query profile $Q  = \left(q_1,q_2,\dotsc,q_n\right)$, with $q_i \in P$, where $P$ represents the set of all polymorphisms contained in Phylotree and $_i$ the length of the query profile $|Q|$ is a distance maximizing problem. Thereby $\forall q_i \in P \neq$ insertion/deletion. By iterating over the query profiles $q_i$ for each list of values, the haplogroups $H \left(h_1,h_2,\dotsc,h_n\right) \in$ Phylotree, with $n$ the number of elements of haplogroups present in Phylotree, are added to a new resulting HashMap $R$, where the key $rk = h_j$ and the value $rv$ = the phylogenetic weight $w_i$ for the polymorphism $q_i$ and $w_i = \left[1, 10\right]$. The key with the highest value represents the result = $ \max\left(rv\right)$.
 
 \subsection{Validation}
-Based on the data from the 1000G Phase 1 data set and the Danish cohort presented earlier (see Evalation \ref{subs:evaluation}), we reassess the haplogroup classification available in HaploGrep 2 \footnote{\url{http://haplogrep.uibk.ac.at}} and the optimized version based on different set ups:
+Based on the data from the 1000G Phase 1 data set and the Danish cohort presented earlier (see Evalation \ref{subs:evaluation}), we reassess the haplogroup classification available in HaploGrep 2 \footnote{\url{http://haplogrep.uibk.ac.at}} and the MultiMap version based on different set ups:
 \begin{enumerate}[label=(\alph*)]
 \item  the full input range (i.e. 1-16569)
 
