@@ -348,11 +348,34 @@ The resulting algorithm for estimating the haplogroup from a query profile $Q  =
 Based on the data from the 1000G Phase 1 data set and the Danish cohort presented earlier (see Evalation \ref{subs:evaluation}), we reassess the haplogroup classification available in HaploGrep 2 \footnote{\url{http://haplogrep.uibk.ac.at}} and the MultiMap version based on different set ups:
 \begin{enumerate}[label=(\alph*)]
 \item  the full input range (i.e. 1-16569)
-
+\begin{table}[H]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|}
+\hline
+             & Samples & HaploGrep2 & Optimisation \\ \hline
+1. 1000G P1  & 1,074   & 5.23        & 2.28         \\ \hline
+2. 2K Danish & 2,000   & 7.45       & 3.28         \\ \hline
+3. 1000G P3  & 2,534   & 11.31      & 4.89         \\ \hline
+merged 2 + 3 & 4,534   & 18.22       & 7.92         \\ \hline
+\end{tabular}
+\end{table}
 \item  the input range as a semicolon separated list (e.g. 64;73;93;...), by including all polymorphisms in the samples. The updated version HaploGrep 2 could be improved by a factor of 20x, by reducing the list of the best hits with the corresponding trees to 50. stored for each sample   show the improvements of 
 
-RESULT TABLE TO INSERT HERE
-\end{enumerate}
+\begin{table}[H]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|}
+\hline
+             & Samples & HaploGrep2 & Optimisation \\ \hline
+1. 1000G P1  & 1,074   & 4.6        & 2.28         \\ \hline
+2. 2K Danish & 2,000   & 6.37       & 3.28         \\ \hline
+3. 1000G P3  & 2,534   &            & 4.89         \\ \hline
+merged 2 + 3 & 4,534   &            & 7.92         \\ \hline
+\end{tabular}
+\end{table}
 
 
 \section{Conclusion and Outlook}\label{hg:outlook}
