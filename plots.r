@@ -4,9 +4,9 @@ library(reshape2)
 library(ggplot2)
 
 Samples <- c(1074, 2000,2534, 4534, 10000,20000,30561)
-HaploGrep  <-c(37, 73, 92, 162, 0, 0, 0)
+HaploGrep  <-c(37, 73, 92, 162, 353, 0, 0)
 HaploGrep2 <- c(5.23,  7.45,  11.31,  18.22, 48.3, 95.69, 138.47)
-MultiMap <- c(2.28,  3.28,   4.89,  7.92, 20.78, 40.05, 56.19)
+MultiMap <- c(4.97,  6.83,   10.9,  17.04, 43.12, 80.89, 125.2)
 nyx <- data.frame(Samples, HaploGrep, HaploGrep2, MultiMap)
 
 nyxlong <- melt(nyx, id=c("Samples"))
