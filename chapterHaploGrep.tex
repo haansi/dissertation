@@ -369,7 +369,7 @@ Based on the data from the 1000G Phase 1 data set and the Danish cohort presente
     \centering
     \includegraphics[width=1\textwidth]{images/multimap.png}
     \caption[Run time comparison of HaploGrep versions]{} 
-    \label{hg:phylogeneticTree}
+    \label{hg:mutlimap}
 \end{figure}
 
 \item  the input range as a semicolon separated list (e.g. 64;73;93;...), by including all polymorphisms in the samples. The updated version HaploGrep 2 could be improved by a factor of 20x, by reducing the list of the best hits with the corresponding trees to 50. stored for each sample   show the improvements of 
@@ -382,12 +382,17 @@ Based on the data from the 1000G Phase 1 data set and the Danish cohort presente
 \cline{3-6}
                                & Samples & \multicolumn{2}{l|}{1000G P1 (n=1,074)} & \multicolumn{2}{l|}{GenBank* (n=12,503)} \\ \hline
 \multicolumn{1}{|l|}{}         & mtSNPs  & HG2               & Multimap            & HG2              & Multimap           \\ \hline
-\multicolumn{1}{|l|}{Illumina} & 226     & 9.94              & 2.28                & 104.19           & 26.54              \\ \hline
-\multicolumn{1}{|l|}{Affy 6}   & 454     & 14.56             & 3.28                & 182.03           & 40.99              \\ \hline
-\multicolumn{1}{|l|}{23andMe}  & 3,154   & 65.4              & 4.89                & 775.92           &       47.27             \\ \hline
+\multicolumn{1}{|l|}{Illumina} & 226     & 9.94              & 2.76                & 104.19           & 26.54              \\ \hline
+\multicolumn{1}{|l|}{Affy 6}   & 454     & 14.56             & 4.06                & 182.03           & 40.99              \\ \hline
+\multicolumn{1}{|l|}{23andMe}  & 3,154   & 65.4              & 5.05                & 775.92           &       47.27             \\ \hline
 \end{tabular}
 \end{table}
-
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=1\textwidth]{images/multimap2.png}
+    \caption[Run time comparison of HaploGrep versions]{} 
+    \label{hg:multimap2}
+\end{figure}
 \end{enumerate}
 
 \section{Conclusion and Outlook}\label{hg:outlook}
