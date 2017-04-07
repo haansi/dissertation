@@ -49,7 +49,7 @@ g_legend<-function(a.gplot){
     legend <- tmp$grobs[[leg]]
     return(legend)}
 
-mylegend<-g_legend(p1)
+mylegend<-g_legend(p1) 
 
 p3 <- grid.arrange(arrangeGrob(p1 + theme(legend.position="none"),
                                p2 + theme(legend.position="none"),
