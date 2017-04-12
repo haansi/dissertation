@@ -117,7 +117,7 @@ $ D_{i,j} = \max
   \end{cases}
 $\\
 The filling of the scoring table is again a recursive step like in the global alignment. The traceback does not start in the cell D(n,m), but in the cell with the highest value. Figure \ref{fig:local} represents the same examples as for local alignment. Here the starting point for the traceback is however the highest entry in the scoring table. The end is reached by finding the cell with a value 0. This is very different from the global alignment, that always starts in cell $D(n,m)$ and ends in cell $D(0,0)$. Optimisations of this approach are presented in Gotoh \cite{Gotoh1982}.  
-\begin{figure}[!ht]
+\begin{figure}[H]
 \label{fig:local}
     \centering
     \includegraphics[width=1\textwidth]{images/localAlign.png}
