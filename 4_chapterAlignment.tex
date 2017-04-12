@@ -78,7 +78,14 @@ DNA reads from modern devices, show much higher error rates, compared to Sanger 
 \subsubsection{Dynamic Programming}
 For solving the pairwise alignment problem, two different approaches are available, based on some similar underlying assumptions, solving however different problems. Both approaches rely on substitution scores, and are in  $\mathcal{O}({n m})$ for length $n$ and $m$ of two strings $S_1$ and $S_2$. The global or often referred to as Needlman-Wunsch alignment tries to align sequence pairs, so that all letters from both sequences are taken into consideration. The local alignment differs in this regard, by considering alignments, where the costs of a substring of either $S_1$ or $S_2$ can be improved compared to the global alignment. Both approaches are build by a matrix with of size (n $\times $ m).
 \subsubsection{Global Alignment}
-The global alignment, addressed by Needleman-Wunsch \cite{Needleman1970}, contains all nucleotides from both sequences $S_1$ and $S_2$. A simple form of the substitution costs are 1 for match, 0 for mismatch and -1 for indels (gaps). Sequence $S_1$ and $S_2$ are used for column and rows in the matrix that will be used for dynamic programming. Figure \ref{fig_global} represents the two steps: filling in the score table, and walk back in the traceback table. For filling in the score table, the match/mismatch and gap scores are required. There are different predefined substitution matrices, like PAM250\footnote{\url{http://www.mbio.ncsu.edu/bioedit/tables/PAM250}} or BOSUM62\footnote{\url{https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt}}, widely used for amino acid changes. For the sake of simplicity, the score table is used as following:
+The global alignment, addressed by Needleman-Wunsch \cite{Needleman1970}, contains all nucleotides from both sequences $S_1$ and $S_2$. A simple form of the substitution costs are 1 for match, 0 for mismatch and -1 for indels (gaps). Sequence $S_1$ and $S_2$ are used for column and rows in the matrix that will be used for dynamic programming. Figure \ref{fig_global} represents the two steps: filling in the score table, and walk back in the traceback table. For filling in the score table, the match/mismatch and gap scores are required. There are different predefined substitution matrices, like PAM250\footnote{\url{http://www.mbio.ncsu.edu/bioedit/tables/PAM250}} or BOSUM62\footnote{\url{https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt}}, widely used for amino acid changes. For the sake of simplicity, the score table is used 
+as following:
+\begin{figure}[H]
+\label{fig:global}
+    \centering
+    \includegraphics[width=1\textwidth]{images/globalAlign.png}
+    \caption[Example of Global Alignment]{Example of Global Alignment, with 2 different gap scores (gap -1 and gap -2 (light-olive background)). The gap penalty and matching scores influence the alignment significantly, with two different results: 4 matches, 1 insertion and 1 deletion versus 2 matches and 3 mismatches.}
+\end{figure}
 \begin{table}[H]
 \centering
 \caption{Score Table, indicating the score for a match (1) and mismatch (0)}
@@ -99,12 +106,7 @@ $ D_{i,j} = \max
     D(i-1,j-1)+ \text{matching score} \\
   \end{cases}
 $
-\begin{figure}[H]
-\label{fig:global}
-    \centering
-    \includegraphics[width=1\textwidth]{images/globalAlign.png}
-    \caption[Example of Global Alignment]{Example of Global Alignment, with 2 different gap scores (gap -1 and gap -2 (light-olive background)). The gap penalty and matching scores influence the alignment significantly, with two different results: 4 matches, 1 insertion and 1 deletion versus 2 matches and 3 mismatches.}
-\end{figure}
+
 
 \subsubsection{Local Alignment} \label{localAl}
 The Smith-Waterman algorithm \cite{Smith1981} as \textit{the} representation of a local alignment, is based on dynamic programming for finding substrings / regions of highly similar content. Since all possible alignments are considered, the optimal local alignment is guaranteed to be found. In the first step, the first column and first row are set to 0 instead to the gap-penalty score. Further a $0$ is added in the cases, so that negative entries are not possible. 
