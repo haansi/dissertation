@@ -58,7 +58,7 @@ While the previously described naive algorithm and its optimization the Boyer-Mo
 \item \textbf{Suffix-Tree}
 Suffix Trees are a very efficient data structures, to perform the exact string matching in linear time $\mathcal{O}({n})$. Thereby suffix trees are used to bridge the exact and inexact string matching problem \cite{Gusfield1997}. The preprocessing of the text $T$ with length $n$ requires  $\mathcal{O}({n})$, while the query for pattern $P$ of length $m$ requires $\mathcal{O}({m})$ to find the position of occurrence or find that the pattern is not contained. For constructing the tree, the symbol "\$" concatenated to the text. Now by iterating from the right of $T$, add nodes to the tree, for \$, C\$, GC\$, TGC\$ and so on. If a branch does start with the same characters, as the next suffix, add it under this branch and add the characters which differ to the neighboring branch, by adding the positions from $T$. Figure \ref{fig:k-mer} represents the finished suffix tree for  $T$ = \texttt{GAATGAATGC}. The implementation of a suffix tree was presented by Ukkonen in 1995 \cite{Ukkonen1995}, reducing the time complexity to $\mathcal{O}({n})$, otherwise requiring $\mathcal{O}({n^2})$ with a naive implementation.
 \begin{figure}[!ht]
-\label{fig:k-mer}
+\label{fig:suffix}
     \centering
     \includegraphics[width=0.8\textwidth]{images/suffixtree.png}
     \caption[Suffix Tree of String GAATGAATGC]{Suffix Tree of the text $T$ = \texttt{GAATGAATGC}. There do exist tools, that show the creation of such trees for educational purpose\footnote{\url{https://visualgo.net/suffixtree}}.}
