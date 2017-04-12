@@ -96,7 +96,7 @@ The structure of the VCF files was presented in the Introduction (see \ref{intro
 \subsection{Algorithm}\label{haplo:alg}
 The main idea behind HaploGrep is the usage of Phylotree as database, by calculating for each variant occurring in the tree a so called phylogenetic weight. This weight is an assessment of the stability of a SNP. In the first version of HaploGrep the following method for assigning the phylogenetic weights is used: by traversing the Phylotree, for every mutation the amount of occurrence gets estimated. The SNP with the highest occurrence (m.152T$>$C occurred 106 times in Phylotree 10 used for the publication) + 1 is taken as reference value. The weight is obtained by subtracting the number of occurences from the reference value. This way SNPs with higher occurence get a lower weight than SNPs occuring only once. Hotspot Mutations like m.16519T$>$C where assigned value 0. Listing \ref{alg:haplo1} represents the weighting more formally:
 
-\begin{algorithm}\label{hg:algorithm}
+\begin{algorithm}
 \caption{Scoring of weights in the first version of HaploGrep}
 \label{alg:haplo1}
 Let the index set $I$ refer to all mutations found at least once in PhyloTree, and for each $i \in I$ let $f_i$ the absolute frequency of mutation $i$ on the current build of PhyloTree. Let $F$ = $max(i_{fi})$ be the maximum of all those frequencies. For $i \in I$ put the weight $w_i = F-f_i$. 
