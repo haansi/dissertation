@@ -17,15 +17,15 @@ The alignment of two sequences $S_1$ and $S_2$ $\in \{A,C,G,T,N\}*$ (where $N$ i
 \texttt{MIMMMRMMMDM} \\
 \texttt{01000100010} \\
 \end{center}
-The edit distance is the minimum number of weights (i.e. edit operations, for all replace, insert and delete operations). This approach is part of inexact string matching class (see \ref{inexact}). Alternatively exact string matching approaches do exist, that are outlined in the next section \ref{exact}. 
+The edit distance is the minimum number of weights (i.e. edit operations, for all replace, insert and delete operations). This approach is part of inexact string matching class (see \ref{inexact}). Alternatively exact string matching approaches do exist, that are outlined in the subsequent section \ref{exact}. 
 
 \subsection{Exact String Matching}
 \label{exact}
-The problem of exact string matching, is to find all occurences of a string $P$ called \textit{pattern} and $T$ called the \textit{text}, by exactly finding the pattern $P$ as substring of $T$. While this might sound like an simple problem, the worst case running time for the naive method is $\mathcal{O}({n}\times{m})$ where $n$ denotes the length of $P$ and $m$ denotes the length of the text $T$.
+The problem of exact string matching, is to find all occurrences of a string $P$ called \textit{pattern} and $T$ called the \textit{text}, by exactly finding the pattern $P$ as substring of $T$. While this might sound like an simple problem, the worst case running time for the naive method is $\mathcal{O}({n}\times{m})$ where $n$ denotes the length of $P$ and $m$ denotes the length of the text $T$.
 \subsubsection{Naive Algorithm}
 The naive algorithm takes the text $T$ and the patterns and $P$ as input by checking for each sequence of length $i = 1, 2, 3, \cdots m-n+ 1 $ if a substring in T can be found such that $t_i \cdots t_i+m = P$. This approach can be reduced to $\mathcal{O}({n}+{m})$
 \subsubsection{Boyer-Moore Algorithm}
-The Boyer-Moore Algorithm is an extension of the naive algorithm, based on  3 different rules, which improve the runtime significantly. 
+The Boyer-Moore Algorithm is an extension of the naive algorithm, based on 3 different rules, which improve the runtime significantly. 
 \begin{itemize}
 \item[1] \textbf{right to left scan in $P$}, which is not an optimization per se, but is used for the both rules, 2 and 3. 
 \item[2] \textbf{bad character shift rule}: start with comparing pattern $P$ with text $T$ from left to right, while applying rule 1 for pairwise comparison of $P$ and $T$. Until a mismatch happens, compare $P_i$ with $T_{|P_i|}$, with i $\in (0,\cdots |P|)$ . If mismatch occurs, skip alignment until the next character in $P$ matches the mismatch on $T$ or skip the complete P and proceed on $T_{|P_i|}$. Figure \ref{fig:boyer2} represents the rules 1 (green arrow scanning right to left), and the 2 mismatches for the bad character shift rule.
