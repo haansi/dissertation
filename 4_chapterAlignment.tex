@@ -158,7 +158,7 @@ Given the high similarity of mtDNA sequences, the use of k-mer based approaches 
 The presented approach requires a pre-calculation of the hash-table, which is not required if working solely with dynamic programming like in the $SW^{2}$ approach.
 The hash table is implemented as a collision free hash map, since all keys are known when constructing the map. Therefore a perfect hash function gets applied, allowing for lookups of $\mathcal{O}(1)$ in all cases. While the key of the hash map is the hash value of the k-mer, the value is the starting position according the reference sequence rCRS. The calculation costs for building the hash-map for the rCRS with 20-mers is $\sim$ 300 ms (TODO RECHECK TIME updated i7), and has to be taken into account.
 The algorithm for querying performs the following steps:
-1. split query sequence in 
+1. split query sequence of length $m$ into chunks of length $k$, where 
 
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
