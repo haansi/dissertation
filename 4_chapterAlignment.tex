@@ -161,7 +161,8 @@ The algorithm for querying performs the following steps:
 \begin{itemize}
 \item 1. split query sequence of length $m$ into a list of chunks $c$ of length $k$
 \item 2. iterate over each chunk $c$ of $m$ 
-\item 2.a) if chunk $c$ isin hash map, assign value=position to temp variable and proceed with next chunk $c+1$
+\item 2.a) if chunk $c$ is contained in the hash map, assign value (=position) to temp variable and proceed with next chunk $c+1$
+\item 2.b) else if $c
 \end{itemize}
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
