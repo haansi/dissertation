@@ -154,7 +154,7 @@ Further advantage of current multi-core CPU architectures is taken, allowing par
 While this basic approach outperforms various tools in the runtime, it is still too slow to align large set of sequences with several thousand sequences. 
 
 \subsection{K-mer Hash table based approach}
-Given the high similarity of mtDNA sequences, the use of k-mer based approaches for identifying identical reads where the cost-expensive dynamic programming (either global or local alignment) can skip those costly alignments. 
+Given the high similarity of mtDNA sequences, the use of k-mer based approaches for identifying identical reads can prevent the higher costs of dynamic programming.  where the cost-expensive dynamic programming (either global or local alignment) can skip those costly alignments. 
 
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
