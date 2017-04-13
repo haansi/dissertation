@@ -161,8 +161,8 @@ The algorithm for querying can be drafted as follows:
 \begin{itemize}
 \item 1. split query sequence of length $m$ into a list of chunks $c$ of length $k$
 \item 2. iterate over each chunk $c_i$ of $m$ for $i=0; i= m/k$ and generated hash of $c$ = $c_h$
-\subitem{ 2.a) if $c_h$ is not a key in the hash map $H$, assign value (=position) to temp variable and checking if the position is as expected (multiple of k, plus considering offset). If yes, back to 2. by taking the next chunk $c+1$ if position only differs by 1, insertion of 1 and set offset++, else perform dynamic programmin }
-\subitem 2.b) else if $c \notin()$
+\subitem{ 2.a) if $c_h$ is not a key in the hash map $H$, assign value (=position) to temp variable and checking if the position is as expected (multiple of k, plus considering offset). If yes, back to 2. by taking the next chunk $c+1$ if position only differs by 1, insertion of 1 and set offset++, else perform Needleman-Wunsh }
+\subitem 2.b) else if $c \notin H$, 
 \end{itemize}
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
