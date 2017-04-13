@@ -165,7 +165,8 @@ The algorithm for querying can be drafted as follows:
 \subitem 2.b) else if $h(c_i) \notin H$, find anchor $a$, by creating new hash by shifting    $h(c_i)+j for j =0; j<=k$ such that a match can be found. If $a$ as match in $H$ is found, perform NeedleMan Wunsh on all non-matching part, prior position of $a$. Continue with 2 for $h(c_i)+j$
 \item correct according rules 1-3: 
 \subitem  Rule 1 – Least number of Differences
-\subitem Rule 2 - 
+\subitem Rule 2 - Maintain the AC Repeat Motif
+\subitem Rule 3 -  Prefer Substitutions to Indels
 \end{itemize}
 There do exist further exceptions that need to be considered in 2.b) regarding  
 \subsection{Optimizations: multi-map}\label{align:optim}
