@@ -162,7 +162,7 @@ The algorithm for querying can be drafted as follows:
 \item 1. split query sequence of length $m$ into a list of chunks $c$ of length $k$
 \item 2. iterate over each chunk $c_i$ of $m$ for $i=0; i= m/k$ and generated hash of $c$ = $h(c_i)$
 \subitem{ 2.a) if $h(c_i)$ is not a key in the hash map $H$, assign value (=position) to temp variable and checking if the position is as expected (multiple of k, plus considering offset). If yes, back to 2. by taking the next hash $c_{i+1}(h)$ if position only differs by 1, insertion of 1 and set offset++, else perform Needleman-Wunsh, and count offsets if any }
-\subitem 2.b) else if $h(c_i) \notin H$, find anchor $a$, by creating new hash by shifting    $h(c_i)+j for j =0; j<=k$. 
+\subitem 2.b) else if $h(c_i) \notin H$, find anchor $a$, by creating new hash by shifting    $h(c_i)+j for j =0; j<=k$ such that a match can be found. If a match in $H$ is found, perform NeedleMan Wunsh on  
 \end{itemize}
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
