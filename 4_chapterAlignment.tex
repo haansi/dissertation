@@ -156,7 +156,7 @@ While this basic approach outperforms various tools in the runtime, it is still 
 \subsection{K-mer Hash table based approach}
 Given the high similarity of mtDNA sequences, the use of k-mer based approaches for identifying identical reads can skip the cost-expensive dynamic programming (either global or local alignment). Similar to BLAST \cite{Altschul1990}, a hashing scheme is used to match the exact k-mer, however without extending to maximal-length matches, but with the additional use of global alignment. The main idea is to use the hashing scheme to perform also the alignment while only 1 base is differing between the query and the reference sequence (as SNP or as indel) in an k-mer, and apply the global alignment as soon as 2 or more SNPs are differing on the short k-mers. The length of the k-mers needs to be longer than 16 bases, since one 15-mer exist, with exact matches on two different loci of the mtDNA reference rCRS. To use shorter k-mers, an optimization is presented in subsection \ref{align:optim}.
 The presented approach requires a pre-calculation of the hash-table, which is not required if working solely with dynamic programming like in the $SW^{2}$ approach.
-The calculation costs for building the hash-table for the rCRS with 20-mers is 
+The calculation costs for building the hash-table for the rCRS with 20-mers is below 
 
 \subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
