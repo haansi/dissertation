@@ -154,9 +154,10 @@ Further advantage of current multi-core CPU architectures is taken, allowing par
 While this basic approach outperforms various tools in the runtime, it is still too slow to align large set of sequences with several thousand sequences. 
 
 \subsection{K-mer Hash map based approach}
-Given the high similarity of mtDNA sequences, the use of k-mer based approaches for identifying identical reads can skip the cost-expensive dynamic programming (either global or local alignment). Similar to BLAST \cite{Altschul1990}, a hashing scheme is used to match the exact k-mer, however without extending to maximal-length matches, but with the additional use of global alignment. The main idea is to use the hashing scheme to perform also the alignment while only 1 base is differing between the query and the reference sequence (as SNP or as indel) in an k-mer, and apply the global alignment as soon as 2 or more SNPs are differing on the short k-mers. The length of the k-mers needs to be longer than 16 bases, since one 15-mer exist, with exact matches on two different loci of the mtDNA reference rCRS. To use shorter k-mers, an optimization is presented in subsection \ref{align:optim}, to prevent hash collisions.
+Given the high similarity of mtDNA sequences, the use of k-mer based approaches for identifying identical reads can skip the cost-expensive dynamic programming (either global or local alignment). Similar to BLAST \cite{Altschul1990}, a hashing scheme is used to match the exact k-mer, however without extending to maximal-length matches, but with the additional use of global alignment. The main idea is to use the hashing scheme to perform also the alignment while only 1 base is differing between the query and the reference sequence (as SNP or as indel) in an k-mer, and apply the global alignment as soon as 2 or more SNPs are differing on the short k-mers. The length of the k-mers needs to be longer than 16 bases, since one 15-mer exist, with exact matches on two different loci of the mtDNA reference rCRS.
+%To use shorter k-mers, an optimization is presented in subsection \ref{align:optim}, to prevent hash collisions.
 The presented approach requires a pre-calculation of the hash-table, which is not required if working solely with dynamic programming like in the $SW^{2}$ approach.
-The hash table is implemented as a collision free hash map, since all keys are known when constructing the map. Therefore a perfect hash function gets applied, allowing for lookups of $\mathcal{O}(1)$ in all cases. While the key of the hash map is the hash value of the k-mer, the value is the starting position according the reference sequence rCRS. The calculation costs for building the hash-map for the rCRS with 20-mers is $\sim$ 300 ms (TODO RECHECK TIME updated i7), and has to be taken into account.
+The hash table is implemented as a collision free hash map, since all keys are known when constructing the map. Therefore a perfect hash function gets applied, allowing for lookups of $\mathcal{O}(1)$ in all cases. While the key of the hash map is the hash value of the k-mer, the value is the starting position according the reference sequence rCRS. The calculation costs for building the hash-map for the rCRS with 20-mers is $\sim$ 30 ms, and has to be taken into account.
 The algorithm for querying can be drafted as follows:
 \begin{itemize}
 \item 1. split query sequence of length $m$ into a list of chunks $c$ of length $k$
@@ -168,14 +169,89 @@ The algorithm for querying can be drafted as follows:
 \subitem Rule 2 - Maintain the AC Repeat Motif
 \subitem Rule 3 -  Prefer Substitutions to Indels - direction of indels in homopolymeric stretches is  5’ to 3’ (from left to right) instead of 3’ to 5’ (from right to left). 
 \end{itemize}
-There do exist further exceptions that need to be considered in 2.b)  
-\subsection{Optimizations: multi-map}\label{align:optim}
+%There do exist further exceptions that need to be considered in 2.b)  
+%\subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}
-Validation of alignment accuracy
+
 We based our first tests on 5,300 fasta sequences out of 7,843 (since not all sequences were complete, not available in Genbank or not existent as haplotypes) and their assigned haplotypes files from the Phylotree Website available until February 2011. By using parametrized test cases with JUnit [http://www.junit.org/] in the Eclipse software development environment [www.eclipse.org/] the comparison of aligned sequences to the haplotypes files was straight forward. We noticed soon that in the most cases the results were as expected. For this first test it was sufficient to set the gap penalties of Smith Waterman so that the selected alignment with the least number of differences between the sample and the rCRS sequence is established. This corresponds to Rule 1 – Least number of Differences defined by Budowle et al. [ref budowle – automated alignmentand nomentclature]. We further adapted Rule 2 – Maintain the AC Repeat Motif , as well as Rule 3 – Prefer Substitutions to Indels. We also had to take care of the position where an insertion or deletion is performed by SW, since the direction was 5’ to 3’ instead of 3’ to 5’. Therefore we implemented a rule shifting such position to the rightmost occurrence of the same base, e.g. SW detects a deletion on 15940T, but since the bases in the rCRS from 15940 to 15944 are all thymine, the correct position is 15944d. To guarantee that the sequences used in HaploGrep can be assigned the correct haplogroup, we downloaded all sequences from Genbank to take all sequences used for Comparison with alternative Software Solutions.
+\begin{table}[H]
+\centering
+\caption{k-mer hash based approach in HaploGrep 2}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+Samples &  HaploGrep 2 &  Global alignments performed   \\ \hline
+1,000    & 0.994  &   908        \\ \hline
+2,000    & 1.366  &   1,725        \\ \hline
+5,000    & 2.284  &   3,710        \\ \hline
+10,000   & 4.285  &   7,622        \\ \hline 
+30,651   & 11.095 &  21,950    \\ \hline
+\end{tabular}
+\end{table}
 \subsection{Suffix Trees}
+As an implementation of a suffix tree, MUMmer is applied on the previously described data sets. MUMmer was used in version 3.23. Since MUMmers outputs a so called delta encoded file\footnote{\url{http://nebc.nerc.ac.uk/bioinformatics/documentation/mummer/nucmer.README}}, further processing with the show-snp program is required. Only after processing this snp file, it can be directly imported into HaploGrep, based on a Java based converter, written for the evaluation of the produced variants. Table \ref{tableMummer} reports the run time for the mtDNA sequences from GenBank as previously described, where COMPLETETIME is the time estimated by MUMmer, real time the console run time and the column \texttt{show-snp} represents the runtime to convert the delta encoded style to the resulting SNP file.  
+\begin{table}[H]
+\centering
+\caption{MUMmer 3.23 Runtime: parameter -c 100 applied }
+\label{tableMummer}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Samples &  Real Time &  COMPLETETIME  & \texttt{show-snp} \\ \hline
+1,000    & 2.814s  &   2.25   &  0.423   \\ \hline
+2,000    & 5.525s  &   4.54   &   0.757  \\ \hline
+5,000    & 13.525s  &   11.14  &  1.851  \\ \hline
+10,000   & 27.240s  &   22.55   &  3.701 \\ \hline 
+30,651   & 1m22.483s  &  68.70   & 11.140 \\ \hline
+\end{tabular}
+\end{table}
 \subsection{FM-Index}
-\subsection{Result}
+As previously described, an FM-Index efficiently handles the reference genome, and allows the search for maximum unique matches, as applied in the suffix tree, previously described. In this validation, the BWA MEM algorithm was applied, which works by extending alignments with maximal exact matches (therefore MEMs) and then extending seeds with the affine-gap Smith-Waterman algorithm (SW).    
+BWA first needs to construct the FM-index for the reference, which is almost negligible for the rCRS reference sequence with 0.028 seconds real time (BWA version 0.7.12-r1039). 
+\begin{table}[H]
+\centering
+\caption{BWA runtime}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Samples &  \texttt{bwa mem}  &  \texttt{bwa mem -x ont2d}   \\ \hline
+1,000    & 24.462   &    22.185  \\ \hline
+2,000    & 48.408   &    42.773  \\ \hline
+5,000    & 121.222  &   105.294  \\ \hline
+10,000   & 239.725  &   214.854  \\ \hline 
+30,651   & 1m22.483s&  68.70     \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Validation of alignment accuracy}
+Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an FM-Index, the related methods MitoTool, mtDNAprofiler and Phy-mer are compared against the here presented hash-map based approach, based on randomly compiled dataset of 50 full mtDNA sequences.
+\begin{table}[H]
+\centering
+\caption{Comparison Aligner/Mapper}
+\label{align:comp}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+50 Samples & BWA MEM & MUMmer & MitoTool & mtDNAprof. & HG2 \\ \hline
+Sensitivity    &         &        &          &               &            \\ \hline
+Specificity      &         &        &          &               &            \\ \hline
+Precision      &         &        &          &               &            \\ \hline
+Run Time   &         &        &          &               &            \\ \hline
+\end{tabular}
+\end{table}
+Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D, GraphMap, and Last
+\begin{table}[H]
+\centering
+\caption{Comparison Third-Generation Mapper}
+\label{align:comp}
+\begin{tabular}{|l|l|l|l|}
+\hline
+50 Samples & BWA ONT2D & GraphMap & Last \\ \hline
+Correct  &         &        &          \\ \hline
+False    &         &        &          \\ \hline
+Run Time &         &        &          \\ \hline
+\end{tabular}
+\end{table}
+
+
 \section{Conclusion and Outlook}
 Several well established approaches to align nucleotide sequences with numerous algorithms facing this problem[blast(ncbi blast, psi-blast), fasta(fasta, ssearch, fastm, ggsearch), Hidden Markov Models (hmmer, sam) ] do exist. However only a few sequence alignment tools for mitochondrial DNA do exist, performing either poor regarding calculation time or nonsatisfying in the context of reliable alignment due to the special characteristics of mtDNA structure. Although there are several guidelines on how to align mtDNA data [Wilson Rules, SWGDAM-rules], expertise knowledge is still needed. We therefore designed a new sequence alignment tool for the fast and reliable alignment of full mitochondrial DNA sequence data. As a result we extend our mitochondrial workbench HaploGrep 2 with the herein described alignment module to allow an accurate and easy handling of mtDNA fasta files.
 %De-novo vs. mapping assembly Wikipedia Artikel!! 
