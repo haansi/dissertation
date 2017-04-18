@@ -181,27 +181,27 @@ We based our first tests on 5,300 fasta sequences out of 7,843 (since not all se
 \begin{tabular}{|l|l|l|}
 \hline
 Samples &  HaploGrep 2 &  Global alignments performed   \\ \hline
-1,000    & 0.994  &   908        \\ \hline
-2,000    & 1.366  &   1,725        \\ \hline
-5,000    & 2.284  &   3,710        \\ \hline
-10,000   & 4.285  &   7,622        \\ \hline 
-30,651   & 11.095 &  21,950    \\ \hline
+1,000    & 0.994 sec  &   908        \\ \hline
+2,000    & 1.366 sec &   1,725        \\ \hline
+5,000    & 2.284 sec &   3,710        \\ \hline
+10,000   & 4.285 sec &   7,622        \\ \hline 
+30,651   & 11.095 sec&  21,950    \\ \hline
 \end{tabular}
 \end{table}
 \subsection{Suffix Trees}
-As an implementation of a suffix tree, MUMmer is applied on the previously described data sets. MUMmer was used in version 3.23. Since MUMmers outputs a so called delta encoded file\footnote{\url{http://nebc.nerc.ac.uk/bioinformatics/documentation/mummer/nucmer.README}}, further processing with the show-snp program is required. Only after processing this snp file, it can be directly imported into HaploGrep, based on a Java based converter, written for the evaluation of the produced variants. Table \ref{tableMummer} reports the run time for the mtDNA sequences from GenBank as previously described, where COMPLETETIME is the time estimated by MUMmer, real time the console run time and the column \texttt{show-snp} represents the runtime to convert the delta encoded style to the resulting SNP file.  
+As an implementation of a suffix tree, MUMmer is applied on the previously described data sets. MUMmer was used in version 3.23. Since MUMmers outputs a so called delta encoded file\footnote{\url{http://nebc.nerc.ac.uk/bioinformatics/documentation/mummer/nucmer.README}}, further processing with the show-snp program is required. Only after processing this snp file, it can be directly imported into HaploGrep, based on a Java based converter, written for the evaluation of the produced variants. Table \ref{tableMummer} reports the run time for the mtDNA sequences from GenBank as previously described, where \texttt{COMPLETETIME} is the time estimated by MUMmer, real time the console run time and the column \texttt{show-snp} represents the runtime to convert the delta encoded style to the resulting SNP file.  
 \begin{table}[H]
 \centering
 \caption{MUMmer 3.23 Runtime: parameter -c 100 applied }
 \label{tableMummer}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Samples &  Real Time &  COMPLETETIME  & \texttt{show-snp} \\ \hline
-1,000    & 2.814s  &   2.25   &  0.423   \\ \hline
-2,000    & 5.525s  &   4.54   &   0.757  \\ \hline
-5,000    & 13.525s  &   11.14  &  1.851  \\ \hline
-10,000   & 27.240s  &   22.55   &  3.701 \\ \hline 
-30,651   & 1m22.483s  &  68.70   & 11.140 \\ \hline
+Samples &  Real Time &  \texttt{COMPLETETIME}  & \texttt{show-snp} \\ \hline
+1,000    & 2.814 sec  &   2.25 sec  &  0.423 sec  \\ \hline
+2,000    & 5.525s sec &   4.54 sec  &   0.757 sec \\ \hline
+5,000    & 13.525s sec &   11.14 sec &  1.851 sec \\ \hline
+10,000   & 27.240 sec  &   22.55 sec  &  3.701 sec\\ \hline 
+30,651   & 82.483 sec  &  68.70 sec  & 11.140 sec\\ \hline
 \end{tabular}
 \end{table}
 \subsection{FM-Index}
@@ -213,28 +213,28 @@ BWA first needs to construct the FM-index for the reference, which is almost neg
 \label{my-label}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Samples &  \texttt{bwa mem}  &  \texttt{bwa mem -x ont2d}   \\ \hline
+Samples &  \texttt{bwa mem}  &  \texttt{smalt}   \\ \hline
 1,000    & 24.462   &    22.185  \\ \hline
 2,000    & 48.408   &    42.773  \\ \hline
 5,000    & 121.222  &   105.294  \\ \hline
 10,000   & 239.725  &   214.854  \\ \hline 
-30,651   & 1m22.483s&  68.70     \\ \hline
+30,651   & 727.441  &   641.893  \\ \hline
 \end{tabular}
 \end{table}
 
-\subsection{Validation of alignment accuracy}
+\subsection{Performance of mtDNA specific aligners}
 Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an FM-Index, the related methods MitoTool, mtDNAprofiler and Phy-mer are compared against the here presented hash-map based approach, based on randomly compiled dataset of 50 full mtDNA sequences.
 \begin{table}[H]
 \centering
-\caption{Comparison Aligner/Mapper}
+\caption{Comparison mtDNA specific aligner}
 \label{align:comp}
-\begin{tabular}{|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-50 Samples & BWA MEM & MUMmer & MitoTool & mtDNAprof. & HG2 \\ \hline
-Sensitivity    &         &        &          &               &            \\ \hline
-Specificity      &         &        &          &               &            \\ \hline
-Precision      &         &        &          &               &            \\ \hline
-Run Time   &         &        &          &               &            \\ \hline
+50 Samples & phy-mer &  MitoTool & mtDNAprofiler & HG2 \\ \hline
+Run Time  &  1690.53 sec  &     10 sec   &  110 sec* &  0.44 sec     \\ \hline
+HG correct    &  100\%    &  100\%   &     100\%    &   100\%     \\ \hline
+HG wrong      &    -      &       -        &     -         &   -         \\ \hline
+
 \end{tabular}
 \end{table}
 Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D, GraphMap, and Last
@@ -244,10 +244,12 @@ Further, as additional performance test, mappers/aligner for third-generation se
 \label{align:comp}
 \begin{tabular}{|l|l|l|l|}
 \hline
-50 Samples & BWA ONT2D & GraphMap & Last \\ \hline
-Correct  &         &        &          \\ \hline
-False    &         &        &          \\ \hline
-Run Time &         &        &          \\ \hline
+Run Time & BWA ONT2D & GraphMap & Last \\ \hline
+1,000 &     22.185     &   23.012 (91.45 CPU time)   &     29.028     \\ \hline
+2,000  &     42.773    &    46.120 (183.56 CPU time)   &      57.728    \\ \hline
+5,000    &    105.294    &    114.437 (455.62 CPU time)   &      142.383    \\ \hline
+10,000    &    214.854     &        &    277.963      \\ \hline
+
 \end{tabular}
 \end{table}
 
