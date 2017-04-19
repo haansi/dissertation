@@ -30,62 +30,69 @@ The Boyer-Moore Algorithm is an extension of the naive algorithm, based on 3 dif
 \item[1] \textbf{right to left scan in $P$}, which is not an optimization per se, but is used for the both rules, 2 and 3. 
 \item[2] \textbf{bad character shift rule}: start with comparing pattern $P$ with text $T$ from left to right, while applying rule 1 for pairwise comparison of $P$ and $T$. Until a mismatch happens, compare $P_i$ with $T_{|P_i|}$, with i $\in (0,\cdots |P|)$ . If mismatch occurs, skip alignment until the next character in $P$ matches the mismatch on $T$ or skip the complete P and proceed on $T_{|P_i|}$. Figure \ref{fig:boyer2} represents the rules 1 (green arrow scanning right to left), and the 2 mismatches for the bad character shift rule.
 \begin{figure}[!ht]
-\label{fig:boyer2}
+
     \centering
     \includegraphics[width=0.6\textwidth]{images/boyer2.png}
     \caption[Boyer-Moore - example rule 1 and 2]{Boyer-Moore - example for rule 1 and 2. Pattern $P$ = \texttt{CACACTAT} is scanned from right to left. In 2a, a mismatch in the Text on position 3 happens. Subsequently $P$ is shifted for the next C, so that it matches with this position. Since in 2b no G can be found in the $P$, the complete string can be shifted behind this position on the text $T$.} 
-
+\label{fig:boyer2}
 \end{figure}
 
 \item[3] \textbf{good suffix shift rule} This rule checks if a suffix from right appears subsequently after a mismatch. If the suffix $t$ can be found in $P$, alignments can be skipped and $P$ shifted - see Figure \ref{fig:boyer3} for an example.
 \begin{figure}[!ht]
-\label{fig:boyer3}
+
     \centering
     \includegraphics[width=0.65\textwidth]{images/boyer3.png}
     \caption[Boyer-Moore - example rule 3]{Boyer-Moore - example for rule 3. Subpattern $t$ = \texttt{TAT} is matches as suffix, and is 3 bases long, until a mismatch happens. Thereafter, good suffix is searched in $P$ with less search effort (3a). A suffix can also be repetitive, so that the the repetition skips alignments, by shifting to the first presence of In 2a, a mismatch in the Text on position 3 happens. Subsequently $P$ is shifted for the next C, so that it matches with this position. Since in 2b for the $P$ no G can be found, the complete string can be shifted behind this position on the text $T$.}
+\label{fig:boyer3}
 \end{figure}
 \end{itemize}
 The algorithm performs both rules and decides on the one that skips more alignment steps. A further step is the creation of a lookup table, where the number of skips are precalculated based on $P$. There do exist some more algorithms for exact string matching like the Knuth-Morris-Pratt algorithm or the 
 \subsubsection{Offline Algorithm}
-While the previously described naive algorithm and its optimization the Boyer-More algorithm, represents so called online algorithms (processing without an index), there is a second class of algorithms, based on the concept of preprocessing of the text $T$, and based on index. While this preprocessing step takes additional time and space, the overall runtime can be reduced significantly. Offline algorithms are also implemented in most modern web search engines.  The most notable offline algorithms are  k-mer or n-gram based search, suffix trees or metric trees. Since used in the subsequent sections, k-mer and suffix trees are shortly outlined within this paragraph.
+The previously described naive algorithm and its optimization the Boyer-More algorithm represent so called online algorithms (processing without an index). There is a second class of algorithms, based on the concept of preprocessing of the text $T$, by using an index. While this preprocessing step takes additional time and space, the overall runtime can be reduced significantly. Offline algorithms are also implemented in most modern web search engines.  The most notable offline algorithms are  k-mer or n-gram based search, suffix trees or metric trees. Since used in the subsequent sections, k-mer and suffix trees are shortly outlined within this paragraph.
 \begin{itemize}
 \item \textbf{k-mer} or \textbf{n-gram}: here the \textbf{k} or the \textbf{n} stand for the length of substrings of all possible occurrences in the text $T$. Figure k-mer gives an example with the text $T$ = \texttt{GAATGAATGC}, resulting in the sorted index. The lookup is often implemented as a HashMap, so that the generation of the index is $\mathcal{O}({n})$ and the query $\mathcal{O}({1})$
 \begin{figure}[!ht]
-\label{fig:k-mer}
+
     \centering
     \includegraphics[width=0.65\textwidth]{images/k-mer.png}
     \caption[k-mer or n-gram]{k-mer or n-gram applied to the text  $T$ = \texttt{GAATGAATGC}. The k here is of length 5, so the index represents all possible 5-mers or 5-grams occurring in $T$. If for one entry, multiple positions in $T$ are be found (see \texttt{GAATG}, which starts on position 1 and 5), a Multimap can be used.}
+    \label{fig:k-mer}
 \end{figure}
 \item \textbf{Suffix-Tree}
 Suffix Trees are a very efficient data structures, to perform the exact string matching in linear time $\mathcal{O}({n})$. Thereby suffix trees are used to bridge the exact and inexact string matching problem \cite{Gusfield1997}. The preprocessing of the text $T$ with length $n$ requires  $\mathcal{O}({n})$, while the query for pattern $P$ of length $m$ requires $\mathcal{O}({m})$ to find the position of occurrence or find that the pattern is not contained. For constructing the tree, the symbol "\$" concatenated to the text. Now by iterating from the right of $T$, add nodes to the tree, for \$, C\$, GC\$, TGC\$ and so on. If a branch does start with the same characters, as the next suffix, add it under this branch and add the characters which differ to the neighboring branch, by adding the positions from $T$. Figure \ref{fig:k-mer} represents the finished suffix tree for  $T$ = \texttt{GAATGAATGC}. The implementation of a suffix tree was presented by Ukkonen in 1995 \cite{Ukkonen1995}, reducing the time complexity to $\mathcal{O}({n})$, otherwise requiring $\mathcal{O}({n^2})$ with a naive implementation.
 \begin{figure}[!ht]
-\label{fig:suffix}
+
     \centering
     \includegraphics[width=0.8\textwidth]{images/suffixtree.png}
     \caption[Suffix Tree of String GAATGAATGC]{Suffix Tree of the text $T$ = \texttt{GAATGAATGC}. There do exist tools, that show the creation of such trees for educational purpose\footnote{\url{https://visualgo.net/suffixtree}}.}
+    \label{fig:suffix}
 \end{figure}
-As can be seen in this example, the information can be redundant, so that improvements in the form of suffix array and FM-Index are used in computational biology. The suffix array is a ordered list of all suffixes, that can be directly be used for the FM-Index, based on the Burrows-Wheeler Transformation. This is used in most common mapping tools for DNA/RNA-read mapping, the most prominent being BWA \cite{Li2013a,Li2009} and Bowtie \cite{Langmead2009, Langmead2012}. While a suffix tree would need approx. 45GB of memory for the whole human genome DNA, the Suffix Array requires 12GB, and the FM-Index only about $\sim$ 1GB of memory \footnote{\url{https://www.coursera.org/learn/dna-sequencing/lecture/r8Xh3/lecture-genome-indexes-used-in-research}}
+As can be seen in this example, the information can be redundant, so that improvements in the form of suffix array and FM-Index are used in computational biology. The suffix array is a ordered list of all suffixes, that can be directly be used for the FM-Index, based on the Burrows-Wheeler Transformation. This is used in most common mapping tools for DNA/RNA-read mapping, the most prominent being BWA \cite{Li2013a,Li2009} and Bowtie \cite{Langmead2009, Langmead2012}. While a suffix tree would need approx. 45GB of memory for the whole human genome DNA, the Suffix Array requires 12GB, and the FM-Index only about $\sim$ 1GB of memory \footnote{\url{https://www.coursera.org/learn/dna-sequencing/lecture/r8Xh3/lecture-genome-indexes-used-in-research}}. Figure \ref{fig:suffixarray} represents the steps that are applied to get the Burrows Wheeler Transformation from a suffix array.
 \begin{figure}[!ht]
-\label{fig:k-mer}
+
     \centering
     \includegraphics[width=1\textwidth]{images/suffix.png}
-    \caption[Construction of suffix array]{Construction of suffix array, based on all suffixes, and ordered lexicographically ascending. The FM-Index extends the entries in the suffix array, by calculating the Burrows-Wheeler Transformation \texttt{CGGAAG\$TTAA}}.
+    \caption[Construction of suffix array]{Construction of suffix array, based on all suffixes, and ordered lexicographically ascending. The FM-Index extends the entries in the suffix array, by calculating the Burrows-Wheeler Transformation \texttt{CGGAAG\$TTAA} (last character (bold) of each row}.
+    \label{fig:suffixarray}
 \end{figure}
 \end{itemize}
 \subsection{Inexact String Matching}
 DNA reads from modern devices, show much higher error rates, compared to Sanger based Sequencing. Third generation sequencing devices like MinION from Oxford NanoPore Technologies\footnote{\url{https://nanoporetech.com/products/minion}} showed a per base error with Phred-Score 7 (error rate $sim$ 15\%) with the initial chemistry R7. Even with the latest chemistry R9.4 used in the whole genome sequencing project of NA12878\footnote{\url{https://github.com/nanopore-wgs-consortium/NA12878}}, the error rate is about 10\% per base. Using exact string matching is not only limited by these errors, but also by the variation. The previously described Levenshtein distance or edit distance problem can be solved with  dynamic programming.      
 \label{inexact}
 \subsubsection{Dynamic Programming}
-For solving the pairwise alignment problem, two different approaches are available, based on some similar underlying assumptions, solving however different problems. Both approaches rely on substitution scores, and are in  $\mathcal{O}({n m})$ for length $n$ and $m$ of two strings $S_1$ and $S_2$. The global or often referred to as Needlman-Wunsch alignment tries to align sequence pairs, so that all letters from both sequences are taken into consideration. The local alignment differs in this regard, by considering alignments, where the costs of a substring of either $S_1$ or $S_2$ can be improved compared to the global alignment. Both approaches are build by a matrix with of size (n $\times $ m).
+For solving the pairwise alignment problem, two different approaches are available, based on some similar underlying assumptions, solving however different problems. Both approaches rely on substitution scores, and are in  $\mathcal{O}({n m})$ for length $n$ and $m$ of two strings $S_1$ and $S_2$. The global or often referred to as Needlman-Wunsch alignment tries to align sequence pairs, so that all letters from both sequences are taken into consideration. The local alignment differs in this regard, by considering alignments, where the costs of a substring of either $S_1$ or $S_2$ can be improved compared to the global alignment. Both approaches are build by a matrix of size (n $\times $ m).
 \subsubsection{Global Alignment}
-The global alignment, addressed by Needleman-Wunsch \cite{Needleman1970}, contains all nucleotides from both sequences $S_1$ and $S_2$. A simple form of the substitution costs are 1 for match, 0 for mismatch and -1 for indels (gaps). Sequence $S_1$ and $S_2$ are used for column and rows in the matrix that will be used for dynamic programming. Figure \ref{fig_global} represents the two steps: filling in the score table, and walk back in the traceback table. For filling in the score table, the match/mismatch and gap scores are required. There are different predefined substitution matrices, like PAM250\footnote{\url{http://www.mbio.ncsu.edu/bioedit/tables/PAM250}} or BOSUM62\footnote{\url{https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt}}, widely used for amino acid changes. For the sake of simplicity, the score table is used 
+The global alignment, addressed by Needleman-Wunsch \cite{Needleman1970}, contains all nucleotides from both sequences $S_1$ and $S_2$. A simple form of the substitution costs are 1 for match, 0 for mismatch and -1 for indels (gaps). Sequence $S_1$ and $S_2$ are used for column and rows in the matrix that will be used for dynamic programming. Figure \ref{fig:global} represents the two steps: filling in the score table, and walk back in the traceback table. For filling in the score table, the match/mismatch and gap scores are required. There are different predefined substitution matrices, like PAM250\footnote{\url{http://www.mbio.ncsu.edu/bioedit/tables/PAM250}} or BOSUM62\footnote{\url{https://www.ncbi.nlm.nih.gov/Class/FieldGuide/BLOSUM62.txt}}, widely used for amino acid changes. For the sake of simplicity, the score table is used 
 as following:
 \begin{figure}[H]
-\label{fig:global}
+
     \centering
     \includegraphics[width=1\textwidth]{images/globalAlign.png}
     \caption[Example of Global Alignment]{Example of Global Alignment, with 2 different gap scores (gap -1 and gap -2 (light-olive background)). The gap penalty and matching scores influence the alignment significantly, with two different results: 4 matches, 1 insertion and 1 deletion versus 2 matches and 3 mismatches.}
+    \label{fig:global}
 \end{figure}
+
+
 \begin{table}[H]
 \centering
 \caption{Score Table, indicating the score for a match (1) and mismatch (0)}
@@ -120,10 +127,11 @@ $ D_{i,j} = \max
 $\\
 The filling of the scoring table is again a recursive step like in the global alignment. The traceback does not start in the cell D(n,m), but in the cell with the highest value. Figure \ref{fig:local} represents the same examples as for local alignment. Here the starting point for the traceback is however the highest entry in the scoring table. The end is reached by finding the cell with a value 0. This is very different from the global alignment, that always starts in cell $D(n,m)$ and ends in cell $D(0,0)$. Optimizations of this approach are presented by Gotoh \cite{Gotoh1982}.  
 \begin{figure}[H]
-\label{fig:local}
+
     \centering
     \includegraphics[width=1\textwidth]{images/localAlign.png}
     \caption[Example of local alignment]{Example of local alignment, with the Match/Mismatch/Gap scores as previously defined. As can be seen, only the part with the highest similarity \texttt{AGT} as substring of text $S_1$ and $S_2$ is the best result for the local alignment}
+    \label{fig:local}
 \end{figure}
 %\subsection{Biological Networks}
 \section{Aligning mtDNA sequences}
@@ -142,14 +150,15 @@ Furthermore the comparison of rule-based alignment versus phylogenetic based ali
 %\subsubsection{Pairwise alignment}
 %\subsubsection{Multiple sequence alignment}
 \subsection{Sliding Window Smith Waterman approach ($SW^{2}$)}
-Given the small size of mtDNA with its $\sim$ 16,569 base pairs, constructing a matrix $D(n \times m)$ corresponds 274,5311,761 cells that need to be calculated for 2 sequences with length $(n,m) = 16,569$. This means that for comparing 2 sequences we need at least 274.5 million steps for calculating the alignment. By splitting sequences in chunks with length of 200 base pairs and using an sliding window approach to overlap these pieces to avoid losing differences to the rCRS between the chunks. This way we get 82 chunks, each with 220 bases (20 overlapping bases, since longest known insertion currently in Phylotree is 8289.1CCCCCTCTACCCCCTCTA with 18 bases), yielding to $82 x 220^2 = 3,9$ million steps resulting in a reduction of calculation time from 41,7 seconds to ~0,6 seconds per sample performed on an Intel Core i3 with 3GB main memory. This is a 69-fold reduction of calculation time. 
+Given the small size of mtDNA with its $\sim$ 16,569 base pairs, constructing a matrix $D(n \times m)$ corresponds 274,5311,761 cells that need to be calculated for 2 sequences with length $(n,m) = 16,569$. This means that for comparing 2 sequences we need at least 274.5 million steps for calculating the alignment. By splitting sequences in chunks with length of 200 base pairs and using an sliding window approach to overlap these pieces to avoid losing differences to the rCRS between the chunks. This way we get 82 chunks, each with 220 bases (20 overlapping bases, since longest known insertion currently in Phylotree is 8289.1CCCCCTCTACCCCCTCTA with 18 bases), yielding to $82 x 220^2 = 3,9$ million steps resulting in a reduction of calculation time from 41,7 seconds to ~0,6 seconds per sample. This is a 69-fold reduction of calculation time, and represented in figure \ref{fig:runtimeSW}. 
 
-Further advantage of current multi-core CPU architectures is taken, allowing parallel calculations on the different cores. This is achieved by using Java’s Thread Pool methods and work queues, which is aware of pool-related deadlocks, resource thrashing and thread leakage. [Identifying Performance Deviations in Thread Pools]. On a Dual Core Processor a speedup of 30\% can be achieved, on a Quad Core Processor the calculation time of ~ 200 milliseconds equal to a speed up of factor 3 can be achieved.
+Further advantage of current multi-core CPU architectures is taken, allowing parallel calculations on the different cores. This is achieved by using Java’s Thread Pool methods and work queues, which is aware of pool-related deadlocks, resource thrashing and thread leakage. On a Dual Core Processor a speedup of 30\% can be achieved, on a Quad Core Processor the calculation time of ~ 200 milliseconds equal to a speed up of factor 3 can be achieved.
 \begin{figure}[!ht]
-\label{fig:local}
+
     \centering
     \includegraphics[width=1\textwidth]{images/runtimeSW.png}
     \caption[Runtime in ms of Gotoh for n/i ]{Runtime in ms of the local alignment, considering all base pairs n. If the mtDNA is chopped in 84 pieces of length 200, the calculation takes 625ms instead of 41,798 ms when considering the full length sequence}. 
+    \label{fig:runtimeSW}    
 \end{figure}
 While this basic approach outperforms various tools in the runtime, it is still too slow to align large set of sequences with several thousand sequences. 
 
@@ -177,7 +186,7 @@ We based our first tests on 5,300 fasta sequences out of 7,843 (since not all se
 \begin{table}[H]
 \centering
 \caption{k-mer hash based approach in HaploGrep 2}
-\label{my-label}
+\label{time:HG2}
 \begin{tabular}{|l|l|l|}
 \hline
 Samples &  HaploGrep 2 &  Global alignments performed   \\ \hline
@@ -210,7 +219,7 @@ BWA first needs to construct the FM-index for the reference, which is almost neg
 \begin{table}[H]
 \centering
 \caption{BWA runtime}
-\label{my-label}
+\label{time:BWA:SMALT}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Samples &  \texttt{bwa mem}  &  \texttt{smalt k=20, s=20} &  \texttt{smalt k=13, s=13} \\ \hline
@@ -244,7 +253,7 @@ The resulting haplogroups are listed in the appendix Table \ref{app:table}, wher
 \begin{table}[H]
 \centering
 \caption{k-mer hash based approach in HaploGrep 2}
-\label{my-label}
+\label{time:threads}
 \begin{tabular}{|l|l|l|}
 \hline
 Samples &  HaploGrep 2 &  MUMmer 4.0.0beta   \\ \hline
@@ -256,7 +265,7 @@ Samples &  HaploGrep 2 &  MUMmer 4.0.0beta   \\ \hline
 \end{table}
 
 \caption{Comparison Third-Generation Mapper}
-\label{align:comp}
+\label{align:comp3Gen}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Run Time & BWA ONT2D & GraphMap & Last \\ \hline
