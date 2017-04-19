@@ -213,42 +213,57 @@ BWA first needs to construct the FM-index for the reference, which is almost neg
 \label{my-label}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Samples &  \texttt{bwa mem}  &  \texttt{smalt}   \\ \hline
-1,000    & 24.462   &    22.185  \\ \hline
-2,000    & 48.408   &    42.773  \\ \hline
-5,000    & 121.222  &   105.294  \\ \hline
-10,000   & 239.725  &   214.854  \\ \hline 
-30,651   & 727.441  &   641.893  \\ \hline
+Samples &  \texttt{bwa mem}  &  \texttt{smalt k=20, s=20} &  \texttt{smalt k=13, s=13} \\ \hline
+1,000    & 24.462   &    3m37.20sec &  6m29.977s\\ \hline
+2,000    & 48.408   &    7m53.428sec &  13m7.032s\\ \hline
+5,000    & 121.222  &   20m44.275s
+  &  30m24.149s \\ \hline
+10,000   & 239.089  &  40m26.542s   & 62m8.970s\\ \hline 
 \end{tabular}
 \end{table}
 
 \subsection{Performance of mtDNA specific aligners}
-Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an FM-Index, the related methods MitoTool, mtDNAprofiler and Phy-mer are compared against the here presented hash-map based approach, based on randomly compiled dataset of 50 full mtDNA sequences.
+Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an FM-Index, the related methods MitoTool, mtDNAprofiler and Phy-mer are compared against the here presented hash-map based approach, included in HaploGrep 2, based on the datasets from GenBanks full mtDNA sequences.
 \begin{table}[H]
 \centering
 \caption{Comparison mtDNA specific aligner}
 \label{align:comp}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-50 Samples & phy-mer &  MitoTool & mtDNAprofiler & HG2 \\ \hline
-Run Time  &  1690.53 sec  &     10 sec   &  110 sec* &  0.44 sec     \\ \hline
-HG correct    &  100\%    &  100\%   &     100\%    &   100\%     \\ \hline
-HG wrong      &    -      &       -        &     -         &   -         \\ \hline
+Run Time for & phy-mer &  MitoTool & mtDNAprofiler & HaploGrep2 \\ \hline
+50 Samples  &  1690 sec  &     1260 sec   &  110 sec* &  0.44 sec     \\ \hline
 
 \end{tabular}
 \end{table}
-Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D, GraphMap, and Last
+The resulting haplogroups are listed in the appendix Table \ref{app:table}, whereby the result of mtDNAprofiler was processed with HaploGrep 2 and yields the same haplogroup results. Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D, GraphMap, and Last.
 \begin{table}[H]
 \centering
+
+\subsection{Optimizations: multi-threads}
+
+\begin{table}[H]
+\centering
+\caption{k-mer hash based approach in HaploGrep 2}
+\label{my-label}
+\begin{tabular}{|l|l|l|}
+\hline
+Samples &  HaploGrep 2 &  MUMmer 4.0.0beta   \\ \hline
+1,000    & 0.417 sec  &   0.416        \\ \hline
+2,000    & 0.790 sec &   0.768        \\ \hline
+5,000    & 1.703 sec &   1.774        \\ \hline
+10,000   & 4.285 sec &   3,365        \\ \hline 
+\end{tabular}
+\end{table}
+
 \caption{Comparison Third-Generation Mapper}
 \label{align:comp}
 \begin{tabular}{|l|l|l|l|}
 \hline
 Run Time & BWA ONT2D & GraphMap & Last \\ \hline
-1,000 &     22.185     &   23.012 (91.45 CPU time)   &     29.028     \\ \hline
-2,000  &     42.773    &    46.120 (183.56 CPU time)   &      57.728    \\ \hline
-5,000    &    105.294    &    114.437 (455.62 CPU time)   &      142.383    \\ \hline
-10,000    &    214.854     &        &    277.963      \\ \hline
+1,000 &    22.185   &  23.012 (91.45 CPU time)  &    29.028     \\ \hline
+2,000 &    42.773  &  46.120 (183.56 CPU time)   &   57.728    \\ \hline
+5,000  &   105.294  &   114.437 (455.62 CPU time) &  142.383    \\ \hline
+10,000 &   214.854  &  229.013 (911.88 CPU time) &  277.963      \\ \hline
 
 \end{tabular}
 \end{table}
