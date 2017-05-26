@@ -157,7 +157,7 @@ Further advantage of current multi-core CPU architectures is taken, allowing par
 
     \centering
     \includegraphics[width=1\textwidth]{images/fig4_8.png}
-    \caption[Runtime in ms of Gotoh for n/i ]{Runtime in ms of the local alignment, considering all base pairs n. If the mtDNA is chopped in 84 pieces of length 200, the calculation takes 625ms instead of 41,798 ms when considering the full length sequence.} 
+    \caption[Runtime in ms of Gotoh for n/i ]{Runtime in ms of the local alignment, considering all base pairs n. If the mtDNA is chopped in 84 pieces of window size 200, the calculation takes 625ms instead of 41,798 ms when considering the full length sequence of 16,569.} 
     \label{fig:runtimeSW}    
 \end{figure}
 While this basic approach outperforms various tools in the runtime, it is still too slow to align large set of sequences with several thousand sequences. 

@@ -1,11 +1,9 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
 
-\epigraph{One worthwhile task carried to a successful completion is worth a hundred half-finished tasks}{\textit{B.C. Forbes}}
-
 In the last decade, the  field of genomics has moved to a big data science, producing GB of data at decreasing costs, based on the rapid development of new sequencing devices. Subsequently, the bottleneck shifted from data generation to the data analysis, requiring sophisticated methods, in order to derive the most important informations out of the data. Further the high-throughput of the data requires reproducible and scalable pipelines as well as means for quality control. In this thesis an information-system for a small genome, the mitochondrial DNA (mtDNA) is presented, taking the requirements for a pipeline regarding scalability, reproducibility and quality control into account. 
 
-Mitochondrial DNA is coding the most important bioenergetic genes, with mutations involved in a variety of diseases, tumorigenesis and ageing. mtDNA Next-Generation Sequencing (NGS) facilitates detailed insights into mtDNA, enabling to identify new mutations among thousands non-mutated (heteroplasmy) in high resolution. This higher resolution requires additional caution: phantom mutations can become apparent as false positive mutations. A further major issue is the emergence of sample contamination, observable as low level heteroplasmic mutations, leading to deceptive results in medical genetic studies.
+Mitochondrial DNA is coding the most important bioenergetic genes, with mutations involved in a variety of diseases, tumorigenesis and aging. mtDNA Next-Generation Sequencing (NGS) facilitates detailed insights into mtDNA, enabling to identify new mutations among thousands non-mutated (heteroplasmy) in high resolution. This higher resolution requires additional caution: phantom mutations can become apparent as false positive mutations. A further major issue is the emergence of sample contamination, observable as low level heteroplasmic mutations, leading to deceptive results in medical genetic studies.
 This thesis presents our previously developed tools HaploGrep in Chapter \ref{chapterHaplogrep} and mtDNA-Server in Chapter \ref{chap:NGS}, which are merged into a contamination detection system as described in Chapter \ref{chapterContamination}. The two methods are presented, to solve the two main issues:
 \begin{itemize}
 \item reduce false positive mutations with the help of knowledge distilled from available data sources  
