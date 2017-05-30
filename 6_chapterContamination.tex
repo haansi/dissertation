@@ -33,11 +33,11 @@ The parameters are the BAM input file (in), the result folder (out), where the p
 \begin{lstlisting}[language=bash]
 java -jar greenVC.jar bam2var --in HG01500.IBS.exome.MT.bam --out resultfolder  --ref data/rcrs.fasta  --VAF 0.2 --QUAL 20
 \end{lstlisting}
-\item \textbf{haplocheck}: generation of the haplogrep input files for contamination detection. The method is presented in \ref{cont:haplochecker}. This command writes based on the previous called variants to a haplogrep input file, by splitting it in major/ minor allele profiles in order to check for sample contamination down to the 5\% heteroplasmic level.
+\item \textbf{haplocheck}: generation of the haplogrep input files for contamination detection. The method is presented in \ref{cont:haplochecker}. Based on the previous called variants, this command generates the haplogrep input file. Thereby major/ minor allele profiles are generated to perform sample contamination detection down to the 5\% heteroplasmic level.
 \begin{lstlisting}[language=bash]
 java -jar greenVC.jar haplocheck --in resultfolder/variants.txt --out haplogrepinput.hsd   --VAF 0.05 
 \end{lstlisting}
-\item \textbf{haplocheck-mtDNA-Server}: the result in the heteroplasmies.txt file from mtDNA-Server (see Chapter \ref{chap:NGS}) is handled similar to the \textbf{haplocheck} option. Again, the input file is assigned major/ minor allele profiles in order to check for sample contamination with HaploGrep \ref{chapterHaplogrep}. Example call:
+\item \textbf{haplocheck-mtDNA-Server}: the result in the heteroplasmies.txt file from mtDNA-Server (see Chapter \ref{chap:NGS}) is handled similar to the \textbf{haplocheck} option. Again, the input file is generated based on major/ minor allele profiles in perform the sample contamination check with HaploGrep presented in Chapter \ref{chapterHaplogrep}. Example call:
 \begin{lstlisting}[language=bash]
 java -jar greenVC.jar haplocheck-mtDNA-Server --in heteroplasmies.txt --out haplogrepinput.hsd  --VAF 0.05 
 \end{lstlisting}
