@@ -99,15 +99,29 @@ The main idea behind HaploGrep is the usage of Phylotree as database, by calcula
 \begin{algorithm}
 \caption{Scoring of weights in the first version of HaploGrep}
 \label{alg:haplo1}
-Let the index set $I$ refer to all mutations found at least once in PhyloTree, and for each $i \in I$ let $f_i$ the absolute frequency of mutation $i$ on the current build of PhyloTree. Let $F$ = $max(i_{fi})$ be the maximum of all those frequencies. For $i \in I$ put the weight $w_i = F-f_i$ \cite{Kloss-Brandstatter2011}. 
+The index set $I$ refers to all mutations found at least once in PhyloTree. 
+
+For each $i \in I$ let $f_i$ be the absolute frequency of mutation $i$ on the current build of PhyloTree. 
+
+Let $F$ = $max(i_{fi})$ be the maximum of all those frequencies. 
+
+For $i \in I$ put the weight $w_i = F-f_i$ \cite{Kloss-Brandstatter2011}. 
 \end{algorithm}
 
-As an example, consider the demonstration provided in the paper \cite{Kloss-Brandstatter2011}: assume that a sample was sequenced for the entire control region (nucleotide positions 16024–16569; 1–576) and genotyped for 45 coding region SNPs as described by Brandstaetter et al. It showed the following profile (with corresponding weights): m.263A$>$G (105), m.309 - 310insC (0), m.315 - 316insC (0), m.750A$>$G (106), m.951G$>$A (103), m.8860A$>$G (106), m.15326A$>$G (106), m.16354C$>$T (101), and m.16519T$>$C (0). The polymorphisms m.309 - 310insC, m.315 - 316insC, and m.16519T$>$C were hot spots and therefore not taken into consideration (weighted with 0). For every haplogroup the rank was calculated according to HaploGrep's algorithm: haplogroup H2a1 was rated best because all diagnostic polymorphisms for the haplogroup were found in the sample $[(105+106+103+106+106+101)/(105+106+103+106+106+101) = 1]$ and none of the sample’s polymorphisms remained unexplained or private $[(105+106+103+106+106+ 101)/(105+106+103+106+106+101+0+0+0)=1]$. Therefore, the overall rank for H2a1 was $r_{H2a1}=0.5\times 1.0 + 0.5 \times 1.0 = 1.0$. For example, the third best hit was haplogroup H2a, where the value for the first part of equation was still 1.0 but because two polymorphisms (m.951G4A, m.16354C4T) remained unexplained in the sample’s profile, the second part of the equation was $(105+106+106+106)/(105+106+103+106+106+101+0+0+0) = 0.6746$, thus leading to a final rank of $r_{H2a}= 0.5\times 1.0 + 0.5\times 0.6746 =0.837$ \cite{Kloss-Brandstatter2011}. \\
+As an example, consider the demonstration provided in our publication \cite{Kloss-Brandstatter2011}: assume that a sample was sequenced for the entire control region (nucleotide positions 16024–16569; 1–576) and genotyped for 45 coding region SNPs as described by Brandstaetter et al. It showed the following profile (with corresponding weights): m.263A$>$G (105), m.309 - 310insC (0), m.315 - 316insC (0), m.750A$>$G (106), m.951G$>$A (103), m.8860A$>$G (106), m.15326A$>$G (106), m.16354C$>$T (101), and m.16519T$>$C (0). The polymorphisms m.309 - 310insC, m.315 - 316insC, and m.16519T$>$C were hot spots and therefore not taken into consideration (weighted with 0). For every haplogroup the rank was calculated according to HaploGrep's algorithm: haplogroup H2a1 was rated best because all diagnostic polymorphisms for the haplogroup were found in the sample $[(105+106+103+106+106+101)/(105+106+103+106+106+101) = 1]$ and none of the sample’s polymorphisms remained unexplained or private $[(105+106+103+106+106+ 101)/(105+106+103+106+106+101+0+0+0)=1]$. Therefore, the overall rank for H2a1 was $r_{H2a1}=0.5\times 1.0 + 0.5 \times 1.0 = 1.0$. For example, the third best hit was haplogroup H2a, where the value for the first part of equation was still 1.0 but because two polymorphisms (m.951G4A, m.16354C4T) remained unexplained in the sample’s profile, the second part of the equation was $(105+106+106+106)/(105+106+103+106+106+101+0+0+0) = 0.6746$, thus leading to a final rank of $r_{H2a}= 0.5\times 1.0 + 0.5\times 0.6746 =0.837$ \cite{Kloss-Brandstatter2011}. \\
 In the updated version of HaploGrep 2, this value was classified with a more sophisticated phylogenetic weight, where we scaled the weights in a window from 1 to 10. Algorithm \ref{alg:haplo2} shows the new phylogenetic weight.
 \begin{algorithm}
 \caption{Scoring of weights in the new version of HaploGrep 2}
 \label{alg:haplo2}
-Let the index set $I$ refer to all mutations found at least once in PhyloTree, and for each $i \in I$ let $f_i$ the absolute frequency of mutation $i$ on the current build of PhyloTree. Let $F$ = $max(i_{fi})$ be the maximum of all those frequencies. For $i \in I$ put $w_i = 1+(9/\ln(F)) \times [\ln(F) - \ln(f_i)] = 10-9\ln(f_i) / \ln(F)$. Conversely, given $1 \leq w \leq 10$, the corresponding frequency $f$ is calculated as  $f = F(10 - w)/9$.
+Let the index set $I$ refer to all mutations found at least once in PhyloTree $P$.
+
+For each $i \in I$ let $f_i$ be the absolute frequency of mutation $i$ in $P$. 
+
+Let $F$ = $max(i_{fi})$ be the maximum of all those frequencies. 
+
+For $i \in I$ calculate the weight $w_i = 1+(9/\ln(F)) \times [\ln(F) - \ln(f_i)] = 10-9\ln(f_i) / \ln(F)$. 
+
+Conversely, given $1 \leq w \leq 10$, the corresponding frequency $f$ is calculated as  $f = F(10 - w)/9$ \cite{Weissensteiner2016b}.
 \end{algorithm}
 
 Based on the calculated weights per variant $w_i$ we calculate for every haplogroup in phylotree the distance to the query variants $r_{hg}$, where we take into account how often variants are found per haplogroup ($k$), the number of variants expected in the analyzed range of the tested haplogroup ($m$) and the total number of polymorphisms in the query sample ($k$).
@@ -126,32 +140,27 @@ where $x$ and $y$ represent non-zero vectors ($x=(x_1,...,x_n)$ and $y=(y_1,...,
 
 Since we parse the Phylotree as a structured XML tree in memory, by loading it once, queries are handled in a recursive manner. Listing \ref{list:pseudo} represents the pseudo-code for the calculation of the ranks where $max(r_{hg})$ represents the best hit.
 
-\begin{lstlisting}[caption={HaploGrep recursive search},label={list:pseudo},language=Java]
+\begin{algorithm}
+\caption{Querying profiles with Phylotree database}
+\label{list:pseudo}
 
-searchPhylotree(Node, Result[], sample, parentResult){
- childrenNodes[] = PhyloTreeNode.getSubHaplogroups();
- while(childrenNodes.hasMoreElements) {
-  SearchResult result = new SearchResult(childrenNodes, parentResult);
-  List polys = childrenNodes.getExpectedPolys();
-   while (polys.hasMoreElements) {
-    if (testsample.contains(currentPoly)) {
-      if (!currentPoly.isBackMutation()) {
-        if (newResult.contains(currentPoly)==1) {
-          newResult.addExpectedPolyWeight(poly);
-          newResult.addFoundPolyWeight(poly); }
-        else {
-          if (currentPoly.isBackMutation()) {
-            newResult.removeMissingOutOfRangeWeight(currentPoly);}
-            newResult.addExpectedPolyWeight(currentPoly);}
-      }
-    }
-     else
-       newResult.addMissingOutOfRangeWeight(currentPoly);
-   }
-  results.add(newResult);
-  searchPhylotree(currentElement, results, sample, newResult);
-}
-\end{lstlisting}
+Iterate over all entries in Phylotree $P$ with length $ 1...l_{P}= |P|$ and all entries in query profile $Q$ with length $1...l_{Q} = |Q|$.
+
+For all polymorphisms in $P_i$ and in Range $R$ use weight $w$ according algorithm \ref{alg:haplo2}:
+
+a) ${expected}$ = polymorphism in $P$
+
+b) ${found}$ = polymorphisms found in $Q$ and $R$, 
+
+c) ${remaining}$ = polymorphisms in $Q$ and $R$ and not in $P$
+
+d) ${out}$ = polymorphism not in $Q$ and not in $R$
+
+with $(r_{hg}) = $
+
+\end{algorithm}
+
+
 
 \subsection{Output formats}
 
