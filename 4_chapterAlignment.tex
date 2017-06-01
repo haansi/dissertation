@@ -149,7 +149,7 @@ While there do exist approaches specifically for mtDNA, the available tools curr
 Furthermore the comparison of rule-based alignment versus phylogenetic based alignment has been debated in the scientific community \cite{Bandelt2008, Polanskey2010}. Both approaches come to the conclusion that novel polymorphisms may require additional rules and that ambiguity in mtDNA alignment can never be excluded \cite{Bandelt2008}. We are aware of both approaches and combine rules with phylogenetic nomenclature based on currently available data.
 %\subsubsection{Pairwise alignment}
 %\subsubsection{Multiple sequence alignment}
-\subsection{Sliding Window Smith Waterman approach ($SW^{2}$)}
+\subsection{Sliding Window Smith-Waterman approach ($SW^{2}$)}
 Given the small size of mtDNA with its $\sim$ 16,569 base pairs, constructing a matrix $D(n \times m)$ corresponds 274,5311,761 cells that need to be calculated for 2 sequences with length $(n,m) = 16,569$. This means that for comparing 2 sequences we need at least 274.5 million steps for calculating the alignment. By splitting sequences in chunks with length of 200 base pairs and using an sliding window approach to overlap these pieces to avoid losing differences to the rCRS between the chunks. This way we get 82 chunks, each with 220 bases (20 overlapping bases, since longest known short 9-base-pair repeat currently in Phylotree is 8289.1[CCCCCTCTA][CCCCCTCTA] with 18 bases), yielding to $82 x 220^2 = 3,9$ million steps resulting in a reduction of calculation time from 41,7 seconds to ~0,6 seconds per sample. This is a 69-fold reduction of calculation time, and represented in figure \ref{fig:runtimeSW}. 
 
 Further advantage of current multi-core CPU architectures is taken, allowing parallel calculations on the different cores. This is achieved by using Java’s Thread Pool methods and work queues, which is aware of pool-related deadlocks, resource thrashing and thread leakage. On a Dual Core Processor a speedup of 30\% can be achieved, on a Quad Core Processor the calculation time of ~ 200 milliseconds equal to a speed up of factor 3 can be achieved.
@@ -171,13 +171,14 @@ The algorithm for querying can be drafted as follows:
 \begin{itemize}
 \item 1. split query sequence of length $m$ into a list of chunks $c$ of length $k$
 \item 2. iterate over each chunk $c_i$ of $m$ for $i=0; i= m/k$ and generated hash of $c$ = $h(c_i)$
-\subitem{ 2.a) if $h(c_i)$ is not a key in the hash map $H$, assign value (=position) to temp variable and checking if the position is as expected (multiple of k, plus considering offset). If yes, back to 2. by taking the next hash $c_{i+1}(h)$ if position only differs by 1, insertion of 1 and set offset++, else perform Needleman-Wunsh, and count offsets if any }
-\subitem 2.b) else if $h(c_i) \notin H$, find anchor $a$, by creating new hash by shifting    $h(c_i)+j for j =0; j<=k$ such that a match can be found. If $a$ as match in $H$ is found, perform NeedleMan Wunsh on all non-matching part, prior position of $a$. Continue with 2 for $h(c_i)+j$
+\subitem{ 2.a) if $h(c_i)$ is not a key in the hash map $H$, assign value (=position) to temp variable and checking if the position is as expected (multiple of k, plus considering offset). If yes, back to 2. by taking the next hash $c_{i+1}(h)$ if position only differs by 1, insertion of 1 and set offset++, else perform Needleman-Wunsch, and count offsets if any }
+\subitem 2.b) else if $h(c_i) \notin H$, find anchor $a$, by creating new hash by shifting    $h(c_i)+j for j =0; j<=k$ such that a match can be found. If $a$ as match in $H$ is found, perform Needleman-Wunsch on all non-matching part, prior position of $a$. Continue with 2 for $h(c_i)+j$
 \item correct according rules 1-3: 
 \subitem  Rule 1 - Least number of Differences
 \subitem Rule 2 - Maintain the AC repeat motif around position 523A-524C.
 \subitem Rule 3 - Direction of indels in homopolymeric stretches is  to put  3’ (from right) instead of 5’ (from left). 
 \end{itemize}
+
 %There do exist further exceptions that need to be considered in 2.b)  
 %\subsection{Optimizations: multi-map}\label{align:optim}
 \section{Comparison to Data Structures}

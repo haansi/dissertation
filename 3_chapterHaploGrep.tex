@@ -138,25 +138,35 @@ Thereby the formula shows that this rank is composed of two parts. The first com
 
 where $x$ and $y$ represent non-zero vectors ($x=(x_1,...,x_n)$ and $y=(y_1,...,y_n)$). $\overline x$ denotes $\frac{\sum{x_i}}{n}$ corresponding to the \textit{mean value} of components $x$. Same holds true for $\overline y$. $n$ is the length of the vectors.
 
-Since we parse the Phylotree as a structured XML tree in memory, by loading it once, queries are handled in a recursive manner. Listing \ref{list:pseudo} represents the pseudo-code for the calculation of the ranks where $max(r_{hg})$ represents the best hit.
+Since we parse the Phylotree as a structured XML tree in memory, by loading it once, queries are handled in a recursive manner. Listing \ref{list:pseudo} represents the calculation of the ranks where $max(r_{hg})$ represents the best hit.
 
 \begin{algorithm}
-\caption{Querying profiles with Phylotree database}
+\caption{Querying profiles recursively against the Phylotree database}
 \label{list:pseudo}
 
-Iterate over all entries in Phylotree $P$ with length $ 1...l_{P}= |P|$ and all entries in query profile $Q$ with length $1...l_{Q} = |Q|$.
+For node $n_{i}$ in Phylotree $P$ with $i=0; i<|P|$ get all child nodes $n_{i_{firstChild...lastChild}}$
 
-For all polymorphisms in $P_i$ and in Range $R$ use weight $w$ according algorithm \ref{alg:haplo2}:
+For all polymorphisms $p$ in $n_{i}$ and in range $R$ calculate Arrays in steps 3-7, by considering the query input sample $Q$ polymorphisms $q_{1}..{|Q|}$:
 
-a) ${expected}$ = polymorphism in $P$
+Expected[] add $p$
 
-b) ${found}$ = polymorphisms found in $Q$ and $R$, 
+Found[] add $p$ if $p$ $\in$ $Q$ and $p$ $\in$ $R$ 
 
-c) ${remaining}$ = polymorphisms in $Q$ and $R$ and not in $P$
+Remaining[] add $q$ if $q$  $\in$ $R$ and $\not\in$ $n_{i}$
 
-d) ${out}$ = polymorphism not in $Q$ and not in $R$
+Notfound[] add $p$ if $\in$ $R$ and $\not\in$ in $Q$
 
-with $(r_{hg}) = $
+Out[] add $p$ $\not\in$ $Q$ and $\not\in$ $R$
+
+calculate rank of haplogroup $(r_{hg})$ based on weights $w$ of polymorphisms in arrays according Algorithm \ref{alg:haplo2}
+
+$Result[r_{n_{i}}]$ = $ \frac{1}{2}\left(\frac{w_{Found}}{w_{Expected}} +  \frac{w_{Found}}{w_{Q}}\right)$
+
+For each child nodes repeat steps 1-9
+
+While parent node not root-node, get parent node of $n_{i}$ and start at 1
+
+result = $\max (Result[r_{n_{i}}]) $
 
 \end{algorithm}
 
@@ -308,17 +318,22 @@ Danish Cohort$^{2}$ & 447.6 sec & 6.42 sec & 6.37 sec   & 6.39 sec & 210.97 sec 
 \subsection{Artificial recombination detection}
 The 16,6 kilobases of the mitochondrial DNA are chopped in smaller fragments when sequenced for being amplified with the polymerase chain reaction (PCR). This means that multiple fragments of one sample are sequenced. For the whole mitochondrial genome, usually 2 (also 1 long range possible) are needed, each comprising between 8kb and 10kb. Different protocols exist, which use 3 or more fragments. Since several manual steps are required when handling the sample in the lab, a fragment could be switched between samples - resulting in so called artificial recombination. Issues with fragments in an NGS sequencing project where the wrong amplification of fragments was applied due to switched concentration in the sample preparation step can occur.
 To check for issues with fragments, derived from different samples, a module "`Check for Recombination"' was implemented in HaploGrep. The algorithm for this procedure can be drafted in the following manner, on a per sample basis:
-\begin{itemize}
-	\item[a)] Estimate the haplogroup $H$ of the complete provided mitochondrial profile 
-	\item[b)] split the sample profile according the fragments $F$ used, and estimate the haplogroup per fragment ($P_{f_i}$)
-	\item[c)] split the reference haplogroup $H$ profile according the fragments $F$ and estimate the haplogroup per fragment ($R_{f_i}$)
-	\item[d)] for each fragment compare the phylogenetic distance $\gamma_f(i)$ of the resulting haplogroup and calculate the total score $$\sum_{n=1}^{length(f)} |{\gamma_f(P_{f_i} - R_{f_i})| > 5}$$ where all samples with distances in the phylogenetic Tree surpassing five nodes are emitted as potentially recombinant.
-\end{itemize}
-As a second approach for detecting artificial recombination, the method described in Kong et al. \cite{Kong2008} for checking constituents in a sample mix-up was implemented. The basic concept here is to estimate the haplogroup of a sample in a first iteration, similar as in the previous described approach a). In a second iteration, all mitochondrial polymorphisms, that could not be assigned to the best resulting group are used to make up a new virtual profile. These secondary possible constituents are affiliated to haplogroups and the number of haplogroup defining constituents confirms the possible contamination. The two steps of the algorithm can be drafted as follows:
-\begin{itemize}
-	\item Primary Classification: Estimate the haplogroup $H$ of the complete provided mitochondrial profile. 
-		\item Secondary Classification: For all mutations $m$ not being covered for the primary classification, the haplogroup with the least difference to the rCRS is estimated. If the resulting haplogroups differs from H2a2a1 and the elements in $m$ are not phylogenetic hotspots, a warning for possible contamination is emitted.
-\end{itemize}
+\begin{algorithm}
+\label{algRecomb}
+Estimate the haplogroup $H$ of the complete provided mitochondrial profile 
+
+split the sample profile according the fragments $F$ used, and estimate the haplogroup per fragment ($P_{f_i}$)
+
+split the reference haplogroup $H$ profile according the fragments $F$ and estimate the haplogroup per fragment ($R_{f_i}$)
+	
+for each fragment compare the phylogenetic distance $\gamma_f(i)$ of the resulting haplogroup and calculate the total score $\sum_{n=1}^{length(f)} |{\gamma_f(P_{f_i} - R_{f_i})| > 5}$ where all samples with distances in the phylogenetic Tree surpassing five nodes are emitted as potentially recombinant.
+\end{algorithm}
+As a second approach for detecting artificial recombination, the method described in Kong et al. \cite{Kong2008} for checking constituents in a sample mix-up was implemented. The basic concept here is to estimate the haplogroup of a sample in a first iteration, similar as in the previous described approach. In a second iteration, all mitochondrial polymorphisms, that could not be assigned to the best resulting group are used to make up a new virtual profile. These secondary possible constituents are affiliated to haplogroups and the number of haplogroup defining constituents confirms the possible contamination. The two steps of the algorithm can be drafted as follows:
+\begin{algorithm}
+Primary Classification: Estimate the haplogroup $H$ of the complete provided mitochondrial profile. 
+
+Secondary Classification: For all mutations $m$ not being covered for the primary classification, the haplogroup with the least difference to the rCRS is estimated. If the resulting haplogroups differs from H2a2a1 and the elements in $m$ are not phylogenetic hotspots, a warning for possible contamination is emitted.
+\end{algorithm}
 
 Given the dataset in Bandelt et al. \cite{Bandelt2012}, the herein described methods were assessed for reliability. In the first paper, describing the haplogrouping classification, these recombinations remained undetected by HaploGrep, which could be seen as a limitation. The check for remaining variants was able to detect six out of the seven cases, while the fragment-based check could reliably detect all samples as artificial recombinants. Table \ref{table:recomb} lists the results of the two methods, by extending the table provided by Bandelt et al. \cite{Bandelt2012}. 
 
@@ -381,7 +396,7 @@ Based on different data sets (e.g. from the 1000G Phase 1 data set and the Danis
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/multimap.png}
-    \caption[Run time comparison of HaploGrep versions]{} 
+    \caption[Run time comparison of HaploGrep versions]{Run time comparison of full range sequences with different methods HaploGrep, HaploGrep2 and the Multimap approach} 
     \label{hg:mutlimap}
 \end{figure}
 
@@ -403,7 +418,7 @@ Based on different data sets (e.g. from the 1000G Phase 1 data set and the Danis
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/multimap2.png}
-    \caption[Run time comparison of HaploGrep versions]{} 
+    \caption[Run time comparison of HaploGrep versions]{Run time comparison of different MicroArrays. HG2 represents the HaploGrep 2 algorithm, Multimap the optimized hash based approach} 
     \label{hg:multimap2}
 \end{figure}
 \end{enumerate}

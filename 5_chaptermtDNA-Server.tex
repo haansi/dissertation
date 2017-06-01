@@ -110,7 +110,7 @@ All sites with a log likeli-hood ratio (LLR) was calculated as
   LRR=\log L({\widehat{f}_{h_1}}) /  L({\widehat{f}_{h_0}}) 
 \end{equation}
 where $h_0$ represent the model for homoplasmy and $h_1$ the model for heteroplasmy. LLR $\geq5$ are tagged as heteroplasmic sites, which was defined as high-confidence heteroplasmy in \cite{Picardi2012}. 
-\item  A strand bias score is applied to check the forward and reverse independently calculated Since strands are analyzed independently, mtDNA-Server can filter all heteroplasmic sites with a strand bias score $<1$ \cite{Weissensteiner2016b,Guo2012}. The strand bias $SB$ is calculated as follows:
+\item  A strand bias score is applied to check the forward and reverse independently calculated. Since strands are analyzed independently, mtDNA-Server can filter all heteroplasmic sites with a strand bias score $<1$ \cite{Weissensteiner2016b,Guo2012}. The strand bias $SB$ is calculated as follows:
 \begin{equation}\label{eq:llr}
   SB=\left| \frac{k_1}{l_1+k_1} - \frac{k_2}{l_2+k_2} \right| / \left(\frac{k_1 + k_2}{l_1+l_2+k_1+k_2}\right)
 \end{equation}

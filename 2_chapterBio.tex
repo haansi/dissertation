@@ -150,7 +150,7 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 \end{lstlisting}
 \subsection{Aligned reads: BAM file}
 Besides the previously presented "`raw"' sequence format, some defacto standards in the NGS environment are presented in this paragraph. The most established being the Sequence Alignment/Map (SAM) format \cite{Li2009} supporting single- and paired-end reads. It can include different raw formats (not only FASTQ) such as the before mentioned color space reads. The format consists of 2 sections for header and alignment informations. Header content is characterized by "`@"' symbol, the alignment informations are tab delimited and require 11 mandatory fields. Listing \ref{lst:sam} shows an example SAM file\footnote{\url{http://samtools.github.io/hts-specs/SAMv1.pdf}} 
-\begin{lstlisting}[caption= {Excerpt of a SAM file, representing two reads}, label={lst:sam}]
+\begin{lstlisting}[caption= {Excerpt of a SAM file, representing two reads, r001 and r002}, label={lst:sam}]
 @HD VN:1.5 SO:coordinate
 @SQ SN:ref LN:45
 r001 99 ref 7 30 8M2I4M1D3M = 37 39 TTAGATAAAGGATACTG *
