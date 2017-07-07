@@ -11,26 +11,26 @@ When we first described our haplogroup classification approach in 2010 \cite{Klo
     \toprule
     Method  & Year &  Reference & Cited $^*$\\ 
 		\midrule
-		mtDNAmanager & 2008 & Lee et al. \cite{Lee2008} & 61\\ 
+		mtDNAmanager & 2008 & Lee et al. \cite{Lee2008} & 66\\ 
 		MitoVariome & 2009  & Lee et al. \cite{Lee2009} & 12\\
-		mtPhyl & 2009 &  Eltsov and Volodko \cite{eltsov2009mtphyl} & \\
+		mtPhyl & 2009 &  Eltsov and Volodko \cite{eltsov2009mtphyl} & \#\\
 		Ensemble Learning & 2010 &  Wong et al. \cite{Wong2011} & 11  \\ 
-		\textbf{HaploGrep} & \textbf{2010} & \textbf{Kloss-Brandst{\"a}tter et al.} \cite{Kloss-Brandstatter2011} & \textbf{244}  \\ 
-		mthap & 2010 & Lick&\\ 
-		MitoTool & 2011 & Fan and Yao \cite{Fan2011} & 74\\
-		HaploSearch & 2011 & Fregel et al. \cite{Fregel2011}  & 12 \\
-		HmtDB: mt-classifier & 2012 & Rubino et al., \cite{Rubino2012}& 61 \\
-		mtdnacommunity & 2012 & Behar et al. \cite{Behar2012} (RSRS) & 236\\
-		mtDNAoffice & 2012 & Soares et al. \cite{Soares2012} & 2 \\
-		EMMA & 2013 & Roeck et al. \cite{Rock2013} & 37\\
-		Updated MitoTool& 2013& Fan and Yao \cite{Fan2013} & 35\\
-		HaploFind & 2013 & Vianello et al. \cite{Vianello2013} & 33\\
-		Phy-Mer & 2014 & Navarro-Gomez et al. \cite{Navarro-gomez2014} & 7\\
-		\textbf{HaploGrep 2} & \textbf{2016} & \textbf{Weissensteiner et al.} \cite{Weissensteiner2016a}  & \textbf{14}\\
+		\textbf{HaploGrep} & \textbf{2010} & \textbf{Kloss-Brandst{\"a}tter et al.} \cite{Kloss-Brandstatter2011} & \textbf{261}  \\ 
+		mthap & 2010 & Lick& \# \\ 
+		MitoTool & 2011 & Fan and Yao \cite{Fan2011} & 78\\
+		HaploSearch & 2011 & Fregel et al. \cite{Fregel2011}  & 15 \\
+		HmtDB: mt-classifier & 2012 & Rubino et al., \cite{Rubino2012}& 64 \\
+		mtdnacommunity & 2012 & Behar et al. \cite{Behar2012} (RSRS) & 245\\
+		mtDNAoffice & 2012 & Soares et al. \cite{Soares2012} & 3 \\
+		EMMA & 2013 & Roeck et al. \cite{Rock2013} & 42\\
+		Updated MitoTool& 2013& Fan and Yao \cite{Fan2013} & 40\\
+		HaploFind & 2013 & Vianello et al. \cite{Vianello2013} & 39\\
+		Phy-Mer & 2014 & Navarro-Gomez et al. \cite{Navarro-gomez2014} & 11\\
+		\textbf{HaploGrep 2} & \textbf{2016} & \textbf{Weissensteiner et al.} \cite{Weissensteiner2016a}  & \textbf{21}\\
 
 		\bottomrule
 \end{tabular}
-\caption[Related work]{Overview of automated haplogrouping tools for human mtDNA, $^*$number of citations as of March, 2017 in Google Scholar\footnote{\url{https://scholar.google.com/}}}
+\caption[Related work]{Overview of automated haplogrouping tools for human mtDNA, $^*$number of citations as of June, 2017 in Google Scholar\footnote{\url{https://scholar.google.com/}} \# tool not published in a peer reviewed journal} 
 \label{table:tools}
 \end{table}
 
@@ -56,7 +56,7 @@ With \textbf{mtDNAoffice}, Soares et al. \cite{Soares2012}, present a human mtDN
 \\
 The Institute of Legal Medicine (GMI) at Innsbruck was developing \textbf{EMMA} in 2013 together with Mannis van Oven, author of Phylotree, being also involved in mtdnacommunity and Phy-Mer. Based on a combination of database and the use of Phylotree, haplogroup estimation is performed by applying a maximum likelihood ranking. Maximum-Likelihood Estimation (MLE) was applied earlier by the Genographic Consortium \cite{Rosset2008} successfully for site-specific mutation rates in mtDNA, where only partial phylogeny was taken into consideration. After estimating the fluctuation rate per variant, the cost function in EMMA was denoted as $C_t(b) = \sum_i{c(b_i,t_i)}$ by $i$ iterating over all positions where the query ($t$) and the currently tested profile ($b$) differ, by scaling the positional costs logarithmically to  $c(b_i,t_i)= lg(r(t_i \rightarrow t_i)/r(b_i \rightarrow t_i))$. \\
 \\
-\textbf{HaploFind} can be seen as a HaploGrep clone for haplogrouping performed according to the RSRS as reference sequence for complete sequences. It makes use of the suffix-tree based algorithm Mummer for sequence alignment and comparison which is performing great, but needs careful handling of variants, since the nomenclature can differ to phylogenetic standards. The algorithm for haplogroup classification is based on the pre-calculated variant scores from $sim$ 7,800 samples. The assignment is processed in a  recursive manner, where query and the tested haplogroup "`are compared by searching for matches, summing to the sequence score the score of each matching variant"' \cite{Vianello2013}.\\
+\textbf{HaploFind} can be seen as a HaploGrep clone for haplogrouping performed according to the RSRS as reference sequence for complete sequences. It makes use of the suffix-tree based algorithm Mummer for sequence alignment and comparison which is performing great, but needs careful handling of variants, since the nomenclature can differ to phylogenetic standards. The algorithm for haplogroup classification is based on the pre-calculated variant scores from $\sim$ 7,800 samples. The assignment is processed in a  recursive manner, where query and the tested haplogroup "are compared by searching for matches, summing to the sequence score the score of each matching variant" \cite{Vianello2013}.\\
 \\
 \textbf{Phy-Mer} is the latest approach from 2014, to perform haplogroup classification directly on sequencing data, without an actual alignment by further being reference independent. It is one of the first mitochondrial haplogroup classification tools to take data from NGS devices in form of FASTQ or BAM files into account. Using a k-mer library based on Phylotree, the distances to the query sequence are calculated by comparing the sets of all possible k-mers. \\
 
