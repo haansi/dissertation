@@ -14,7 +14,7 @@ While the presented related tools are designed for different NGS derived data, t
 
 
 \section{mtDNA phylogenetic approach for contamination control}\label{haplochecker}
-We developed a tool for mitochondrial sequence data analysis for estimation of contamination accessible via http://mtdna-server.uibk.ac.at/start.html and as a standalone version on Github https://github.com/haansi/greenVC. The underlying principle is that all mitochondrial variants relative to the mitochondrial reference sequence rCRS \cite{Andrews1999} can be split into minor and major variant allele frequency (VAF), as suggested by Li et al. \cite{Li2010} and Avital et al. \cite{Avital2012}.
+We developed a tool for mitochondrial sequence data analysis for estimation of contamination accessible via \url{http://mtdna-server.uibk.ac.at/start.html} and as a standalone version on Github \url{https://github.com/haansi/greenVC}. The underlying principle is that all mitochondrial variants relative to the mitochondrial reference sequence rCRS \cite{Andrews1999} can be split into minor and major variant allele frequency (VAF), as suggested by Li et al. \cite{Li2010} and Avital et al. \cite{Avital2012}.
 \subsection{Naive Variant Caller}
 While the method presented in Chapter \ref{chap:NGS} directly implements the approach presented in \ref{cont:haplochecker}, it was not designed for the purpose of detecting low-level contaminations in low-coverage data, but rather detect reliably the presence of homo- and heteroplasmic variants. To detect contamination below the 10\% level in sequence data with a coverage $<$ 100 fold, a naive variant caller was designed, based on the HTSJDK framework\footnote{\url{https://samtools.github.io/htsjdk/}}, and applies a Clopper Pearson binomial confidence interval \cite{CLOPPER1934}, representing an exact confidence interval. The number of minor alleles (x), the coverage (n) and the confidence level ($\alpha$) are provided, such that the lower limit ($ll$) and upper limit ($ul$) are provided:
 \begin{equation}
@@ -53,7 +53,7 @@ Haplochecker starts with the called pileup variant file, with the variants in ta
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.7\textwidth]{images/workflow_haplochecker.png}
-    \caption[Pipeline for contamination detection]{Pipeline for contamination detection } 
+    \caption[Cloudgene pipeline for contamination detection]{Cloudgene based pipeline for contamination detection } 
     \label{cont:workflow}
 \end{figure}
 

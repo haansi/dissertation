@@ -106,6 +106,8 @@ as following:
 \end{tabular}
 \end{table}
 In a first step, the gap penalty score is added in the first row, and first column, by summing up with the previous value (Figure 1, (1)). Subsequently the table is filled by recursively iterating over all entries in the matrix, and calculating the maximum value for the current cell $D_{i,j}$:
+\\
+\\
 $ D_{i,j} = \max
   \begin{cases}
     D(i-1,j)+ \text{gap penalty}      \\
@@ -114,9 +116,9 @@ $ D_{i,j} = \max
   \end{cases}
 $
 
-
 \subsubsection{Local Alignment} \label{localAl}
-The Smith-Waterman algorithm \cite{Smith1981} as \textit{the} representation of a local alignment, is based on dynamic programming for finding substrings / regions of highly similar content. Since all possible alignments are considered, the optimal local alignment is guaranteed to be found. In the first step, the first column and first row are set to 0 instead to the gap-penalty score. Further a $0$ is added in the cases, so that negative entries are not possible. 
+The Smith-Waterman algorithm \cite{Smith1981} as \textit{the} representation of a local alignment, is based on dynamic programming for finding substrings / regions of highly similar content. Since all possible alignments are considered, the optimal local alignment is guaranteed to be found. In the first step, the first column and first row are set to 0 instead to the gap-penalty score. Further a $0$ is added in the cases, so that negative entries are not possible.
+\\
 $ D_{i,j} = \max
   \begin{cases}
     D(i-1,j)+ \text{gap penalty}      \\
@@ -124,7 +126,8 @@ $ D_{i,j} = \max
     D(i-1,j-1)+ \text{matching score} \\
     0 \\
   \end{cases}
-$\\
+$
+\\
 The filling of the scoring table is again a recursive step like in the global alignment. The traceback does not start in the cell D(n,m), but in the cell with the highest value. Figure \ref{fig:local} represents the same examples as for local alignment. Here the starting point for the traceback is however the highest entry in the scoring table. The end is reached by finding the cell with a value 0. This is very different from the global alignment, that always starts in cell $D(n,m)$ and ends in cell $D(0,0)$. Optimizations of this approach are presented by Gotoh \cite{Gotoh1982}.  
 \begin{figure}[H]
 

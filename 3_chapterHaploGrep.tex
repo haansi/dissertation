@@ -148,19 +148,19 @@ For node $n_{i}$ in Phylotree $P$ with $i=0; i<|P|$ get all child nodes $n_{i_{f
 
 For all polymorphisms $p$ in $n_{i}$ and in range $R$ calculate Arrays in steps 3-7, by considering the query input sample $Q$ polymorphisms $q_{1}..{|Q|}$:
 
-Expected[] add $p$
+ExpectedArray add $p$
 
-Found[] add $p$ if $p$ $\in$ $Q$ and $p$ $\in$ $R$ 
+FoundArray add $p$ if $p$ $\in$ $Q$ and $p$ $\in$ $R$ 
 
-Remaining[] add $q$ if $q$  $\in$ $R$ and $\not\in$ $n_{i}$
+RemainingArray add $q$ if $q$  $\in$ $R$ and $\not\in$ $n_{i}$
 
-Notfound[] add $p$ if $\in$ $R$ and $\not\in$ in $Q$
+NotfoundArray add $p$ if $\in$ $R$ and $\not\in$ in $Q$
 
-Out[] add $p$ $\not\in$ $Q$ and $\not\in$ $R$
+OutArray add $p$ $\not\in$ $Q$ and $\not\in$ $R$
 
 calculate rank of haplogroup $(r_{hg})$ based on weights $w$ of polymorphisms in arrays according Algorithm \ref{alg:haplo2}
 
-$Result[r_{n_{i}}]$ = $ \frac{1}{2}\left(\frac{w_{Found}}{w_{Expected}} +  \frac{w_{Found}}{w_{Q}}\right)$
+$Result[r_{n_{i}}]$ = $ \frac{1}{2}\left(\frac{w_{FoundArray}}{w_{ExpectedArray}} +  \frac{w_{FoundArray}}{w_{Q}}\right)$
 
 For each child nodes repeat steps 1-9
 
@@ -316,10 +316,12 @@ Danish Cohort$^{2}$ & 447.6 sec & 6.42 sec & 6.37 sec   & 6.39 sec & 210.97 sec 
 
 \section{Quality Control}\label{hg:qc}
 \subsection{Artificial recombination detection}
-The 16,6 kilobases of the mitochondrial DNA are chopped in smaller fragments when sequenced for being amplified with the polymerase chain reaction (PCR). This means that multiple fragments of one sample are sequenced. For the whole mitochondrial genome, usually 2 (also 1 long range possible) are needed, each comprising between 8kb and 10kb. Different protocols exist, which use 3 or more fragments. Since several manual steps are required when handling the sample in the lab, a fragment could be switched between samples - resulting in so called artificial recombination. Issues with fragments in an NGS sequencing project where the wrong amplification of fragments was applied due to switched concentration in the sample preparation step can occur.
-To check for issues with fragments, derived from different samples, a module "`Check for Recombination"' was implemented in HaploGrep. The algorithm for this procedure can be drafted in the following manner, on a per sample basis:
+The 16,6 kilobases of the mitochondrial DNA are chopped in smaller fragments when sequenced for being amplified with the polymerase chain reaction (PCR). This means that multiple fragments of one sample are sequenced. For the whole mitochondrial genome, usually 2 fragments (also 1 long range possible) are needed, each comprising between 8kb and 10kb. Different protocols exist, which use 3 or more fragments. Since several manual steps are required when handling the sample in the lab, a fragment could be switched between samples - resulting in so called artificial recombination. Issues with fragments in an NGS sequencing project where the wrong amplification of fragments was applied due to switched concentration in the sample preparation step can occur.
+To check for issues with fragments, derived from different samples, a module \textit{"Check for Recombination"} was implemented in HaploGrep. The algorithm for this procedure is  drafted as presented in algorithm \ref{algRecomb}, on a per sample basis.
 \begin{algorithm}
-\label{algRecomb}
+  \caption{Estimation of artificial recombinants}
+  \label{algRecomb}
+
 Estimate the haplogroup $H$ of the complete provided mitochondrial profile 
 
 split the sample profile according the fragments $F$ used, and estimate the haplogroup per fragment ($P_{f_i}$)
@@ -328,8 +330,13 @@ split the reference haplogroup $H$ profile according the fragments $F$ and estim
 	
 for each fragment compare the phylogenetic distance $\gamma_f(i)$ of the resulting haplogroup and calculate the total score $\sum_{n=1}^{length(f)} |{\gamma_f(P_{f_i} - R_{f_i})| > 5}$ where all samples with distances in the phylogenetic Tree surpassing five nodes are emitted as potentially recombinant.
 \end{algorithm}
+
+
+ 
 As a second approach for detecting artificial recombination, the method described in Kong et al. \cite{Kong2008} for checking constituents in a sample mix-up was implemented. The basic concept here is to estimate the haplogroup of a sample in a first iteration, similar as in the previous described approach. In a second iteration, all mitochondrial polymorphisms, that could not be assigned to the best resulting group are used to make up a new virtual profile. These secondary possible constituents are affiliated to haplogroups and the number of haplogroup defining constituents confirms the possible contamination. The two steps of the algorithm can be drafted as follows:
 \begin{algorithm}
+  \caption{Steps for recombination check adapted from Kong et al.}
+  \label{algRecomb}
 Primary Classification: Estimate the haplogroup $H$ of the complete provided mitochondrial profile. 
 
 Secondary Classification: For all mutations $m$ not being covered for the primary classification, the haplogroup with the least difference to the rCRS is estimated. If the resulting haplogroups differs from H2a2a1 and the elements in $m$ are not phylogenetic hotspots, a warning for possible contamination is emitted.
@@ -418,7 +425,7 @@ Based on different data sets (e.g. from the 1000G Phase 1 data set and the Danis
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{images/multimap2.png}
-    \caption[Run time comparison of HaploGrep versions]{Run time comparison of different MicroArrays. HG2 represents the HaploGrep 2 algorithm, Multimap the optimized hash based approach} 
+    \caption[Run time (in sec) comparison of HaploGrep versions]{Run time (in sec) comparison of different MicroArrays. HG2 represents the HaploGrep 2 algorithm, Multimap the optimized hash based approach} 
     \label{hg:multimap2}
 \end{figure}
 \end{enumerate}
@@ -428,4 +435,4 @@ The updated version HaploGrep 2 could be improved by a factor of $\sim$ 8 fold t
 The evaluation shows that the improvement for whole mitochondrial genome sequences are marginal, but are essential for large studies with MicroArrays. The runtime were on one single CPU only, therefore taking advantage of current multi-core architectures, additional speedup can be achieved. 
 
 \section{Conclusion and Outlook}\label{hg:outlook}
-In this chapter, an algorithm and its implementation called HaploGrep were described. It is designed to assign haplogroups to given mitochondrial profiles to be examined. This is of special interest in various genetic fields, and will become of interest to a broader spectrum of users in the near future. The increase of personal genetic testing companies like 23andMe, ancestry.com, Living DNA, Family Tree DNA, or the National Geographic Genographic Project to name the most prominent as of 2017, already bring this information directly to the customers. These are focused on the ancestry. Haplogroups provide a coarse information in this regard (based on the mutation rate of one fixed mutation in every $\sim$ 3,000 years). Haplogroups will also gain on importance for mitochondrial replacement therapy, where a haplogroup matching between donor and recipient is highly suggested \cite{Royrvik2016}, highlighting the importance of accurate haplogroup estimation. Different tools as well as distance measures where compared regarding their performance and evaluated in this chapter, by showing that the implementation in HaploGrep outperforms current available tools, in terms of accuracy and speed. The run-time can be optimized with hash-based data structures and the use of an inverted index, especially for MicroArray data. Further improvements can be a pre-classification based on sub-setting the phylogenetic tree, of the main branches, comprising a small amount of nodes $n$, where $n = 25$ based on the current phylogenetic data \cite{VanOven2015}. Thereafter the subbranches of the node with the highest score needs to be performed. By introducing this group-based layer, the haplogroup calculation can be reduced to a lower-dimensional space. A further problem is the generation of the underlying phylogenetic tree, currently performed in a mostly manual way. By generating Maximum Parsimony Trees based on mtphyl\ref{mtphyl} that need to be confirmed by at least two independently sequenced mitochondrial profiles, the world-wide mtDNA phylogeny is currently curated by Mannis van Oven \cite{VanOven2015} in cooperation with the Forensics Institute of Innsbruck in a semi-automated way. While HaploGrep already takes advantage of XML-structured tree, an extension to allow the addition of nodes directly in this tree are not of technical limitation, and could refer to the growing amount of world-wide available mitochondrial full genome sequences, currently from 32,000 to millions in the next years.
+In this chapter, an algorithm and its implementation called HaploGrep were described. It is designed to assign haplogroups to given mitochondrial profiles to be examined. This is of special interest in various genetic fields, and will become of interest to a broader spectrum of users in the near future. The increase of personal genetic testing companies like 23andMe, ancestry.com, Living DNA, Family Tree DNA, or the National Geographic Genographic Project to name the most prominent as of 2017, already bring this information directly to the customers. These are currently limited to the ancestry aspect. Haplogroups provide a coarse information in this regard (based on the mutation rate of one fixed mutation in every $\sim$ 3,000 years). Haplogroups will also gain on importance for mitochondrial replacement therapy, where a haplogroup matching between donor and recipient is highly suggested \cite{Royrvik2016}, highlighting the importance of accurate haplogroup estimation. Different tools as well as distance measures where compared regarding their performance and evaluated in this chapter, by showing that the implementation in HaploGrep outperforms current available tools, in terms of accuracy and speed. The run-time can be optimized with hash-based data structures and the use of an inverted index, especially for MicroArray data. Further improvements can be a pre-classification based on sub-setting the phylogenetic tree, of the main branches, comprising a small amount of nodes $n$, where $n = 25$ based on the current phylogenetic data \cite{VanOven2015}. Thereafter the subbranches of the node with the highest score needs to be performed. By introducing this group-based layer, the haplogroup calculation can be reduced to a lower-dimensional space. A further problem is the generation of the underlying phylogenetic tree, currently performed in a mostly manual way. By generating Maximum Parsimony Trees based on mtphyl\ref{mtphyl} that need to be confirmed by at least two independently sequenced mitochondrial profiles, the world-wide mtDNA phylogeny is currently curated by Mannis van Oven \cite{VanOven2015} in cooperation with the Forensics Institute of Innsbruck in a semi-automated way. While HaploGrep already takes advantage of XML-structured tree, an extension to allow the addition of nodes directly in this tree are not of technical limitation, and could refer to the growing amount of world-wide available mitochondrial full genome sequences, currently from 32,000 to millions in the next years.
