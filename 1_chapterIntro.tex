@@ -1,7 +1,7 @@
 \chapter{Introduction}
 \label{chapterIntro}
 \section{Motivation}
-Increasing data volumes in the field of Genetics require sophisticated computational methods. The bottleneck is no longer the data generation itself, but shifted notably towards the data analysis \cite{Forer2014}. The whole human genome with its size of over 3 billion positions can be analyzed in short time with decreasing prices. Therefore the amount of data that has to be dealt with already increased and will so even more dramatically in future. This requires new algorithms and methods for data quality control (QC), to  increase precision and recall and to exceed currently available methods in a scalable way. Misleading results can impact medical studies or forensic casework, where errors introduced by computational methods can have severe consequences. The focus of this work is on computational methods for reproducible QC of DNA from a small genome, contained in the mitochondria. Its length contributes only to $0.0005\%$ to the complete human genome. High-throughput data is required to investigate processes in the mitochondria in more depth, which are currently unclear. Some of these processes are the development of mutations and its fixation in cancer or aging processes on the mitochondrial DNA. To investigate those processes, the high amount of data produced   requires scalable and reproducible pipelines. 
+Increasing data volumes in the field of Genetics require sophisticated computational methods. The bottleneck is no longer the data generation itself, but shifted notably towards the data analysis \cite{Forer2014}. The whole human genome with its size of over 3 billion positions can be analyzed in short time with decreasing prices. Therefore the amount of data that has to be dealt with already increased and will so even more dramatically in future. This requires new algorithms and methods for data quality control (QC), to  increase precision and recall and to exceed currently available methods in a scalable way. Misleading results can impact medical studies or forensic casework, where errors introduced by computational methods can have severe consequences. The focus of this work is on computational methods for reproducible QC of DNA from a small genome, contained in the mitochondria. Its length contributes only to $0.0005\%$ to the complete human genome. High-throughput data is required to investigate processes in the mitochondria in more depth, which are currently unclear. Some of these processes are the development of mutations and its fixation in cancer or aging processes on the mitochondrial DNA. To investigate those processes, the high amount of data produced requires scalable and reproducible pipelines. 
 \\
 \\
 The human mitochondrial DNA, henceforth abbreviated as mtDNA, plays an important role in today's life-science and is of especial interest in the field of population genetics, forensics and clinical disease association studies. The mitochondrial DNA has some features (more to find in Chapter \ref{chap:BioFound}) that make it predestined for genealogists when it comes to creation of family trees. It also helps forensics in identifying persons or victims even with degraded body remains. Clinicians investigate mutations on mtDNA, often leading to diseases. Since mitochondria are heavily involved in bioenergetic processes, they provide opportunities for diagnosis and therapies \cite{Picard2016}.
@@ -22,18 +22,19 @@ In this thesis, solutions to the drafted issues are proposed. Software tools, wh
 
 \section{Preliminary Work}
 \label{prelimWork}
-This work is the continuation of an interdisciplinary cooperation between the group of Databases and Information Systems of the University of Innsbruck and the Department of Genetic Epidemiology at the Medical University of Innsbruck. It started back in 2007 and led to my master's degree in computer science in 2008. Then the focus was on the development of a database for genotype data (the blueprint of an organism, contained in each cell) and phenotype data (an organism's observed properties, such as the physical appearance like eye color or the body mass index, disease or behavior) with the result published in BMC Bioinformatics \cite{Schoenherr2009}. This database was the foundation for the next project, which was to extend it for QC and further functionality to work with the mitochondrial genome's DNA. 
+%This work is the continuation of an interdisciplinary cooperation between the group of Databases and Information Systems of the University of Innsbruck and the Department of Genetic Epidemiology at the Medical University of Innsbruck. It started back in 2007 and led to my master's degree in computer science in 2008. Then
+The focus of the preliminary work was on the development of a database for genotype data (the blueprint of an organism, contained in each cell) and phenotype data (an organism's observed properties, such as the physical appearance like eye color or the body mass index, disease or behavior) with the result published in BMC Bioinformatics \cite{Schoenherr2009}. This database was the foundation for the next project, with the goal to extend it for QC and further functionality to work with the mitochondrial genome's DNA. 
 \\
-Different methods for the generation of mtDNA data exist, as presented in section \ref{sec:dataGeneration}. While the data generation is getting increasingly more straightforward, the data management gets more complex. Checks for data quality are needed, to avoid the processing of false positive data, that could lead to misinterpretation of diseases, to wrong publications and conclusions or even to the arrest of innocent persons.
-A short summary about the basic concept of the previous method is presented here, that shows the mtDNA data management in a relational database. Since this system is based on a previous work by Sch\"onherr and Weissensteiner \cite{Schoenherr2009} from 2009, the database structure's concept is to store phenotypes in a key-value like schema (where a key has a value and a time-stamp), by implementing three different entities (for each data-type)  with IDs, foreign keys, the value in the corresponding data-type $String, Integer, Double$ and time stamp.
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[scale=0.46]{ecompagt.png}
-\caption[eCOMPAGTs User Interface]{eCOMPAGTs User Interface for mtDNA handling: the input data is checked for concordance, while several file exports are supported. Figure presented in Weissensteiner et al. \cite{Weissensteiner2010}}.
-\label{fig:ecompagt}
-\end{center}
-\end{figure}
-Both phenotypes and genotypes are stored in a previously IBM DB2 database, in an updated version also Oracle and MySQL relational database management systems are supported. When working with mtDNA data from sequencing devices, we integrated an workflow for the analysis in eCOMPAGT, to securely import, validate, store and export mtDNA profiles.  These can further be connected to phenotype data by using eCOMPAGT's combination and evaluation feature. Data import comprise data in EMPOP format \cite{Parson2007}, or from Sequencher/SeqScape mutation reports. Data Exports provide various formats for different applications: EMPOP as well as FASTA files, file for generation of phylogenetic networks in Network.exe\footnote{\url{fluxus-engineering.com}}  \cite{Bandelt1999}, mtdnaManager \cite{Lee2008}, as well as HaploGrep input files \cite{Kloss-Brandstatter2011,Weissensteiner2016a}. Figure \ref{fig:ecompagt} shows the graphical user interface of the database, based on Java Swing and SwingX. The workflow, as well as the underlying architecture are not further presented in this work, I refer to the publications by Sch\"onherr and Weissensteiner \cite{Schoenherr2009,Weissensteiner2010}. These articles build the groundwork of the subsequently research effort. One previously identified limitation of this system is addressed and solved in the the subsequent Chapter \ref{chapterHaplogrep}, by presenting HaploGrep.
+Different methods for the generation of mtDNA data exist, as presented in Section \ref{sec:dataGeneration}. Checks for data quality are needed, to avoid the processing of false positive data, that could lead to misinterpretation of diseases, to wrong publications and conclusions or even to the arrest of innocent persons.
+A short summary about the basic concept of the previous method is presented here, that shows the mtDNA data management in a relational database. Since this system is based on a previous work by Sch\"onherr and Weissensteiner \cite{Schoenherr2009} from 2009, the database structure's concept is to store phenotypes in a key-value like schema, by implementing three different entities (for each data-type)  with IDs, foreign keys, the value in the corresponding data-type $String, Integer, Double$ and a time stamp.
+% \begin{figure}[ht]
+% \begin{center}
+% \includegraphics[scale=0.46]{ecompagt.png}
+% \caption[eCOMPAGTs User Interface]{eCOMPAGTs User Interface for mtDNA handling: the input data is checked for concordance, while several file exports are supported. Figure presented in Weissensteiner et al. \cite{Weissensteiner2010}}.
+% \label{fig:ecompagt}
+% \end{center}
+% \end{figure}
+Both phenotypes and genotypes are stored in an relational database management systems. When working with mtDNA data from sequencing devices, we integrated a workflow for the analysis in eCOMPAGT, to import, validate, store and export mtDNA profiles. These can further be connected to phenotype data. Data import comprise data in EMPOP format \cite{Parson2007}, or from Sequencher/SeqScape mutation reports. Data Exports provide various formats for different applications: EMPOP as well as FASTA files, file for generation of phylogenetic networks in Network.exe\footnote{\url{http://fluxus-engineering.com}}  \cite{Bandelt1999}, mtdnaManager \cite{Lee2008}, as well as HaploGrep input files \cite{Kloss-Brandstatter2011,Weissensteiner2016a}. The workflow, as well as the underlying architecture are not further presented herein, I refer to the publications by Sch\"onherr and Weissensteiner \cite{Schoenherr2009,Weissensteiner2010}. These articles build the groundwork of the subsequently research effort. One previously identified limitation of this system is addressed and solved in the the subsequent Chapter \ref{chapterHaplogrep}, by presenting HaploGrep.
 
 
 
@@ -98,9 +99,16 @@ Several conferences and workshops were attended in the last years, including ven
 \section{Structure of the Thesis}
 \label{sect:ProblChar}
 Within the next Chapter \ref{chap:BioFound}, the basic features of mtDNA, as well as the data formats are presented. An already implemented database for mtDNA data was presented (Publications in BMC Bioinformatics \cite{Schoenherr2009, Weissensteiner2010}) as drafted in the previous Section \ref{prelimWork}, able to perform basic QC steps, with limited supported file formats.
-
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.5]{BigPicture.pdf}
+\caption[Representation of chapters]{Representation of chapters and their connection to a contamination detection method, covering various file formats }
+\label{fig:figureBigPic}
+\end{center}
+\end{figure}
 % The core purpose of this investigation was to build an information system for managing data from the often so called powerhouses of the cell, the mitochondria with their own mitochondrial DNA. Besides the initial database (see \ref{prelimWork}, several additional algorithms and frameworks which all can be connected to a pipeline and as a matter of fact are connected in Chapter \ref{chap:NGS} and Chapter \ref{chapterContamination} yield to high-quality mtDNA data. The herein developed JAVA based software solutions are abstracted in the next paragraphs and are presented in detail in the corresponding chapters.
 % \\
+
 Chapter \ref{chapterHaplogrep} describes the foundations of mitochondrial classification to haplogroups based on an XML tree. Several binary similarity and distance measures are evaluated and our solution HaploGrep is compared to related work. 
 
 
@@ -112,13 +120,7 @@ The resulting profiles yield insights in heteroplasmy levels and are an indicati
 
 
 Based on this check contamination not only in targeted mtDNA sequencing studies, but also in whole genome and whole exome Sequencing Projects can be detected. This approach is partly presented in Weissensteiner et al. \cite{Weissensteiner2016b} and is part of a work that is currently prepared for publication.
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[scale=0.5]{BigPicture.pdf}
-\caption[Representation of chapters]{Representation of chapters and their connection to a contamination detection method, covering various file formats }
-\label{fig:figureBigPic}
-\end{center}
-\end{figure}
+
 
 Figure \ref{fig:figureBigPic} gives an overview of the chapters represented in this work and their relation as a schematic software stack.
 
