@@ -221,15 +221,15 @@ Samples &  HaploGrep 2 &  Global alignments performed   \\ \hline
 30,651   & 11.095 sec&  21,950    \\ \hline
 \end{tabular}
 \end{table}
-\subsection{Suffix Trees}
+\subsection{Comparison to Suffix Trees}
 As an implementation of a suffix tree, MUMmer is applied on the previously described data sets. MUMmer was used in version 3.23. Since MUMmers outputs a so called delta encoded file\footnote{\url{http://nebc.nerc.ac.uk/bioinformatics/documentation/mummer/nucmer.README}}, further processing with the show-snp program is required. Only after processing this snp file, it can be directly imported into HaploGrep, based on a Java based converter, written for the evaluation of the produced variants. Table \ref{tableMummer} reports the run time for the mtDNA sequences from GenBank as previously described, where Real Time represents the console run time and the column \texttt{show-snp} represents the runtime to convert the delta encoded style to the resulting SNP file.  
 \begin{table}[H]
 \centering
-\caption{HaploGrep 2 vs. MUMmer 3.23  Runtime: Mummer parameter -c 100 applied }
+\caption{HaploGrep 2 vs. MUMmer 3.23  Runtime: Mummer \textit{nucmer} parameter -c 100 applied }
 \label{tableMummer}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Samples & HaploGrep2 & Real Time$^{1}$ &   \texttt{show-snp$^{2}$} & $^1$+$^2$ \\ \hline
+\textbf{Samples} & \textbf{HaploGrep 2} & \textbf{MUMmer}3$^{1}$ &   \textbf{show-snp}$^{2}$ & $^1$+$^2$ \\ \hline
 1,000  & 0.994 sec  & 2.814 sec  &     0.423 sec  &  3.237 sec
 \\ \hline
 2,000  & 1.366 sec  & 5.525s sec &     0.757 sec &  6.282 sec
@@ -252,7 +252,7 @@ It involves two steps, similar to the method implemented in HaploGrep: a hash in
 \label{time:BWA:SMALT}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Samples &  HaploGrep 2 &  \texttt{bwa mem}  &  \texttt{smalt k=20, s=20} \\ \hline
+\textbf{Samples} &  \textbf{HaploGrep 2} &  \textbf{bwa mem}  &  \textbf{smalt k=20, s=20} \\ \hline
 1,000  & 0.994 sec     & 24.462 sec  &    3m37.20 sec \\ \hline
 2,000  & 1.366 sec    & 48.408 sec  &    7m53.428 sec \\ \hline
 5,000  & 2.284 sec    & 2m1.222 sec &   20m44.275 sec \\ \hline
@@ -263,7 +263,7 @@ The results are in SAM files, where based on the CIGAR strings and the FASTA seq
 The CIGAR strings for SMALT are identical in all samples out of the 10,000 sample set by fine-tuning the length (k) and spacing (s) of the hashed words between 20 (run times represented in Table \ref{time:BWA:SMALT} and 13. However, BWA MEM and SMALT yield identical CIGARS in only 1.643 out of the 10,000 samples. The different CIGARS mostly are the result of different handling of indels in homopolymeric stretches, where BWA MEM manages them 5' and SMALT 3'. As example, the insertion on 315.1C where a C-stretch is be found between 310T and 316G according the rCRS, yields to the 315M1I16254M in SMALT and 310M1I16259M in BWA MEM.
 
 
-\subsection{Performance of mtDNA specific Aligners}
+\subsection{Comparison to mtDNA specific Aligners}
 Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an FM-Index, the related methods MitoTool, mtDNAprofiler and Phy-mer are compared against the here presented hash-map based approach, included in HaploGrep 2, based on the datasets from GenBanks full mtDNA sequences. Here the upload limit of mtDNAprofiler restricts a comparison to 50 samples.
 \begin{table}[H]
 \centering
@@ -271,8 +271,8 @@ Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an F
 \label{align:comp}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-Run Time for & phy-mer &  MitoTool & mtDNAprofiler & HaploGrep \\ \hline
-50 Samples  &  1690 sec  &    \begin{tabular}{@{}c@{}}1260 sec$^{1}$ \\ 105.55 sec$^{2}$\end{tabular}   &  110 sec$^{3}$ &  0.44 sec     \\ \hline
+\textbf{Samples} & \textbf{HaploGrep 2} & \textbf{phy-mer} &  \textbf{MitoTool} & \textbf{mtDNAprofiler}  \\ \hline
+50 Samples  &  0.44 sec  &  1690 sec  &    \begin{tabular}{@{}c@{}}1260 sec$^{1}$ \\ 105.55 sec$^{2}$\end{tabular}   &  110 sec$^{3}$    \\ \hline
 
 \end{tabular}
 \end{table}
