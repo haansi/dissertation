@@ -204,41 +204,41 @@ HashMap $H$ put key $h_{ref(i,i+k)}$ with value $i$
 As drafted, for each substring with length 20, an Integer is stored presenting the Hash-value of the sequence, with the start position of the string being the value. Therefore the HashIndex was implemented as Trove HashMap (TIntIntHashMap). 
 
 \begin{algorithm}
-\label{alg:align2}
- \KwData{String Fasta = query sequence with length $\sim$ 16569}
+
+ \KwData{String Fasta = query sequence, HashMap $H$}
  \KwResult{List of SNPs (transition/transversion, insertion or deletion)}
  k=20\; 
 Offset=0\;
  \For{i = 1; i$<$(length(Fasta)/k; i+k;}{
-  Chunk c = substring(Fasta,from=i*k+Offset,to=i*k+k+Offset)\;
+  Chunk c = substr.(Fasta,from=i*k+Offset,to=i*k+k+Offset)\;
   \eIf{Hash value of c = $h(c) \notin H$ }{
    //find anchor $a$ by shifting over j\;
+   $h(a)$ = substr.(Fasta,from=i*k+Offset+j,to=i*k+k+Offset+j)\;
    \While{$h(a) \notin H$}{
     j++\;
-   $h(a)$ = substring(Fasta,from=i*k+Offset+j,to=i*k+k+Offset+j)\;
+   
   \eIf{$h(a) \in H$}{
     Offset+=j\;
-    \eIf{$h(a)$ position = i*k+Offset+j+1  }{
  //check if position is as expected\;
- \eIf{value of $h(a$ shifted -$k)$ == $h(a)$-k  }{
+ \eIf{value of $h(a$ shifted $-k)$ == $h(a)$-k  }{
  SNPs.append(transition or transversion)\;
  }{ \eIf{value of $h(a$ shifted $-k)$ == $h(a)$-k+1  }{
  SNPs.append(insertion)\;
  }{\eIf{value of $h(a$ shifted $-k)$ == $h(a)$-k-1  }{
  SNPs.append(deletion)\;
  }{Perform Needleman-Wunsch}}}
- }{proceed with next j}
+
    }{
    go back to the beginning of current section\;
   }
  }
  }
- {\eIf{Hash value of c = $h(c) \in H$ }{
- //check if position is as expected\;
- }{else}
+ {//Hash value of c = $h(c) \in H$\;
+ //check if position is as expected, similar to lines 10-29\;
  }
 }
-\caption{HashMap with Needleman Wunsch based Alignment}
+\caption{HashMap based SNP detection by avoiding to call dynamic programming (global alignment for shortest required substrings, not represented here) for single SNPs, insertions or deletions  }
+\label{alg:align2}
 \end{algorithm}
 
 %There do exist further exceptions that need to be considered in 2.b)  
@@ -361,7 +361,7 @@ Several well established approaches to align nucleotide sequences with numerous 
 As a result we extend our mitochondrial workbench HaploGrep (see Chapter \ref{chapterHaplogrep}) with the herein described alignment module to allow an accurate and easy handling of mtDNA FASTA files. Herein we show its scalability, and ability to handle thousands of sequences in a fraction of time compared to currently related methods. The comparison to current NGS aligners/mappers as well as Third-Generation Sequencing aligners/mappers is performed on mtDNA data subsequently. Currently the presented aligner does not write SAM files, which will be addressed in a future work. While NGS reads are getting longer (300bp chemistry available), Third Generation Sequencing producing reads of up to 100,000 bp becomes less error prone. Therefore similar to the mappers BWA or SMALT, the presented approach could be directly integrated into an massive parallel sequencing pipeline for mtDNA. 
 The mtDNA data processing of massive parallel sequencing is presented within the next Chapter \ref{chap:NGS}. It is important to notice that the presented approach was specifically designed for handling highly similar sequences, by trying to avoid cost intensive dynamic programming, as often as possible. It is therefore adapted specifically to the human mtDNA. Future work needs to be performed to make this method for pairwise sequence comparison available to a wider spectrum of reference sequences. 
 
-It is also important to notice that the presented approach is not feasible for larger genomes or sequences larger than ten Megabases. This is due to the increasing memory size required for handling the index. Future work on the use of MultiMap (Hash Map with the value itself being of type Collection) where the value is represented as a list of positions, can render the handling of larger sequences and the use of different reference sequences  the approach more generic. 
+It is also important to notice that the presented approach is not feasible for genomes or sequences larger than ten Megabases. This is due to the increasing memory size required for handling the index. Future work on the use of MultiMap (Hash Map with the value itself being of type Collection) where the value is represented as a list of positions, can render the handling of larger sequences and the use of different reference sequences  the approach more generic. 
 %De-novo vs. mapping assembly Wikipedia Artikel!! 
 %Paper: A Practical Comparison of De Novo Genome Assembly Software Tools for Next-Generation Sequencing Technologies
 
