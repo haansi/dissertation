@@ -85,7 +85,7 @@ When the Input validation step completes successfully, the input data is put in 
 The correct read pairs are identified by setting the Hadoop output key to the read name, as previously described \cite{Weissensteiner2016b, Pireddu2011}. Figure \ref{fig:mapreduce} gives an overview of the invoked map and reduce functions. This extra step is not required for single-end reads, were each chunk can be directly mapped with BWA-MEM, and the resulting SAM records are stored in the HDFS. The splitting of the chunks needed adoptions, since the FASTQ file consists of four lines in the file describing one read. After the generation of the SAM file, the BAM files are written, by using the secondary sort mechanism of Hadoop MapReduce. Thereafter, all steps are identical to the direct import of BAM files by the user, described in the next subsection.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=1\textwidth]{images/mapreduce.png}
+    \includegraphics[width=0.85\textwidth]{images/mapred.png}
     \caption[Paired End Read Alignment with MapReduce]{Paired End Read Alignment with MapReduce - The Hadoop map function creates keys consisting of the read ID to sort read pairs. The reducer amounts the read pairs to a batch and executes it via a JNI method (JBWA) with BWA-MEM. Remaining reads are aligned within the Last-Batch method.  }
     \label{fig:mapreduce}
 \end{figure}

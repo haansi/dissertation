@@ -147,7 +147,7 @@ The filling of the scoring table is again a recursive step like in the global al
 
     \centering
     \includegraphics[width=1\textwidth]{images/localAlign.png}
-    \caption[Example of local alignment]{Example of local alignment, with the Match/Mismatch/Gap scores as previously defined. As can be seen, only the part with the highest similarity \texttt{AGT} as substring of text $S_1$ and $S_2$ is the best result for the local alignment}
+    \caption[Example of Local Alignment]{Example of local alignment, with the Match/Mismatch/Gap scores as previously defined. As can be seen, only the part with the highest similarity \texttt{AGT} as substring of text $S_1$ and $S_2$ is the best result for the local alignment}
     \label{fig:local}
 \end{figure}
 %\subsection{Biological Networks}
@@ -322,7 +322,7 @@ Besides MUMmer, as an implementation of a suffix tree, and BWA operating on an F
 \end{table}
 The resulting haplogroups are listed in the appendix Table \ref{app:table}, whereby the result of mtDNAprofiler was processed with HaploGrep 2 and yields the same haplogroup results and is therefore not reported separately. 
 
-Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D\footnote{\url{https://github.com/lh3/bwa}}, GraphMap\footnote{\url{https://github.com/isovic/graphmap}} \cite{Sovi2016}, and LAST\footnote{\url{http://last.cbrc.jp/}} \cite{Kielbasa2011}. Although the three tools are mostly designed to handle poor sequence reads of low quality with error rates (raw base accuracy $<$65–75\% \cite{Sovi2016}), this validation of assumed error free mtDNA sequences from GenBank \cite{Yao2009} specially provides insights how the methods perform in terms of speed.
+Further, as additional performance test, mappers/aligner for third-generation sequencing are compared: BWA MEM ONT2D\footnote{\url{https://github.com/lh3/bwa}}, GraphMap\footnote{\url{https://github.com/isovic/graphmap}} \cite{Sovi2016}, and LAST\footnote{\url{http://last.cbrc.jp/}} \cite{Kielbasa2011}. Although the three tools are mostly designed to handle poor sequence reads of low quality with higher error rates (raw base accuracy $<$65–75\% \cite{Sovi2016}), this validation of assumed error free mtDNA sequences from GenBank \cite{Yao2009} specially provides insights how the methods perform in terms of speed.
 \begin{table}[H]
 \centering
 \caption{Run Time Comparison Third-Generation Mapper}
@@ -361,7 +361,7 @@ Several well established approaches to align nucleotide sequences with numerous 
 As a result we extend our mitochondrial workbench HaploGrep (see Chapter \ref{chapterHaplogrep}) with the herein described alignment module to allow an accurate and easy handling of mtDNA FASTA files. Herein we show its scalability, and ability to handle thousands of sequences in a fraction of time compared to currently related methods. The comparison to current NGS aligners/mappers as well as Third-Generation Sequencing aligners/mappers is performed on mtDNA data subsequently. Currently the presented aligner does not write SAM files, which will be addressed in a future work. While NGS reads are getting longer (300bp chemistry available), Third Generation Sequencing producing reads of up to 100,000 bp becomes less error prone. Therefore similar to the mappers BWA or SMALT, the presented approach could be directly integrated into an massive parallel sequencing pipeline for mtDNA. 
 The mtDNA data processing of massive parallel sequencing is presented within the next Chapter \ref{chap:NGS}. It is important to notice that the presented approach was specifically designed for handling highly similar sequences, by trying to avoid cost intensive dynamic programming, as often as possible. It is therefore adapted specifically to the human mtDNA. Future work needs to be performed to make this method for pairwise sequence comparison available to a wider spectrum of reference sequences. 
 
-It is also important to notice that the presented approach is not feasible for genomes or sequences larger than ten Megabases. This is due to the increasing memory size required for handling the index. Future work on the use of MultiMap (HashMap with the value itself being of type Collection) where the value is represented as a list of positions, can render the handling of larger sequences and the use of different reference sequences  the approach more generic. 
+It is also important to notice that the presented approach is not feasible for genomes or sequences larger than ten Megabases. This is due to the increasing memory size required for handling the index. Future work will concentrate on the use of MultiMap (HashMap with the value itself being of type Collection) where the value is represented as a list of positions. This can allow the handling of larger sequences and the use of different reference sequences, thereby rendering the approach more generic. 
 %De-novo vs. mapping assembly Wikipedia Artikel!! 
 %Paper: A Practical Comparison of De Novo Genome Assembly Software Tools for Next-Generation Sequencing Technologies
 
