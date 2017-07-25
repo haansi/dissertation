@@ -1,0 +1,1503 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{ydnt/global/}
+    \entry{Coassin2017}{article}{}
+      \name{author}{23}{}{%
+        {{hash=3993e6d25ae471be3b250cd587e96d89}{%
+           family={Coassin},
+           family_i={C\bibinitperiod},
+           given={Stefan},
+           given_i={S\bibinitperiod}}}%
+        {{hash=6cf1980caf9c6ed09f3043ca35364444}{%
+           family={Erhart},
+           family_i={E\bibinitperiod},
+           given={Gertraud},
+           given_i={G\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=e1220e26ec3be5967fbeee729da6f082}{%
+           prefix={de},
+           prefix_i={d\bibinitperiod},
+           family={Ara\'{u}jo},
+           family_i={A\bibinitperiod},
+           given={Mariana\bibnamedelimb Eca\bibnamedelima Guimar\~{a}es},
+           given_i={M\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=a59e1c64688c2a66f6d3b5728d12e509}{%
+           family={Lamina},
+           family_i={L\bibinitperiod},
+           given={Claudia},
+           given_i={C\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=445a3d07bf2aea6844daa110f79f9973}{%
+           family={Haun},
+           family_i={H\bibinitperiod},
+           given={Margot},
+           given_i={M\bibinitperiod}}}%
+        {{hash=ff85ed78403aa511c34eb35e03a48a38}{%
+           family={Losso},
+           family_i={L\bibinitperiod},
+           given={Jamie\bibnamedelima Lee},
+           given_i={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=17875fe97d39ce60317b28b2429015a6}{%
+           family={K\"{o}ttgen},
+           family_i={K\bibinitperiod},
+           given={Anna},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6f343134521e134aad7147c1a272e8a5}{%
+           family={Schmidt},
+           family_i={S\bibinitperiod},
+           given={Konrad},
+           given_i={K\bibinitperiod}}}%
+        {{hash=8431fc26547682cebe3d70f71c553305}{%
+           family={Utermann},
+           family_i={U\bibinitperiod},
+           given={Gerd},
+           given_i={G\bibinitperiod}}}%
+        {{hash=613388274a22414f49167d6cebb2ce73}{%
+           family={Peters},
+           family_i={P\bibinitperiod},
+           given={Annette},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c30da30688a9881bbdc30c7e9c53af18}{%
+           family={Gieger},
+           family_i={G\bibinitperiod},
+           given={Christian},
+           given_i={C\bibinitperiod}}}%
+        {{hash=aef325dbfc37d4f9f63857af88c72b0e}{%
+           family={Strauch},
+           family_i={S\bibinitperiod},
+           given={Konstantin},
+           given_i={K\bibinitperiod}}}%
+        {{hash=126b97238548c5cb1ee404a71aecdadc}{%
+           family={Finkenstedt},
+           family_i={F\bibinitperiod},
+           given={Armin},
+           given_i={A\bibinitperiod}}}%
+        {{hash=0e362bc4790def3f196daab3bc4aaa74}{%
+           family={Bale},
+           family_i={B\bibinitperiod},
+           given={Reto},
+           given_i={R\bibinitperiod}}}%
+        {{hash=77553039035312e6f3054821db18b0b8}{%
+           family={Zoller},
+           family_i={Z\bibinitperiod},
+           given={Heinz},
+           given_i={H\bibinitperiod}}}%
+        {{hash=dc84bda5a116feed0d1ceb6e0340640b}{%
+           family={Paulweber},
+           family_i={P\bibinitperiod},
+           given={Bernhard},
+           given_i={B\bibinitperiod}}}%
+        {{hash=afa681d66a338267848c0af9f512e579}{%
+           family={Eckardt},
+           family_i={E\bibinitperiod},
+           given={Kai-Uwe},
+           given_i={K\bibinithyphendelim U\bibinitperiod}}}%
+        {{hash=dd48af8bd481761f8cc4521029b99a20}{%
+           family={H\"{u}ttenhofer},
+           family_i={H\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{hash=26405d9b81c19303f979afdaefcf7c7b}{%
+           family={Huber},
+           family_i={H\bibinitperiod},
+           given={Lukas\bibnamedelima A.},
+           given_i={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press ({OUP})}%
+      }
+      \strng{namehash}{d38c857a17202bebfebbfad9ff48e96d}
+      \strng{fullhash}{a517de10647ee6b6f59ec17ab376e811}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Heart Journal}
+      \field{month}{04}
+      \field{title}{A novel but frequent variant in {LPA} {KIV}-2 is associated with a pronounced Lp(a) and cardiovascular risk reduction}
+      \field{year}{2017}
+    \endentry
+    \entry{forer2016cloudflow}{article}{}
+      \name{author}{7}{}{%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=a90c63c8486067c2d25efd0be132b0f6}{%
+           family={Afgan},
+           family_i={A\bibinitperiod},
+           given={Enis},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=38d621339fd6d48e47a3e80660244e78}{%
+           family={Davidovic},
+           family_i={D\bibinitperiod},
+           given={Davor},
+           given_i={D\bibinitperiod}}}%
+        {{hash=e7dcff25906140c32afde7a2193af370}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={Guenther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=fe1b9fc985f8abb009766bde34bb2855}{%
+           family={Schoenherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{59505af724014db9c8def098df4ef637}
+      \strng{fullhash}{f9a9af4a1b21ca09f27e72e4a236a7be}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scalable Computing: Practice and Experience}
+      \field{number}{2}
+      \field{title}{Cloudflow-enabling faster biomedical pipelines with MapReduce and Spark}
+      \field{volume}{17}
+      \field{year}{2016}
+      \field{pages}{103\bibrangedash 114}
+      \range{pages}{12}
+    \endentry
+    \entry{weissensteiner2016mtdna}{article}{}
+      \name{author}{8}{}{%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=ac02dc8a2bad1e20bcd63238a8e34a4c}{%
+           family={Fuchsberger},
+           family_i={F\bibinitperiod},
+           given={Christian},
+           given_i={C\bibinitperiod}}}%
+        {{hash=4b23208839058d56abe7d10837223c00}{%
+           family={Sch\"{o}pf},
+           family_i={S\bibinitperiod},
+           given={Bernd},
+           given_i={B\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{87832c68a117f591d9a6c039d8d5ebbc}
+      \strng{fullhash}{f8dc3f688d33fd485fb1aeee2ccea946}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{title}{mtDNA-Server: next-generation sequencing data analysis of human mitochondrial DNA in the cloud}
+      \field{year}{2016}
+      \field{pages}{gkw247}
+      \range{pages}{-1}
+    \endentry
+    \entry{weissensteiner2016haplogrep}{article}{}
+      \name{author}{9}{}{%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=5676065ea573c0591a045bc66fc97a4b}{%
+           family={Pacher},
+           family_i={P\bibinitperiod},
+           given={Dominic},
+           given_i={D\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=9c544cf1a9b237db9cf38b90759fd1d2}{%
+           family={Bandelt},
+           family_i={B\bibinitperiod},
+           given={Hans-J\"{u}rgen},
+           given_i={H\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=4bfe7533887c407872d7b1e14cbe4725}{%
+           family={Salas},
+           family_i={S\bibinitperiod},
+           given={Antonio},
+           given_i={A\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{87832c68a117f591d9a6c039d8d5ebbc}
+      \strng{fullhash}{c14fb94e83cf70cc4da6b6b9fc63824b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nucleic Acids Research}
+      \field{title}{HaploGrep 2: mitochondrial haplogroup classification in the era of high-throughput sequencing}
+      \field{year}{2016}
+      \field{pages}{gkw233}
+      \range{pages}{-1}
+    \endentry
+    \entry{forer2015cloudflow}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=a90c63c8486067c2d25efd0be132b0f6}{%
+           family={Afgan},
+           family_i={A\bibinitperiod},
+           given={Enis},
+           given_i={E\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=2bdbafaaa227f048b8c8a23e9fa07e37}{%
+           family={Davidovi\'{c}},
+           family_i={D\bibinitperiod},
+           given={Davor},
+           given_i={D\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{59505af724014db9c8def098df4ef637}
+      \strng{fullhash}{ae84c310556fa22cc8101330f982bf8a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Information and Communication Technology, Electronics and Microelectronics (MIPRO), 2015 38th International Convention on}
+      \field{title}{Cloudflow-A framework for mapreduce pipeline development in biomedical research}
+      \field{year}{2015}
+      \field{pages}{172\bibrangedash 177}
+      \range{pages}{6}
+    \endentry
+    \entry{Kehdy2015}{article}{}
+      \name{author}{38}{}{%
+        {{hash=6cf54e401fc3436eac68b5df77811303}{%
+           family={Kehdy},
+           family_i={K\bibinitperiod},
+           given={Fernanda\bibnamedelimb S.\bibnamedelimi G.},
+           given_i={F\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=ba4cad549afa011bb490cdd4d4bb44a5}{%
+           family={Gouveia},
+           family_i={G\bibinitperiod},
+           given={Mateus\bibnamedelima H.},
+           given_i={M\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=2bf10746fb241636b47a132236bc2b19}{%
+           family={Machado},
+           family_i={M\bibinitperiod},
+           given={Moara},
+           given_i={M\bibinitperiod}}}%
+        {{hash=ecbc237950f64021fac1514bacfdcd39}{%
+           family={Magalh\~{a}es},
+           family_i={M\bibinitperiod},
+           given={Wagner\bibnamedelimb C.\bibnamedelimi S.},
+           given_i={W\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=2632835598d8270edc8c691fff3b27b3}{%
+           family={Horimoto},
+           family_i={H\bibinitperiod},
+           given={Andrea\bibnamedelima R.},
+           given_i={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=3ab7360916b1047bf951aa143b1ee56b}{%
+           family={Horta},
+           family_i={H\bibinitperiod},
+           given={Bernardo\bibnamedelima L.},
+           given_i={B\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=27dd31e852a4a76d7d28f71ad6f29d38}{%
+           family={Moreira},
+           family_i={M\bibinitperiod},
+           given={Rennan\bibnamedelima G.},
+           given_i={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=80d153a2b874049182d3d310d35d4d5f}{%
+           family={Leal},
+           family_i={L\bibinitperiod},
+           given={Thiago\bibnamedelima P.},
+           given_i={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=4196ff63c637a1655bc2ad60b1c4ee45}{%
+           family={Scliar},
+           family_i={S\bibinitperiod},
+           given={Marilia\bibnamedelima O.},
+           given_i={M\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=378aa75ee0885a1049144a7ac1c7181b}{%
+           family={Soares-Souza},
+           family_i={S\bibinithyphendelim S\bibinitperiod},
+           given={Giordano\bibnamedelima B.},
+           given_i={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=9ae45184bf87fc3c25f32beb36d35b77}{%
+           family={Rodrigues-Soares},
+           family_i={R\bibinithyphendelim S\bibinitperiod},
+           given={Fernanda},
+           given_i={F\bibinitperiod}}}%
+        {{hash=8f68c0a198db1065234d50e9461d29ff}{%
+           family={Ara\'{u}jo},
+           family_i={A\bibinitperiod},
+           given={Gilderlanio\bibnamedelima S.},
+           given_i={G\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=700aae622f9c09c06f5bb9e5e461d315}{%
+           family={Zamudio},
+           family_i={Z\bibinitperiod},
+           given={Roxana},
+           given_i={R\bibinitperiod}}}%
+        {{hash=53c43d9d2762d1519d9c2ddec850c5ba}{%
+           family={{Sant Anna}},
+           family_i={S\bibinitperiod},
+           given={Hanaisa\bibnamedelima P.},
+           given_i={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=0a0abe2676241f36917ad4b677cd3402}{%
+           family={Santos},
+           family_i={S\bibinitperiod},
+           given={Hadassa\bibnamedelima C.},
+           given_i={H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=30c87ad4556b0f00f7ba64119bfedbf8}{%
+           family={Duarte},
+           family_i={D\bibinitperiod},
+           given={Nubia\bibnamedelima E.},
+           given_i={N\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=72e05bf13cdbd2e4475c696ca4a02a47}{%
+           family={Fiaccone},
+           family_i={F\bibinitperiod},
+           given={Rosemeire\bibnamedelima L.},
+           given_i={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=71bfc38f7269087bed5bf4dc9b76fc3c}{%
+           family={Figueiredo},
+           family_i={F\bibinitperiod},
+           given={Camila\bibnamedelima a.},
+           given_i={C\bibinitperiod\bibinitdelim a\bibinitperiod}}}%
+        {{hash=e9e1f6b0c65ef07eef2ac65917e4fcc2}{%
+           family={Silva},
+           family_i={S\bibinitperiod},
+           given={Thiago\bibnamedelima M.},
+           given_i={T\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1d2dcf91a01f64aaeb44d2644ec41319}{%
+           family={Costa},
+           family_i={C\bibinitperiod},
+           given={Gustavo\bibnamedelimb N.\bibnamedelimi O.},
+           given_i={G\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=a24fb28347593eab146d0f6c7abaadbc}{%
+           family={Beleza},
+           family_i={B\bibinitperiod},
+           given={Sandra},
+           given_i={S\bibinitperiod}}}%
+        {{hash=470b352bc2ee79c429c8998ea3b335b1}{%
+           family={Berg},
+           family_i={B\bibinitperiod},
+           given={Douglas\bibnamedelima E.},
+           given_i={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=0aa0d1924967352a1fddc35d68291a0a}{%
+           family={Cabrera},
+           family_i={C\bibinitperiod},
+           given={Lilia},
+           given_i={L\bibinitperiod}}}%
+        {{hash=d12a0adaaca229e7e2158d53b363faf1}{%
+           family={Debortoli},
+           family_i={D\bibinitperiod},
+           given={Guilherme},
+           given_i={G\bibinitperiod}}}%
+        {{hash=2b9142b55d548a1bcc1a0de11d7e22af}{%
+           family={Duarte},
+           family_i={D\bibinitperiod},
+           given={Denise},
+           given_i={D\bibinitperiod}}}%
+        {{hash=44eb44f6f50ef373b2df2449bf02be5d}{%
+           family={Ghirotto},
+           family_i={G\bibinitperiod},
+           given={Silvia},
+           given_i={S\bibinitperiod}}}%
+        {{hash=030d5ed64ff2a15c451085df005e3e82}{%
+           family={Gilman},
+           family_i={G\bibinitperiod},
+           given={Robert\bibnamedelima H.},
+           given_i={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=1ac292e8d7f068d0f0daf629e809a47e}{%
+           family={Gon\c{c}alves},
+           family_i={G\bibinitperiod},
+           given={Vanessa\bibnamedelima F.},
+           given_i={V\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=9d8115a8b46b488e5bb1ff475b3dadef}{%
+           family={Marrero},
+           family_i={M\bibinitperiod},
+           given={Andrea\bibnamedelima R.},
+           given_i={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=609615bf179e74a4b17fb18a70f0e2d2}{%
+           family={Muniz},
+           family_i={M\bibinitperiod},
+           given={Yara\bibnamedelima C.},
+           given_i={Y\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=3c232350b7e37b1427894978946af8f9}{%
+           family={Yeager},
+           family_i={Y\bibinitperiod},
+           given={Meredith},
+           given_i={M\bibinitperiod}}}%
+        {{hash=67bce1957e99a2ba2ad76685c77dcc7e}{%
+           family={Rodrigues},
+           family_i={R\bibinitperiod},
+           given={Laura\bibnamedelima C.},
+           given_i={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=9b375d1496c029d851ddd1e66dcda414}{%
+           family={Barreto},
+           family_i={B\bibinitperiod},
+           given={Mauricio\bibnamedelima L.},
+           given_i={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=162033d8a95005ba48f3ce0e48f8571d}{%
+           family={Lima-Costa},
+           family_i={L\bibinithyphendelim C\bibinitperiod},
+           given={M.\bibnamedelimi Fernanda},
+           given_i={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=1ed82d24ec7ec5fc4a4cd3459529c298}{%
+           family={Pereira},
+           family_i={P\bibinitperiod},
+           given={Alexandre\bibnamedelima C.},
+           given_i={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=2a57a4329532a552083f2c4f9417240d}{%
+           family={Rodrigues},
+           family_i={R\bibinitperiod},
+           given={Ma\'{\i}ra\bibnamedelima R.},
+           given_i={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=419475f9229fd27d1530f9d71a0c645d}{%
+           family={Tarazona-Santos},
+           family_i={T\bibinithyphendelim S\bibinitperiod},
+           given={Eduardo},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {National Acad Sciences}%
+      }
+      \strng{namehash}{b76a9d453aeafd3ddae99b705fcb977d}
+      \strng{fullhash}{865a841389ecace5a93690aeed900c6f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{28}
+      \field{title}{{Origin and dynamics of admixture in Brazilians and its effect on the pattern of deleterious mutations}}
+      \field{volume}{112}
+      \field{year}{2015}
+      \field{pages}{8696\bibrangedash 8701}
+      \range{pages}{6}
+      \verb{file}
+      \verb :home/hansi/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Kehdy et al. - 2015 - Origin and dynamics of admixture in Brazilians and its effect on the pattern of deleterious mutations.pdf:pdf
+      \endverb
+    \endentry
+    \entry{kloss2015validation}{article}{}
+      \name{author}{16}{}{%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=6cf1980caf9c6ed09f3043ca35364444}{%
+           family={Erhart},
+           family_i={E\bibinitperiod},
+           given={Gertraud},
+           given_i={G\bibinitperiod}}}%
+        {{hash=43c02f0a4fd33637402edd6e7d0e946a}{%
+           family={Sch\"{a}fer},
+           family_i={S\bibinitperiod},
+           given={Georg},
+           given_i={G\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=5676065ea573c0591a045bc66fc97a4b}{%
+           family={Pacher},
+           family_i={P\bibinitperiod},
+           given={Dominic},
+           given_i={D\bibinitperiod}}}%
+        {{hash=337d4d013ffc1425bf4ced700b5ae03f}{%
+           family={Seifarth},
+           family_i={S\bibinitperiod},
+           given={Christof},
+           given_i={C\bibinitperiod}}}%
+        {{hash=fe153542f525dd8e518f545299145950}{%
+           family={St\"{o}ckl},
+           family_i={S\bibinitperiod},
+           given={Andrea},
+           given_i={A\bibinitperiod}}}%
+        {{hash=175bbfd8df0d89686fc4b254b57451c1}{%
+           family={Fendt},
+           family_i={F\bibinitperiod},
+           given={Liane},
+           given_i={L\bibinitperiod}}}%
+        {{hash=ae4ccfe2554eae05667db6f9771dcd15}{%
+           family={Sottsas},
+           family_i={S\bibinitperiod},
+           given={Irma},
+           given_i={I\bibinitperiod}}}%
+        {{hash=32e5c417b90d0c03c678f8f626b52c81}{%
+           family={Klocker},
+           family_i={K\bibinitperiod},
+           given={Helmut},
+           given_i={H\bibinitperiod}}}%
+        {{hash=418e72726fb69fc4d47007fc36b6819c}{%
+           family={Huck},
+           family_i={H\bibinitperiod},
+           given={Christian\bibnamedelima W.},
+           given_i={C\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=270102d7eacfca9a62051fa84ac5057a}{%
+           family={Rasse},
+           family_i={R\bibinitperiod},
+           given={Michael},
+           given_i={M\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=ea7921cf76147d3fbb3817119cce1057}{%
+           family={Kloss},
+           family_i={K\bibinitperiod},
+           given={Frank\bibnamedelima R.},
+           given_i={F\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{636d22cbe19c1d094ffb7c8850ee4efc}
+      \strng{fullhash}{25e5129e611e9cb77227f507c1c0c812}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PloS One}
+      \field{number}{8}
+      \field{title}{Validation of next-generation sequencing of entire mitochondrial genomes and the diversity of mitochondrial DNA mutations in oral squamous cell carcinoma}
+      \field{volume}{10}
+      \field{year}{2015}
+      \field{pages}{e0135643}
+      \range{pages}{-1}
+    \endentry
+    \entry{raschenberger2015association}{article}{}
+      \name{author}{14}{}{%
+        {{hash=51019d0909d1a8f15228fc226f8a3c9c}{%
+           family={Raschenberger},
+           family_i={R\bibinitperiod},
+           given={Julia},
+           given_i={J\bibinitperiod}}}%
+        {{hash=2ea140a86faa3ff13167a0b1c530916a}{%
+           family={Kollerits},
+           family_i={K\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=47e557ce1d627b6d0520d0823ce89cff}{%
+           family={Titze},
+           family_i={T\bibinitperiod},
+           given={Stephanie},
+           given_i={S\bibinitperiod}}}%
+        {{hash=d22a078f19ea492664bd36d20cf2d62a}{%
+           family={{Koettgen}},
+           family_i={K\bibinitperiod},
+           given={Anna\bibnamedelima K},
+           given_i={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=ebe1ffd0704ed656d8b41232c0986ba0}{%
+           family={Baerthlein},
+           family_i={B\bibinitperiod},
+           given={Barbara\bibnamedelima B},
+           given_i={B\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=0e2432a35dffece2ea95d6e4f5534ebf}{%
+           family={Ekici},
+           family_i={E\bibinitperiod},
+           given={Arif\bibnamedelima B},
+           given_i={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=b19861c9d67018c17d1fa0c4434fffeb}{%
+           family={Sch},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=fe1bd5f8d5316e1608f5c6cc4a9bc48e}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=445a3d07bf2aea6844daa110f79f9973}{%
+           family={Haun},
+           family_i={H\bibinitperiod},
+           given={Margot},
+           given_i={M\bibinitperiod}}}%
+        {{hash=dd5a8a300ae1dcb3eec79882710484d2}{%
+           family={Wanner},
+           family_i={W\bibinitperiod},
+           given={Christoph},
+           given_i={C\bibinitperiod}}}%
+        {{hash=afa681d66a338267848c0af9f512e579}{%
+           family={Eckardt},
+           family_i={E\bibinitperiod},
+           given={Kai-Uwe},
+           given_i={K\bibinithyphendelim U\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{a54291a6ecaf36bcbc67780b08ac19e7}
+      \strng{fullhash}{0bfe6541d0cb6cc434a7640e4ef386d5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Atherosclerosis}
+      \field{number}{2}
+      \field{title}{Association of relative telomere length with cardiovascular disease in a large chronic kidney disease cohort: the GCKD study}
+      \field{volume}{242}
+      \field{year}{2015}
+      \field{pages}{529\bibrangedash 534}
+      \range{pages}{6}
+    \endentry
+    \entry{raschenberger2015telomeres}{article}{}
+      \name{author}{13}{}{%
+        {{hash=51019d0909d1a8f15228fc226f8a3c9c}{%
+           family={Raschenberger},
+           family_i={R\bibinitperiod},
+           given={Julia},
+           given_i={J\bibinitperiod}}}%
+        {{hash=2ea140a86faa3ff13167a0b1c530916a}{%
+           family={Kollerits},
+           family_i={K\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=47e557ce1d627b6d0520d0823ce89cff}{%
+           family={Titze},
+           family_i={T\bibinitperiod},
+           given={Stephanie},
+           given_i={S\bibinitperiod}}}%
+        {{hash=17875fe97d39ce60317b28b2429015a6}{%
+           family={K\"{o}ttgen},
+           family_i={K\bibinitperiod},
+           given={Anna},
+           given_i={A\bibinitperiod}}}%
+        {{hash=aba84a1a3a31ae627fc99cfa6728c96f}{%
+           family={B\"{a}rthlein},
+           family_i={B\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=674532f9aedd0b3207323f88bae9462a}{%
+           family={Ekici},
+           family_i={E\bibinitperiod},
+           given={Arif\bibnamedelima B.},
+           given_i={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=445a3d07bf2aea6844daa110f79f9973}{%
+           family={Haun},
+           family_i={H\bibinitperiod},
+           given={Margot},
+           given_i={M\bibinitperiod}}}%
+        {{hash=dd5a8a300ae1dcb3eec79882710484d2}{%
+           family={Wanner},
+           family_i={W\bibinitperiod},
+           given={Christoph},
+           given_i={C\bibinitperiod}}}%
+        {{hash=afa681d66a338267848c0af9f512e579}{%
+           family={Eckardt},
+           family_i={E\bibinitperiod},
+           given={Kai-Uwe},
+           given_i={K\bibinithyphendelim U\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pergamon}%
+      }
+      \strng{namehash}{a54291a6ecaf36bcbc67780b08ac19e7}
+      \strng{fullhash}{3fdce05c9f79f713813aaae4875b34c3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Experimental Gerontology}
+      \field{title}{Do telomeres have a higher plasticity than thought? Results from the German Chronic Kidney Disease (GCKD) study as a high-risk population}
+      \field{volume}{72}
+      \field{year}{2015}
+      \field{pages}{162\bibrangedash 166}
+      \range{pages}{5}
+    \endentry
+    \entry{forer2014delivering}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=3eb65930a29a5367030dd160ea556ead}{%
+           family={Lipic},
+           family_i={L\bibinitperiod},
+           given={Tomislav},
+           given_i={T\bibinitperiod}}}%
+        {{hash=d21b861c0db5e2257e83b33f473b8598}{%
+           family={Schonherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=38d621339fd6d48e47a3e80660244e78}{%
+           family={Davidovic},
+           family_i={D\bibinitperiod},
+           given={Davor},
+           given_i={D\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=a90c63c8486067c2d25efd0be132b0f6}{%
+           family={Afgan},
+           family_i={A\bibinitperiod},
+           given={Enis},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{59505af724014db9c8def098df4ef637}
+      \strng{fullhash}{3dc793987fe0203e298dd1278f312556}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Information and Communication Technology, Electronics and Microelectronics (MIPRO), 2014 37th International Convention on}
+      \field{title}{Delivering bioinformatics mapreduce applications in the cloud}
+      \field{year}{2014}
+      \field{pages}{373\bibrangedash 377}
+      \range{pages}{5}
+    \endentry
+    \entry{lamina2014correlation}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=a59e1c64688c2a66f6d3b5728d12e509}{%
+           family={Lamina},
+           family_i={L\bibinitperiod},
+           given={Claudia},
+           given_i={C\bibinitperiod}}}%
+        {{hash=424d4931ce8a1027d94a1ff434dcd69f}{%
+           family={Linsenmeyer},
+           family_i={L\bibinitperiod},
+           given={Johannes},
+           given_i={J\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=2ea140a86faa3ff13167a0b1c530916a}{%
+           family={Kollerits},
+           family_i={K\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=e133a7dff02049fd339ac1d30349b18c}{%
+           family={Meisinger},
+           family_i={M\bibinitperiod},
+           given={Christa},
+           given_i={C\bibinitperiod}}}%
+        {{hash=3eef5a2dbac515dae7795846f0424b67}{%
+           family={Rantner},
+           family_i={R\bibinitperiod},
+           given={Barbara},
+           given_i={B\bibinitperiod}}}%
+        {{hash=83a344556ebd68a75f157cc52eecc86f}{%
+           family={St\"{o}ckl},
+           family_i={S\bibinitperiod},
+           given={Doris},
+           given_i={D\bibinitperiod}}}%
+        {{hash=91da4dcade894dba2a4364816d65aa43}{%
+           family={Stadler},
+           family_i={S\bibinitperiod},
+           given={Marietta},
+           given_i={M\bibinitperiod}}}%
+        {{hash=382945340860a4f7c2ace56509550a2f}{%
+           family={Klein-Weigel},
+           family_i={K\bibinithyphendelim W\bibinitperiod},
+           given={Peter},
+           given_i={P\bibinitperiod}}}%
+        {{hash=613388274a22414f49167d6cebb2ce73}{%
+           family={Peters},
+           family_i={P\bibinitperiod},
+           given={Annette},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{b1f6e9246d310fb935237d2b03806049}
+      \strng{fullhash}{366dd7ebd42ecdd5de5997647945fe39}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Atherosclerosis}
+      \field{number}{1}
+      \field{title}{Correlation between a positive family risk score and peripheral artery disease in one case-control and two population-based studies}
+      \field{volume}{237}
+      \field{year}{2014}
+      \field{pages}{243\bibrangedash 250}
+      \range{pages}{8}
+    \endentry
+    \entry{summerer2014large}{article}{}
+      \name{author}{12}{}{%
+        {{hash=3c95b00013673e2e5be0213348e9dbb8}{%
+           family={Summerer},
+           family_i={S\bibinitperiod},
+           given={Monika},
+           given_i={M\bibinitperiod}}}%
+        {{hash=a7d9aa6aec3c0bbc69506626a84586fc}{%
+           family={Horst},
+           family_i={H\bibinitperiod},
+           given={J\"{u}rgen},
+           given_i={J\bibinitperiod}}}%
+        {{hash=6cf1980caf9c6ed09f3043ca35364444}{%
+           family={Erhart},
+           family_i={E\bibinitperiod},
+           given={Gertraud},
+           given_i={G\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=5676065ea573c0591a045bc66fc97a4b}{%
+           family={Pacher},
+           family_i={P\bibinitperiod},
+           given={Dominic},
+           given_i={D\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=3f0a32881938829a6429331ba864093b}{%
+           family={Horst},
+           family_i={H\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=3995e9611c8ef3c5b42b69d1d8536e21}{%
+           family={Manhart},
+           family_i={M\bibinitperiod},
+           given={Angelika},
+           given_i={A\bibinitperiod}}}%
+        {{hash=3161a8e35b0c6d34cf50ad7b5213cda8}{%
+           family={Horst},
+           family_i={H\bibinitperiod},
+           given={Basil},
+           given_i={B\bibinitperiod}}}%
+        {{hash=e725d37eeeb1dfd92492d290f9b1eabb}{%
+           family={Sanguansermsri},
+           family_i={S\bibinitperiod},
+           given={Torpong},
+           given_i={T\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{ac63ea159b38b85f9bcb37e6c6961c11}
+      \strng{fullhash}{9b80e814435667f4eeced10c76b5769a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Evolutionary Biology}
+      \field{number}{1}
+      \field{title}{Large-scale mitochondrial DNA analysis in Southeast Asia reveals evolutionary effects of cultural isolation in the multi-ethnic population of Myanmar}
+      \field{volume}{14}
+      \field{year}{2014}
+      \field{pages}{17}
+      \range{pages}{1}
+    \endentry
+    \entry{weissensteiner2013snpflow}{article}{}
+      \name{author}{9}{}{%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=445a3d07bf2aea6844daa110f79f9973}{%
+           family={Haun},
+           family_i={H\bibinitperiod},
+           given={Margot},
+           given_i={M\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=846c23a37205948b91c6c19fe5db2d53}{%
+           family={Neuner},
+           family_i={N\bibinitperiod},
+           given={Mathias},
+           given_i={M\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=3993e6d25ae471be3b250cd587e96d89}{%
+           family={Coassin},
+           family_i={C\bibinitperiod},
+           given={Stefan},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{87832c68a117f591d9a6c039d8d5ebbc}
+      \strng{fullhash}{187a6839de90b5bb14ade9a1ce14e7e8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PloS One}
+      \field{number}{3}
+      \field{title}{SNPflow: a lightweight application for the processing, storing and automatic quality checking of genotyping assays}
+      \field{volume}{8}
+      \field{year}{2013}
+      \field{pages}{e59508}
+      \range{pages}{-1}
+    \endentry
+    \entry{forer2012cloud}{incollection}{}
+      \name{author}{6}{}{%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Vienna}%
+      }
+      \strng{namehash}{59505af724014db9c8def098df4ef637}
+      \strng{fullhash}{ce6b74039e29c800a2d36bdc4d4fd960}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computational Medicine}
+      \field{title}{Cloud Computing}
+      \field{year}{2012}
+      \field{pages}{27\bibrangedash 36}
+      \range{pages}{10}
+    \endentry
+    \entry{schonherr2012cloudgene}{article}{}
+      \name{author}{6}{}{%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{2fc0e4ba4ad3f9785ab7c17252ee6313}
+      \strng{fullhash}{4d120b159be9a101ca6e081bb523b8a5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{number}{1}
+      \field{title}{Cloudgene: A graphical execution platform for MapReduce programs on private and public clouds}
+      \field{volume}{13}
+      \field{year}{2012}
+      \field{pages}{200}
+      \range{pages}{1}
+    \endentry
+    \entry{kloss2011haplogrep}{article}{}
+      \name{author}{7}{}{%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+        {{hash=5676065ea573c0591a045bc66fc97a4b}{%
+           family={Pacher},
+           family_i={P\bibinitperiod},
+           given={Dominic},
+           given_i={D\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=df83e5678b779971882af4052d4ee98e}{%
+           family={Binna},
+           family_i={B\bibinitperiod},
+           given={Robert},
+           given_i={R\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{636d22cbe19c1d094ffb7c8850ee4efc}
+      \strng{fullhash}{5f0419bd5e5e1aba869282453f9a2b40}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Human Mutation}
+      \field{number}{1}
+      \field{title}{HaploGrep: a fast and reliable algorithm for automatic classification of mitochondrial DNA haplogroups}
+      \field{volume}{32}
+      \field{year}{2011}
+      \field{pages}{25\bibrangedash 32}
+      \range{pages}{8}
+    \endentry
+    \entry{schonherr2011feedback}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{2fc0e4ba4ad3f9785ab7c17252ee6313}
+      \strng{fullhash}{4d120b159be9a101ca6e081bb523b8a5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Grundlagen von Datenbanken}
+      \field{title}{A feedback guided interface for elastic computing.}
+      \field{year}{2011}
+      \field{pages}{109\bibrangedash 114}
+      \range{pages}{6}
+    \endentry
+    \entry{forer2010conan}{article}{}
+      \name{author}{10}{}{%
+        {{hash=634051cfcd67b518bfaab8ba89ca83e8}{%
+           family={Forer},
+           family_i={F\bibinitperiod},
+           given={Lukas},
+           given_i={L\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=886e9877e6db6f0c18e052e0e2d6484f}{%
+           family={Haider},
+           family_i={H\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=a40ed2ca5ada15bf7d8435854e55b197}{%
+           family={Kluckner},
+           family_i={K\bibinitperiod},
+           given={Thomas},
+           given_i={T\bibinitperiod}}}%
+        {{hash=c30da30688a9881bbdc30c7e9c53af18}{%
+           family={Gieger},
+           family_i={G\bibinitperiod},
+           given={Christian},
+           given_i={C\bibinitperiod}}}%
+        {{hash=bfc8f19699bac9faf340eeb9d42a83cd}{%
+           family={Wichmann},
+           family_i={W\bibinitperiod},
+           given={Heinz-Erich},
+           given_i={H\bibinithyphendelim E\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=cb274f4f6118d45d9ef0cc38f6657aad}{%
+           family={Kloss-Brandst\"{a}tter},
+           family_i={K\bibinithyphendelim B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{59505af724014db9c8def098df4ef637}
+      \strng{fullhash}{d7af3d5da7f0f0a0100b1238a955c5db}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{number}{1}
+      \field{title}{CONAN: copy number variation analysis software for genome-wide association studies}
+      \field{volume}{11}
+      \field{year}{2010}
+      \field{pages}{318}
+      \range{pages}{1}
+    \endentry
+    \entry{weissensteiner2010ecompagt}{article}{}
+      \name{author}{5}{}{%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=05bdcf9a2f552a385bce8988f74f316c}{%
+           family={Brandst\"{a}tter},
+           family_i={B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{87832c68a117f591d9a6c039d8d5ebbc}
+      \strng{fullhash}{b5cda5d9d416f5748391fc9302b51582}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{number}{1}
+      \field{title}{eCOMPAGT integrates mtDNA: import, validation and export of mitochondrial DNA profiles for population genetics, tumour dynamics and genotype-phenotype association studies}
+      \field{volume}{11}
+      \field{year}{2010}
+      \field{pages}{122}
+      \range{pages}{1}
+    \endentry
+    \entry{schonherr2009ecompagt}{article}{}
+      \name{author}{6}{}{%
+        {{hash=abc5cc5faa5ab1c8398b681ebb97d659}{%
+           family={Sch\"{o}nherr},
+           family_i={S\bibinitperiod},
+           given={Sebastian},
+           given_i={S\bibinitperiod}}}%
+        {{hash=e90faa16085dd664808654c024daf761}{%
+           family={Weissensteiner},
+           family_i={W\bibinitperiod},
+           given={Hansi},
+           given_i={H\bibinitperiod}}}%
+        {{hash=3993e6d25ae471be3b250cd587e96d89}{%
+           family={Coassin},
+           family_i={C\bibinitperiod},
+           given={Stefan},
+           given_i={S\bibinitperiod}}}%
+        {{hash=c94f8a6fedd528fceba8012d0f46ce36}{%
+           family={Specht},
+           family_i={S\bibinitperiod},
+           given={G\"{u}nther},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6d591efebb7f16b4d6b33e95e181799b}{%
+           family={Kronenberg},
+           family_i={K\bibinitperiod},
+           given={Florian},
+           given_i={F\bibinitperiod}}}%
+        {{hash=05bdcf9a2f552a385bce8988f74f316c}{%
+           family={Brandst\"{a}tter},
+           family_i={B\bibinitperiod},
+           given={Anita},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {BioMed Central}%
+      }
+      \strng{namehash}{2fc0e4ba4ad3f9785ab7c17252ee6313}
+      \strng{fullhash}{b10a3e45b3b1001e8c84d69c3c2bd905}
+      \field{sortinit}{2}
+      \field{sortinithash}{8343b463aacf48517c044b4d2c9c45ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{number}{1}
+      \field{title}{eCOMPAGT--efficient combination and management of phenotypes and genotypes for genetic epidemiology}
+      \field{volume}{10}
+      \field{year}{2009}
+      \field{pages}{139}
+      \range{pages}{1}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

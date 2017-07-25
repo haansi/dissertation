@@ -1,18 +1,20 @@
 \chapter{Introduction}
 \label{chapterIntro}
 \section{Motivation}
-Increasing data volumes in the field of Genetics require sophisticated computational methods. The bottleneck is no longer the data generation itself, but shifted notably towards the data analysis \cite{Forer2014}. The whole human genome with its size of over 3 billion positions can be analyzed in short time with decreasing prices. Therefore the amount of data that has to be dealt with already increased and will so even more dramatically in future. This requires new algorithms and methods for data quality control (QC), to  increase precision and recall and to exceed currently available methods in a scalable way. Misleading results can impact medical studies or forensic casework, where errors introduced by computational methods can have severe consequences. The focus of this work is on computational methods for reproducible QC of DNA from a small genome, contained in the mitochondria. Its length contributes only to $0.0005\%$ to the complete human genome. High-throughput data is required to investigate processes in the mitochondria in more depth, which are currently unclear. Some of these processes are the development of mutations and its fixation in cancer or aging processes on the mitochondrial DNA. To investigate those processes, the high amount of data produced requires scalable and reproducible pipelines. 
+Increasing data volumes in the field of Genetics require sophisticated computational methods. The bottleneck is no longer the data generation itself, but shifted notably towards the data analysis \cite{Forer2014}. The whole human genome with its size of over 3 billion positions can be analyzed in short time with decreasing prices. Therefore the amount of data that has to be dealt with already increased and will so even more dramatically in future. This requires new algorithms and methods for data quality control (QC), to  increase precision and recall and to exceed currently available methods in a scalable way. Misleading results can impact medical studies or forensic casework, where errors introduced by computational methods can have severe consequences. 
+
+The focus of this work is on computational methods for reproducible QC of DNA from a small genome, contained in the mitochondria. Its length contributes only to $0.0005\%$ to the complete human genome. High-throughput data is required to investigate processes in the mitochondria in more depth, which are currently unclear. Some of these processes are the development of mutations and its fixation in cancer or aging processes on the mitochondrial DNA. To investigate those processes, the high amount of data produced requires scalable and reproducible pipelines. 
 \\
 \\
-The human mitochondrial DNA, henceforth abbreviated as mtDNA, plays an important role in today's life-science and is of especial interest in the field of population genetics, forensics and clinical disease association studies. The mitochondrial DNA has some features (more to find in Chapter \ref{chap:BioFound}) that make it predestined for genealogists when it comes to creation of family trees. It also helps forensics in identifying persons or victims even with degraded body remains. Clinicians investigate mutations on mtDNA, often leading to diseases. Since mitochondria are heavily involved in bioenergetic processes, they provide opportunities for diagnosis and therapies \cite{Picard2016}.
-The following issues and challenges need to be addressed in this context:
+The human mitochondrial DNA, henceforth abbreviated as mtDNA, plays an important role in today's life-science and is of especial interest in the field of population genetics, forensics and clinical disease association studies. The mitochondrial DNA has some features (more to find in Chapter \ref{chap:BioFound}) that makes it predestined for genealogists when it comes to creation of family trees. It also helps forensics in identifying persons or victims even with degraded body remains. Clinicians investigate mutations on mtDNA, often leading to diseases. Since mitochondria are heavily involved in bioenergetic processes, they provide opportunities for diagnosis and therapies \cite{Picard2016}.
+The following issues and challenges need to be addressed when dealing with mtDNA data:
 \begin{enumerate}
 \item 
 Mitochondrial DNA can be classified into a natural grouping of sequence haplotypes into so called haplogroups. These haplogroups play an important role in the area of phylogenetics, but also in data QC of mtDNA data. The manual assignment of mtDNA profiles to haplogroups is very time-consuming and error prone. The increase of data generated, require sophisticated automatic procedures to solve this task. Therefore, an algorithm is required to assign the closest haplogroup to mtDNA profiles based on a maximum parsimony tree \cite{VanOven2009}. 
 \item
 With classical sequencing devices the data generation of mtDNA profiles might seem straightforward, but it is also error prone. To determine and correct these data errors, methods are required to perform QC to highlight issues in mtDNA data. The growing sample sizes in various studies require methods with linear increase in computation time and memory consumption, to consider the increasing data. 
 \item 
-One of the most prominent problems in the field of Bioinformatics is the alignment of sequences. The algorithms in this regard are known to have complexity of $\mathcal O(nm)$ where \textit{n} and \textit{m} represent the length of the sequences to be compared, leading to $\mathcal O(n^2)$ in both time and space. There exist optimization as well as data structures to face this problem, and might seem trivial for mtDNA with its size of less than $\sim$ 17kb \cite{Andrews1999}. However, in order to detect variants according the correct nomenclature, several rules need to be considered, sometimes contradicting, rendering it almost impossible to generate unambiguous alignments \cite{Bandelt2008}. Ambiguous alignments without assumptions from evolutionary perspectives, especially in low-complexity regions, can influence the haplogroup assignment, and could lead to misinterpretation of results.  
+One of the most prominent problems in the field of Bioinformatics is the alignment of sequences. The algorithms in this regard are known to have complexity of $\mathcal O(nm)$ where \textit{n} and \textit{m} represent the length of the sequences to be compared, leading to $\mathcal O(n^2)$ in both time and space. There do exist optimizations as well as data structures to face this problem, and might seem trivial for mtDNA with its size of less than $\sim$ 17kb \cite{Andrews1999}. However, in order to detect variants according the correct nomenclature, several rules need to be considered, sometimes contradicting, rendering it almost impossible to generate unambiguous alignments \cite{Bandelt2008}. Ambiguous alignments without assumptions from evolutionary perspectives, especially in low-complexity regions, can influence the haplogroup assignment, and could lead to misinterpretation of results.  
 \item 
 A further challenge for computational biologists and computer scientists is the establishment of Next-Generation Sequencing (NGS) devices in the recent years (producing literally big data). The management of such unstructured data is not feasible for relational databases. New NoSQL approaches based on key-value based paradigms such as MapReduce \cite{Dean2008} already showed to be promising \cite{Schonherr2012}. The mtDNA with its small size is in contrast to the nuclear DNA a tiny genome sequence. However, due to its property of being present between 100 and several 1,000 fold per cell, it requires sequencing with high coverage. This exploitation of the massive parallel sequencing is required in order to get a deeper understanding in mitochondrial mutations. These mutations are often involved in diseases and poorly understood at this time \cite{Wallace2013}. Since the error rates of the new devices are higher than the former gold standard \cite{Wang2011}, additional QC-steps are required, to prevent the detection of false positive mutations. 
 
@@ -23,10 +25,10 @@ In this thesis, solutions to the drafted issues are proposed. Software tools, wh
 \section{Preliminary Work}
 \label{prelimWork}
 %This work is the continuation of an interdisciplinary cooperation between the group of Databases and Information Systems of the University of Innsbruck and the Department of Genetic Epidemiology at the Medical University of Innsbruck. It started back in 2007 and led to my master's degree in computer science in 2008. Then
-The focus of the preliminary work was on the development of a database for genotype data (the blueprint of an organism, contained in each cell) and phenotype data (an organism's observed properties, such as the physical appearance like eye color or the body mass index, disease or behavior) with the result published in BMC Bioinformatics \cite{Schoenherr2009}. This database was the foundation for the next project, with the goal to extend it for QC and further functionality to work with the mitochondrial genome's DNA. 
-\\
+The focus of the preliminary work was on the development of a database, called eCOMPAGT, for genotype data (the blueprint of an organism, contained in each cell) and phenotype data (an organism's observed properties, such as the physical appearance like eye color or the body mass index, disease or behavior) with the result published in BMC Bioinformatics \cite{Schoenherr2009}. This database was thereafter extended for QC and further functionality to work with the mitochondrial genome's DNA and also published in BMC Bioinformatics in 2010 \cite{Weissensteiner2010}. 
+
 Different methods for the generation of mtDNA data exist, as presented in Section \ref{sec:dataGeneration}. Checks for data quality are needed, to avoid the processing of false positive data, that could lead to misinterpretation of diseases, to wrong publications and conclusions or even to the arrest of innocent persons.
-A short summary about the basic concept of the previous method is presented here, that shows the mtDNA data management in a relational database. Since this system is based on a previous work by Sch\"onherr and Weissensteiner \cite{Schoenherr2009} from 2009, the database structure's concept is to store phenotypes in a key-value like schema, by implementing three different entities (for each data-type)  with IDs, foreign keys, the value in the corresponding data-type $String, Integer, Double$ and a time stamp.
+A short summary about the basic concept of eCOMPAGT is presented here, that shows the mtDNA data management in a relational database. The database structure's concept is to store phenotypes in a key-value like schema, by implementing three different entities (for each data-type) with IDs, foreign keys, the value in the corresponding data-type ($String, Integer, Double$) and a time stamp.
 % \begin{figure}[ht]
 % \begin{center}
 % \includegraphics[scale=0.46]{ecompagt.png}
@@ -34,16 +36,16 @@ A short summary about the basic concept of the previous method is presented here
 % \label{fig:ecompagt}
 % \end{center}
 % \end{figure}
-Both phenotypes and genotypes are stored in an relational database management systems (RDBMs). When working with mtDNA data from sequencing devices, we integrated a workflow for the analysis in eCOMPAGT, to import, validate, store and export mtDNA profiles. These can further be connected to phenotype data. Data import comprise data in EMPOP format \cite{Parson2007}, or from Sequencher/SeqScape mutation reports. Data Exports provide various formats for different applications: FASTA files, file for generation of phylogenetic networks in Network.exe\footnote{\url{http://fluxus-engineering.com}}  \cite{Bandelt1999}, mtdnaManager \cite{Lee2008}, as well as HaploGrep input files \cite{Kloss-Brandstatter2011,Weissensteiner2016a}. The workflow, as well as the underlying architecture are not further presented herein, I refer to the publications by Sch\"onherr and Weissensteiner \cite{Schoenherr2009,Weissensteiner2010}.
+Both phenotypes and genotypes are stored in an relational database management systems (RDBMs). To improve working with mtDNA data from sequencing devices, we integrated a workflow for the analysis in eCOMPAGT, to import, validate, store and export mtDNA profiles. These can further be connected to phenotype data. Data import comprise data in EMPOP format \cite{Parson2007}, or from Sequencher/SeqScape mutation reports. Data Exports provide various formats for different applications: FASTA files, file for generation of phylogenetic networks in Network.exe\footnote{\url{http://fluxus-engineering.com}}  \cite{Bandelt1999}, mtdnaManager \cite{Lee2008}, as well as HaploGrep input files \cite{Kloss-Brandstatter2011,Weissensteiner2016a}. The workflow, as well as the underlying architecture are not further presented herein, I refer to the publications by Sch\"onherr and Weissensteiner \cite{Schoenherr2009,Weissensteiner2010}.
 
-These articles built the groundwork of the subsequently research effort, but can be considered outdated. One previously identified limitation of this system is addressed and solved in the the subsequent Chapter \ref{chapterHaplogrep}, by presenting HaploGrep. As mentioned previously, the use of traditional RDBMs for the management of high-throughput data is not feasible and therefore a new approaches will be presented in Chapter \ref{chap:NGS}. 
+These articles built the groundwork of the subsequently research effort. One previously identified limitation of this system is addressed and solved in the the subsequent Chapter \ref{chapterHaplogrep}, by presenting HaploGrep. As mentioned previously, the use of traditional RDBMs for the management of high-throughput data is not always feasible and therefore a new approaches will be presented in Chapter \ref{chap:NGS}. 
 
 \section{Research Aims}
 \label{researchaims}
-Research demands collaboration. This work is largely the result of collaboration with computer scientists, programmers, database experts, biologists, mathematicians, medical doctors, medical technical assistants and many more. It is in fact interdisciplinary, as it is for genetics and genomics in general. Given the growing data generated with new sequencing devices, it is not feasible to process the data without a reproducible system, that takes the technical hurdles from the end user. Therefore, one of the main research aims is on providing sophisticated methods to the biologists, in such a manner that a problem can be solved by hiding the complexity from the user. In this work it is the processing of mtDNA data, where the end users have different backgrounds, not necessarily comfortable with a system console. Further research are drafted subsequently.
+Research demands collaboration. This work is largely the result of collaboration with computer scientists, programmers, database experts, biologists, mathematicians, medical doctors, medical technical assistants and many more. It is in fact interdisciplinary, as it is for genetics and genomics in general. Given the growing data generated with new sequencing devices, it is not feasible to process the data without a reproducible system, that takes the technical hurdles from the end user. Therefore, one of the main research aims is on providing sophisticated methods to the biologists, in such a manner that a problem can be solved by hiding the complexity from the user. In this work it is the processing and analysis of mtDNA data, where the end users may have different backgrounds, not necessarily comfortable with a system console. Further research aims are presented as follows:
 \begin{enumerate}
 \item
-In this work we will develop an information management system for mtDNA data. 
+In this work information management system for mtDNA data will be developed. 
 The most common input formats from Sanger based Sequencing, over genotyping data from MicroArrays to the Next-Generation Sequencing for mitochondrial DNA require means for scalable data analysis. 
 For Sanger based Sequencing an alignment approach is required, to process thousands of samples in feasible time. Same holds true for NGS data, where a scalable approach for handling mtDNA data and detecting very rare variants in thousands of sequence reads is demanded.
 \item The haplogroup classification is required in ever growing mtDNA sequencing studies, in various disciplines. It holds valuable information for mtDNA quality and can help the assessment of data quality. Reliable and scalable haplogroup classification with additional quality metrics are needed and will be developed as part of this thesis.
@@ -54,11 +56,11 @@ Quality control based on the mitochondrial DNA haplogroups is essential for both
 \section{Contribution}
 
 
-The subsequent chapters represent some of the main work over several years of daily work with mtDNA data, highlighting the main contributions as drafted, resulting to over 20 publications, the most prominent listed subsequently (see Contributions for full list):
+The subsequent chapters represent some of the main work over several years of daily work with mtDNA data, highlighting the main contributions, resulting to over 20 publications, the most prominent listed subsequently (see \textbf{Publications and Contributions} in the Appendix for full list):
 
 \begin{enumerate}
 \item 
-The result presented in HaploGrep (Chapter \ref{chapterHaplogrep}) was published in Kloss-Brandst\"atter et al. with shared first authorship in the journal Human Mutation:
+The result presented in \textbf{HaploGrep} (Chapter \ref{chapterHaplogrep}) was published in Kloss-Brandst\"atter et al. with shared first authorship in the journal Human Mutation:
 
 \bibentry{Kloss-Brandstatter2011}
 \item 
@@ -66,33 +68,43 @@ The successive extensions and optimizations were published in Weissensteiner et 
 
 \bibentry{Weissensteiner2016a}.
 \item 
-The work presented in mtDNA-Server (Chapter \ref{chap:NGS}) was also accepted in the 2016 Web Server Issue of Nucleic Acids Research in Weissensteiner et al. (acceptance quote of 31\%, see Editorial\footnote{\url{http://nar.oxfordjournals.org/content/44/W1/W1.full}}).
+The work presented in \textbf{mtDNA-Server} (Chapter \ref{chap:NGS}) was also accepted in the 2016 Web Server Issue of Nucleic Acids Research in Weissensteiner et al. (acceptance quote of 31\%, see Editorial\footnote{\url{http://nar.oxfordjournals.org/content/44/W1/W1.full}}).
 
 \bibentry{Weissensteiner2016b}
-
-These published applications helped subsequent research questions, that led to further contributions in various publications (see Contribution for complete list). 
+\end{enumerate}
+These published applications helped subsequent research questions, that led to further contributions in various publications (see \textbf{Publications and Contributions} for complete list). 
 The foundations for mtDNA-Server (Chapter \ref{chap:NGS}) derived from two research projects: 
-\item The first was the MapReduce Framework Cloudgene \cite{Schonherr2012}, which we published in BMC Bioinformatics in 2012. It is a Workflow-Management System for MapReduce, on top of Apache Hadoop, able to run in private and public cloud environments.
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item The first was the MapReduce framework Cloudgene \cite{Schonherr2012}, which we published in BMC Bioinformatics in 2012. It is a workflow-management system for MapReduce, on top of Apache Hadoop, able to run in private and public cloud environments.
 \item The second project was the Cancer Study of 28 individuals in PLOS ONE, where we compared different tissues in oral squamous cell carcinoma \cite{Kloss-Brandstatter2015}. Here we compared Sanger based Sequencing to Next-Generation Sequencing, and showed that heteroplasmy detection down to the 1\% level is feasible with the new devices and the herein presented Apache Hadoop based approach. 
 
+\item Recently, by modifying mtDNA-Server (see Chapter \ref{chap:NGS}) to work with different reference sequences, we were able to identify novel variants in a so far still unresolved highly repetitive region on the nuclear DNA, in the LPA gene, associated with cardiovascular disease \cite{Kronenberg2014}. The work was published in the \textit{European Heart Journal} \cite{Coassin2017}. 
+
 \item The work on Cloudgene was the foundation of a further approach and led to the subsequent publication of Cloudflow in 2015 \cite{Forer2015} 
-and 2016 \cite{Forer2016} respectively. Herein the Framework was extended not only to support Apache Hadoop with MapReduce but also Apache Spark pipelines. 
+and 2016 \cite{Forer2016} respectively. Herein the framework was extended not only to support Apache Hadoop with MapReduce but also Apache Spark pipelines. 
 \item
 In the results in Summerer et al. 2014 \cite{Summerer2014} published in BMC Evolutionary Biology, we analyzed the mtDNA of 327 donors from Myanmar by considering the migration and generated phylogenetic trees identifying novel clusters. 
 \item
 In a further work published in the Proceedings of the National Academy of Sciences \cite{Kehdy2015}, we analyzed the mtDNA data from 6,487 individuals, confirming the low native-American ancestry after European conquest, and shedding light on the African diaspora, where Brazil was a major destination.
 
-\item Recently, by modifying mtDNA-Server (see Chapter \ref{chap:NGS}) to work with different reference sequences, we were able to identify novel variants in a so far still unresolved highly repetitive region on the nuclear DNA, in the LPA gene, associated with cardiovascular disease \cite{Kronenberg2014}. The work was published in the \textit{European Heart Journal} \cite{Coassin2017}. 
+\item The work on eCOMPAGT was published in BMC Bioinformatics with shared first authorship, as presented in Section \ref{prelimWork} \cite{Schoenherr2009,Weissensteiner2010}.
 
+
+\end{enumerate}
 Several topics outside the mtDNA-field were also addressed in the recent years, leading to publications in the various peer-review journals.
+\begin{enumerate}
+\setcounter{enumi}{10}
 \item SNPflow  \cite{Weissensteiner2013} was published in \textit{PLOS ONE} (first author), by describing a web application  for quality control of genotype data derived by multiplex genotyping platforms. 
-
-\item In the journal \textit{Atherosclerosis} we described a risk score for cardiovascular disease \cite{Lamina2014}.
+\item In the journal \textit{Atherosclerosis} we described a novel risk score for cardiovascular disease \cite{Lamina2014}.
 \item We further presented various works related to the relative telomere length \cite{Raschenberger2015assoc,Raschenberger2015dotelomeres}, in the German Chronic Kidney Disease (GCKD) study.
 
 
 \end{enumerate}
 The work for the GCKD study resulted in a membership of the consortium. The work on HaploGrep resulted in the cooperation with the Max-Planck Institute for the Science of Human History.
+
+
+
 
 Several conferences and workshops were attended in the last years, including venues in Qatar, USA, UK, Netherlands, Croatia, Germany and Austria, mostly in context of computational methods for mtDNA data analysis. 
 
@@ -114,12 +126,12 @@ Chapter \ref{chapterHaplogrep} describes the foundations of mitochondrial classi
 
 Chapter \ref{chap:alignment} deals with the theoretical background as well as the JAVA implementation for aligning mitochondrial genome data efficiently as an extension to Chapter \ref{chapterHaplogrep}, and are presented as part of the subsequent publication. 
 
-As data volume increases with Next-Generation Sequencing, a MapReduce based approach is presented in Chapter \ref{chap:NGS} to sequence the mitochondrial genome with a high coverage, resulting in computational intensive mapping of the short-reads to the reference sequence. 
+As data volume increases with Next-Generation Sequencing (NGS), a MapReduce based approach is presented in Chapter \ref{chap:NGS} to sequence the mitochondrial genome with a high coverage, resulting in computational intensive mapping of the short-reads to the reference sequence. 
 
 The resulting profiles yield insights in heteroplasmy levels and are an indication for data quality by applying an haplogroup discordance check presented in chapter \ref{chapterContamination}.
 
 
-Based on this check contamination not only in targeted mtDNA sequencing studies, but also in whole genome and whole exome Sequencing Projects can be detected. This approach is partly presented in Weissensteiner et al. \cite{Weissensteiner2016b} and is part of a work that is currently prepared for publication.
+Based on this check contamination not only in targeted mtDNA sequencing studies, but also in whole genome and whole exome sequencing projects can be detected. This approach is partly presented in Weissensteiner et al. \cite{Weissensteiner2016b} and is part of a work that is currently prepared for publication.
 
 
 Figure \ref{fig:figureBigPic} gives an overview of the chapters represented in this work and their relation as a schematic software stack.
