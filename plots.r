@@ -1,5 +1,5 @@
 %HaploGrep Optimisation - multimap.svg
-
+library(reshape)
 library(reshape2)
 library(ggplot2)
 
